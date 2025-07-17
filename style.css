@@ -521,9 +521,9 @@ a {
     text-shadow: 1px 1px 4px black;
     border-radius: 5px;
     pointer-events: none;
-    font-size: 1em;
     max-width: 100%;
     line-height: 1.2;
+    white-space: nowrap;
 }
 
 /* Media Queries for Responsive Design */
@@ -623,6 +623,7 @@ a {
         min-height: 250px;
     }
 
+
     .middle-title {
         padding-top: 30px;
         letter-spacing: 1px;
@@ -632,6 +633,7 @@ a {
     .hero-text p {
         margin-top: 40px;
     }
+
 
     .menu-items {
         flex-direction: column;
@@ -646,15 +648,13 @@ a {
         max-width: 70%;
         align-self: center;
         order: -1;
+        width: 60%;
     }
 
     .menu-content {
         padding: 20px 10px;
     }
 
-    .menu-image-preview {
-        width: 60%;
-    }
 
     .social-small {
         margin-top: 30px;
