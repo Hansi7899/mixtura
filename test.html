@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Menu Preview</title>
+    <style>
+        .menu-container {
+            display: flex;
+            gap: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 1200px;
+            margin: 100px auto;
+        }
+
+        .menu-items ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu-food {
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .menu-food h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-line {
+            flex-grow: 1;
+            border-bottom: 1px dashed gray;
+            height: 10px;
+        }
+
+        .menu-price {
+            white-space: nowrap;
+        }
+
+        .menu-image-preview {
+            flex-shrink: 0;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="menu-container">
+        <div class="menu-items">
+            <ul>
+                <li class="menu-food" data-image="media/empanadas.jpg">
+                    <h3>Tequeños <span class="menu-line"></span> <span class="menu-price">9,00</span></h3>
+                    <p>Crispy cheese sticks wrapped in golden wheat dough.</p>
+                </li>
+                <li class="menu-food" data-image="media/empanadas.jpg">
+                    <h3>Tostones <span class="menu-line"></span> <span class="menu-price">8,70</span></h3>
+                    <p>Fried plantain slices served with guacamole.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="menu-image-preview">
+            <img id="menu-preview-img" src="media/empanadas.jpg" alt="Menu preview" />
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuItems = document.querySelectorAll(".menu-food");
+            const previewImg = document.getElementById("menu-preview-img");
+
+            menuItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    const imgSrc = item.getAttribute("data-image");
+                    previewImg.src = imgSrc;
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
