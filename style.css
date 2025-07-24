@@ -8,7 +8,7 @@
 }
 
 body {
-    background: rgb(102, 149, 200);
+    background: #001982;
     margin: 0;
     font-weight: 400;
     letter-spacing: 1px;
@@ -26,7 +26,7 @@ body {
     width: 100%;
     z-index: 999;
     display: block;
-    background: rgb(102, 149, 200);
+    background: #001982;
 }
 
 .auto-container {
@@ -196,7 +196,7 @@ a {
 }
 
 .middle-title {
-    color: yellow;
+    color: #FFCE00;
     font-size: clamp(1.5em, 4vw, 2.5em);
     font-family: "Granstander", sans-serif;
     font-weight: 700;
@@ -255,11 +255,11 @@ a {
 }
 
 .nav-sidebar-content a:hover {
-    color: rgb(238, 255, 0);
+    color: #FFCE00;
 }
 
 .nav-sidebar-content a.active {
-    color: yellow;
+    color: #FFCE00;
     text-decoration: underline;
 }
 
@@ -282,7 +282,7 @@ a {
     right: -100%;
     width: min(400px, 90vw);
     height: 100vh;
-    background-color: rgb(253, 251, 99);
+    background-color: #FFCE00;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     transition: right 0.4s ease;
     z-index: 9999;
@@ -392,7 +392,7 @@ a {
 
 .hero-text p {
     font-family: "Granstander", sans-serif;
-    text-shadow: 0.4px 0.4px yellow;
+    text-shadow: 0.4px 0.4px #FFCE00;
     font-size: clamp(16px, 3vw, 24px);
     width: 100%;
     max-width: 600px;
@@ -401,7 +401,7 @@ a {
 }
 
 .menu-body {
-    background-image: url(media/avocado-bg.jpg);
+    background-image: url(media/avocado-bg-db.jpg);
     background-size: 30%;
 }
 
@@ -410,7 +410,7 @@ a {
     width: 90%;
     max-width: 1200px;
     margin: 60px auto 0;
-    background: rgb(66, 148, 66);
+    background: #28A300;
     padding: 20px;
     border-radius: 40px;
 }
