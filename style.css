@@ -96,7 +96,7 @@ a:hover {
 }
 
 a.active {
-    text-decoration: underline;
+    text-decoration: underline wavy;
 }
 
 a {
@@ -203,7 +203,6 @@ a {
     text-align: center;
     padding-top: 40px;
     letter-spacing: 2px;
-    text-shadow: 15px 10px blue, 25px 20px red;
 }
 
 /* Navigation sidebar for mobile */
@@ -260,7 +259,7 @@ a {
 
 .nav-sidebar-content a.active {
     color: #FFCE00;
-    text-decoration: underline;
+    text-decoration: underline wavy;
 }
 
 /* Close button for nav sidebar */
