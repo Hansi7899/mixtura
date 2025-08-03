@@ -12,7 +12,7 @@ body {
     margin: 0;
     font-weight: 400;
     letter-spacing: 1px;
-    font-family: "Granstander", sans-serif;
+    font-family: "Grandstander", sans-serif;
     color: rgb(255, 255, 255);
 }
 
@@ -198,11 +198,12 @@ a {
 .middle-title {
     color: #FFCE00;
     font-size: clamp(1.5em, 4vw, 2.5em);
-    font-family: "Granstander", sans-serif;
+    font-family: "Grandstander", sans-serif;
     font-weight: 700;
     text-align: center;
     padding-top: 40px;
     letter-spacing: 2px;
+    font-style: thin;
 }
 
 /* Navigation sidebar for mobile */
@@ -382,7 +383,7 @@ a {
 }
 
 .hero-text {
-    font-family: "Granstander", sans-serif;
+    font-family: "Grandstander", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -390,11 +391,11 @@ a {
 }
 
 .hero-text p {
-    font-family: "Granstander", sans-serif;
+    font-family: "Grandstander", sans-serif;
     text-shadow: 0.4px 0.4px #FFCE00;
     font-size: clamp(16px, 3vw, 24px);
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     text-align: center;
     margin-top: 60px;
 }
@@ -405,7 +406,7 @@ a {
 }
 
 .menu-container {
-    font-family: "Granstander", sans-serif;
+    font-family: "Grandstander", sans-serif;
     width: 90%;
     max-width: 1200px;
     margin: 60px auto 0;
@@ -626,7 +627,6 @@ a {
     .middle-title {
         padding-top: 30px;
         letter-spacing: 1px;
-        text-shadow: 10px 8px blue, 15px 12px red;
     }
 
     .hero-text p {
