@@ -175,23 +175,27 @@ a {
 .hero-carousel {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 80vh;
     min-height: 300px;
     overflow: hidden;
     z-index: 0;
 }
 
 .carousel-track {
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
     display: flex;
     width: max-content;
-    animation: scroll-carousel 80s linear infinite;
+    animation: scroll-carousel 50s linear infinite;
+    background: repeating-linear-gradient(to right, rgba(255, 0, 219, 1) 0%, rgba(234, 0, 0, 1) 30%, rgba(255, 0, 219, 1) 50%);
 }
 
 .carousel-track img {
-    width: 100vw;
-    height: 60vh;
-    min-height: 300px;
-    object-fit: cover;
+    width: 40vw;
+    height: 70vh;
+    min-height: 200px;
+    object-fit: contain;
     flex-shrink: 0;
 }
 
@@ -616,6 +620,15 @@ a {
     .hero-carousel {
         height: 50vh;
         min-height: 250px;
+        display: flex;
+        align-items: center;
+    }
+
+    .carousel-track {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .carousel-track img {
