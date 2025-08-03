@@ -1,11 +1,11 @@
-// Active link highlighting
-const links = document.querySelectorAll('.main-menu a');
+const mainMenuLinks = document.querySelectorAll('.main-menu a');
+const sidebarLinks = document.querySelectorAll('.nav-sidebar-content a');
 const path = window.location.pathname;
 const currentPage = path === '/' ? 'index.html' : path.split("/").pop();
 
-links.forEach(link => {
+// Function to check and set active state
+function setActiveLink(link) {
     const href = link.getAttribute('href');
-    // Remove any leading slashes from href for comparison
     const cleanHref = href.replace(/^\//, '');
 
     if (cleanHref === currentPage ||
@@ -13,8 +13,11 @@ links.forEach(link => {
         (currentPage === '' && cleanHref === 'index.html')) {
         link.classList.add('active');
     }
-});
+}
 
+// Apply to both main menu and sidebar links
+mainMenuLinks.forEach(setActiveLink);
+sidebarLinks.forEach(setActiveLink);
 // Sidebar elements
 const burgerBtn = document.querySelector('.info-btn');
 const infoSidebar = document.getElementById('infoSidebar');
