@@ -1,9 +1,16 @@
 // Active link highlighting
 const links = document.querySelectorAll('.main-menu a');
-const currentPage = window.location.pathname.split("/").pop();
+const path = window.location.pathname;
+const currentPage = path === '/' ? 'index.html' : path.split("/").pop();
 
 links.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
+    const href = link.getAttribute('href');
+    // Remove any leading slashes from href for comparison
+    const cleanHref = href.replace(/^\//, '');
+
+    if (cleanHref === currentPage ||
+        (currentPage === 'index.html' && cleanHref === '') ||
+        (currentPage === '' && cleanHref === 'index.html')) {
         link.classList.add('active');
     }
 });
