@@ -618,7 +618,7 @@ a {
     }
 
     .hero-carousel {
-        height: 20vh;
+        height: 40vh;
         min-height: 250px;
         display: flex;
         align-items: center;
