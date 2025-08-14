@@ -129,7 +129,7 @@
         <div class="contact-form">
             <h2>Message Us!</h2>
             <p>Contact us - We aim to respond within 24 hours and are happy to help!</p>
-            <form action="process-form.php" method="POST">
+            <form name="contact" method="POST" data-netlify="true">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name *" required>
                 </div>
@@ -142,6 +142,7 @@
                 <div class="form-group">
                     <textarea name="message" placeholder="Your Message *" required></textarea>
                 </div>
+                <input type="hidden" name="form-name" value="contact">
                 <p class="required">* required fields</p>
                 <button type="submit" class="btn">Send Message</button>
             </form>
