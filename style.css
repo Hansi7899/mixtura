@@ -658,6 +658,23 @@ a {
     margin: 0 auto;
 }
 
+.form-group input.error,
+.form-group textarea.error {
+    border: 1px solid #ff0000;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: #00ff00;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
 /* Media Queries for Responsive Design */
 
 /* Large tablets and small laptops */

@@ -130,3 +130,36 @@ menuItemsDess.forEach(item => {
         previewImgDess.src = imgSrcDess;
     });
 });
+
+// Add this to your existing app.js
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.contact-form form');
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Show success message if redirected after successful submission
+    if (urlParams.get('status') === 'success') {
+        alert('Thank you for your message! We will get back to you soon.');
+    }
+
+    // Add form submission handler
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Basic validation
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('error');
+            } else {
+                field.classList.remove('error');
+            }
+        });
+
+        if (isValid) {
+            form.submit();
+        }
+    });
+});
