@@ -19,16 +19,16 @@
             "description": "Immerse yourself, discover, create!"
         },
         {
-            "title": "Taco Tuesday Special",
-            "date": "August 27, 2025",
-            "image": "media/events/taco-tuesday.jpg",
-            "description": "All-you-can-eat tacos with live music!"
+            "title": "Calle libre festival youtopia",
+            "date": "August 16-23.",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68639cf2ff04a2a169fcffff_Callelibre_Header_Text.png",
+            "description": "Street art meets street food!"
         },
         {
-            "title": "Weekend Latin Brunch",
-            "date": "August 30, 2025",
-            "image": "media/events/brunch.jpg",
-            "description": "Start your weekend with our special Latin brunch menu"
+            "title": "Play & Date",
+            "date": "August 26. 18:15",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668e535f6d3632c88a0d8d07_Thumbnail%20Gleisgarten.jpg",
+            "description": "The playful way to meet new people!"
         }
     ]
 }
