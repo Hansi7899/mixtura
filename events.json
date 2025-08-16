@@ -2,15 +2,33 @@
     "events": [
         {
             "title": "Latin Night with DJ Salsa",
-            "date": "August 20, 2025"
+            "date": "August 20, 2025",
+            "image": "media/events/latin-night.jpg",
+            "description": "Join us for a night of Latin rhythms and dancing!"
         },
         {
             "title": "Live Band: Ritmo Latino",
-            "date": "August 23, 2025"
+            "date": "August 23, 2025",
+            "image": "media/events/live-band.jpg",
+            "description": "Experience the authentic sounds of Latin America live!"
         },
         {
             "title": "Salsa Dance Workshop",
-            "date": "August 25, 2025"
+            "date": "August 25, 2025",
+            "image": "media/events/salsa-workshop.jpg",
+            "description": "Learn the basics of salsa with our professional instructors"
+        },
+        {
+            "title": "Taco Tuesday Special",
+            "date": "August 27, 2025",
+            "image": "media/events/taco-tuesday.jpg",
+            "description": "All-you-can-eat tacos with live music!"
+        },
+        {
+            "title": "Weekend Latin Brunch",
+            "date": "August 30, 2025",
+            "image": "media/events/brunch.jpg",
+            "description": "Start your weekend with our special Latin brunch menu"
         }
     ]
 }
