@@ -175,23 +175,20 @@ async function loadEvents() {
         const data = await response.json();
 
         data.events.forEach(event => {
-            // Check if image is a URL or local path
-            const imageUrl = event.image.startsWith('http')
-                ? event.image
-                : `./${event.image}`;
-
             const eventCard = document.createElement('div');
             eventCard.className = 'event-card';
             eventCard.innerHTML = `
-                <img src="${imageUrl}" 
-                     alt="${event.title}" 
-                     class="event-image"
-                     onerror="this.src='media/default-event.jpg'">
-                <div class="event-content">
-                    <div class="event-date">${event.date}</div>
-                    <h3 class="event-title">${event.title}</h3>
-                    <p class="event-description">${event.description}</p>
-                </div>
+                <a href="${event.url}" class="event-link">
+                    <img src="${event.image}" 
+                         alt="${event.title}" 
+                         class="event-image"
+                         onerror="this.src='media/default-event.jpg'">
+                    <div class="event-content">
+                        <div class="event-date">${event.date}</div>
+                        <h3 class="event-title">${event.title}</h3>
+                        <p class="event-description">${event.description}</p>
+                    </div>
+                </a>
             `;
             eventsGrid.appendChild(eventCard);
         });
