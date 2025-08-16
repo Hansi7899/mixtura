@@ -790,43 +790,34 @@ a {
     transition: transform 0.3s ease;
 }
 
-.event-card:hover {
-    transform: translateY(-5px);
-}
-
-.btn-events {
-    background: #f4eadb;
-    color: #7d333d;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+.event-link {
+    display: flex;
+    gap: 15px;
     text-decoration: none;
-    display: inline-block;
+    color: inherit;
 }
 
-.btn-events:hover {
-    background: #1d2e3e;
-    color: white;
-    opacity: 0.9;
-    transform: translateY(-2px);
+.event-image {
+    width: 80px;
+    /* Fixed smaller width */
+    height: 80px;
+    /* Fixed smaller height */
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
-.event-title {
-    color: white;
-    margin-bottom: 8px;
-}
-
-.event-description {
-    color: rgba(255, 255, 255, 0.8);
+.event-content {
+    flex: 1;
+    min-width: 0;
+    /* Prevent content overflow */
 }
 
 @media screen and (max-width: 768px) {
     .event-image {
-        width: 80px;
+        width: 60px;
         /* Even smaller on mobile */
-        height: 80px;
+        height: 60px;
     }
 }
 

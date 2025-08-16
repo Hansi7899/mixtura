@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error loading events:', error);
             const eventsGrid = document.getElementById('events-grid');
-            eventsGrid.innerHTML = `<p class="error-message">Unable to load events: ${error.message}</p>`;
+            eventsGrid.innerHTML = `<p class="error-message">Unable to load events :c Try again later</p>`;
         }
     }
 
