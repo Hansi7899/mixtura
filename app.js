@@ -134,51 +134,62 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM loaded');
+        const eventsGrid = document.getElementById('events-grid');
+
+        if (eventsGrid) {
+            console.log('Events grid found');
+            loadEvents();
+        }
+    });
+
+    async function loadEvents() {
+        try {
+            console.log('Loading events...');
+            const response = await fetch('./events.json');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const eventsGrid = document.getElementById('events-grid');
+
+            if (!data.events || !Array.isArray(data.events)) {
+                throw new Error('Invalid events data structure');
+            }
+
+            eventsGrid.innerHTML = ''; // Clear existing content
+
+            data.events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <a href="${event.url}" class="event-link" target="_blank">
+                        <img src="${event.image}" 
+                             alt="${event.title}" 
+                             class="event-image"
+                             onerror="this.src='media/default-event.jpg'">
+                        <div class="event-content">
+                            <div class="event-date">${event.date || ''}</div>
+                            <h3 class="event-title">${event.title || ''}</h3>
+                            <p class="event-description">${event.description || ''}</p>
+                        </div>
+                    </a>
+                `;
+                eventsGrid.appendChild(eventCard);
+            });
+        } catch (error) {
+            console.error('Error loading events:', error);
+            const eventsGrid = document.getElementById('events-grid');
+            eventsGrid.innerHTML = `<p class="error-message">Unable to load events: ${error.message}</p>`;
+        }
+    }
+
     // Load events
     loadEvents();
 });
-
-// Update loadEvents function with better error handling
-async function loadEvents() {
-    const eventsGrid = document.getElementById('events-grid');
-    if (!eventsGrid) return;
-
-    try {
-        const response = await fetch('./events.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-
-        if (!data.events || !Array.isArray(data.events)) {
-            throw new Error('Invalid events data structure');
-        }
-
-        eventsGrid.innerHTML = ''; // Clear existing content
-
-        data.events.forEach(event => {
-            const eventCard = document.createElement('div');
-            eventCard.className = 'event-card';
-            eventCard.innerHTML = `
-                <a href="${event.url}" class="event-link" target="_blank">
-                    <img src="${event.image || 'media/default-event.jpg'}" 
-                         alt="${event.title || 'Event'}" 
-                         class="event-image"
-                         onerror="this.src='media/default-event.jpg'">
-                    <div class="event-content">
-                        <div class="event-date">${event.date || 'Date TBA'}</div>
-                        <h3 class="event-title">${event.title || 'Event Title'}</h3>
-                        <p class="event-description">${event.description || ''}</p>
-                    </div>
-                </a>
-            `;
-            eventsGrid.appendChild(eventCard);
-        });
-    } catch (error) {
-        console.error('Error loading events:', error);
-        eventsGrid.innerHTML = '<p class="error-message">Unable to load events. Please try again later.</p>';
-    }
-}
 
 // Close all sidebars on page load to ensure a clean state
 closeAllSidebars();
