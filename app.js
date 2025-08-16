@@ -166,17 +166,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Load events from JSON file
 async function loadEvents() {
+    const eventsGrid = document.getElementById('events-grid');
+
+    if (!eventsGrid) return;
+
     try {
-        const response = await fetch('events.json');
+        const response = await fetch('./events.json');
         const data = await response.json();
-        const eventsGrid = document.getElementById('events-grid');
 
         data.events.forEach(event => {
+            // Check if image is a URL or local path
+            const imageUrl = event.image.startsWith('http')
+                ? event.image
+                : `./${event.image}`;
+
             const eventCard = document.createElement('div');
             eventCard.className = 'event-card';
             eventCard.innerHTML = `
-                <div class="event-date">${event.date}</div>
-                <h3>${event.title}</h3>
+                <img src="${imageUrl}" 
+                     alt="${event.title}" 
+                     class="event-image"
+                     onerror="this.src='media/default-event.jpg'">
+                <div class="event-content">
+                    <div class="event-date">${event.date}</div>
+                    <h3 class="event-title">${event.title}</h3>
+                    <p class="event-description">${event.description}</p>
+                </div>
             `;
             eventsGrid.appendChild(eventCard);
         });
