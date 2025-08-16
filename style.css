@@ -755,10 +755,10 @@ a {
 }
 
 .events-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: white;
     border-radius: 15px;
     padding: 30px;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .events-grid {
@@ -773,17 +773,17 @@ a {
 }
 
 .events-grid::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
 
 .events-grid::-webkit-scrollbar-thumb {
-    background: #FFCE00;
+    background: #000000;
     border-radius: 4px;
 }
 
 .event-card {
-    background: rgba(0, 0, 0, 0.2);
+    background: #102d18;
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
@@ -792,31 +792,32 @@ a {
 
 .event-card:hover {
     transform: translateY(-5px);
-    background: rgba(0, 0, 0, 0.3);
 }
 
-.event-link {
-    display: flex;
-    gap: 15px;
+.btn-events {
+    background: #1d2e3e;
+    color: #7d333d;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
     text-decoration: none;
-    color: inherit;
+    display: inline-block;
 }
 
-.event-image {
-    width: 100px;
-    /* Reduced from previous size */
-    height: 100px;
-    /* Reduced from previous size */
-    border-radius: 8px;
-    object-fit: cover;
-    flex-shrink: 0;
-    /* Prevent image from shrinking */
+.btn-events:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
-.event-content {
-    flex: 1;
-    min-width: 0;
-    /* Prevent content from overflowing */
+.event-title {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.event-description {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 @media screen and (max-width: 768px) {
