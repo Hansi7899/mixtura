@@ -808,7 +808,29 @@ a {
 .event-content {
     flex: 1;
     min-width: 0;
-    /* Prevent content overflow */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Adds consistent spacing between elements */
+}
+
+.event-date {
+    color: #FFCE00;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.event-title {
+    color: white;
+    margin-bottom: 4px;
+    font-size: 1.1em;
+}
+
+.event-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+    line-height: 1.4;
 }
 
 
