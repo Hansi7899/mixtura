@@ -785,10 +785,8 @@ a {
 .event-card {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    gap: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     transition: transform 0.3s ease;
 }
 
@@ -799,39 +797,34 @@ a {
 
 .event-link {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     text-decoration: none;
     color: inherit;
-    width: 100%;
 }
 
-.event-title {
-    color: white;
-    transition: color 0.3s ease;
+.event-image {
+    width: 100px;
+    /* Reduced from previous size */
+    height: 100px;
+    /* Reduced from previous size */
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    /* Prevent image from shrinking */
 }
 
-.event-link:hover .event-title {
-    color: #FFCE00;
+.event-content {
+    flex: 1;
+    min-width: 0;
+    /* Prevent content from overflowing */
 }
 
-.event-description {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9em;
-}
-
-.btn-events {
-    background: #FFCE00;
-    color: #001982;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-events:hover {
-    background: white;
-    transform: translateY(-2px);
+@media screen and (max-width: 768px) {
+    .event-image {
+        width: 80px;
+        /* Even smaller on mobile */
+        height: 80px;
+    }
 }
 
 /* Media Queries for Responsive Design */
