@@ -832,6 +832,16 @@ a {
     line-height: 1.4;
 }
 
+.btn-events {
+    background-color: #f4eadb;
+    color: #1d2e3e;
+}
+
+.btn-events:hover {
+    background-color: #7d333d;
+    color: white;
+    transform: scale(1.05);
+}
 
 /* Media Queries for Responsive Design */
 
