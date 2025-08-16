@@ -798,10 +798,8 @@ a {
 }
 
 .event-image {
-    width: 80px;
-    /* Fixed smaller width */
-    height: 80px;
-    /* Fixed smaller height */
+    width: 100px;
+    height: 100px;
     border-radius: 8px;
     object-fit: cover;
     flex-shrink: 0;
@@ -813,13 +811,6 @@ a {
     /* Prevent content overflow */
 }
 
-@media screen and (max-width: 768px) {
-    .event-image {
-        width: 60px;
-        /* Even smaller on mobile */
-        height: 60px;
-    }
-}
 
 /* Media Queries for Responsive Design */
 
