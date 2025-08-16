@@ -1030,7 +1030,9 @@ a {
 
 @media screen and (max-width: 440px) {
     .contact-details li {
-        font-size: clamp(9px, 2.5vw, 11px);
+        display: flex;
+        justify-content: space-between;
+        font-size: clamp(11px, 2.7vw, 16px);
     }
 
     .weekday {
