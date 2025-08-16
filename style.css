@@ -621,6 +621,7 @@ a {
     align-items: center;
     margin: 10px 0;
     font-size: clamp(14px, 2vw, 16px);
+    white-space: nowrap;
 
 }
 
@@ -738,8 +739,37 @@ a {
     .menu-items {
         gap: 30px;
     }
+
+    .contact-details {
+        font-size: clamp(14px, 2vw, 16px);
+
+    }
 }
 
+@media screen and (max-width: 950px) and (min-width: 770px) {
+    .contact-details li {
+        font-size: clamp(11px, 1.5vw, 13px);
+    }
+
+    .weekday {
+        min-width: 110px;
+    }
+
+    .contact-info {
+        padding: 30px 15px;
+    }
+}
+
+/* Update your existing mobile styles */
+@media screen and (max-width: 769px) {
+    .contact-details li {
+        font-size: clamp(12px, 2vw, 14px);
+    }
+
+    .weekday {
+        min-width: 120px;
+    }
+}
 
 /* Tablets and below - Hide nav-box and show hamburger */
 @media screen and (max-width: 768px) {
@@ -905,6 +935,7 @@ a {
 
     .weekday {
         min-width: 140px;
+
     }
 }
 
