@@ -163,3 +163,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Load events from JSON file
+async function loadEvents() {
+    try {
+        const response = await fetch('events.json');
+        const data = await response.json();
+        const eventsGrid = document.getElementById('events-grid');
+
+        data.events.forEach(event => {
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card';
+            eventCard.innerHTML = `
+                <div class="event-date">${event.date}</div>
+                <h3>${event.title}</h3>
+            `;
+            eventsGrid.appendChild(eventCard);
+        });
+    } catch (error) {
+        console.error('Error loading events:', error);
+    }
+}
+
+// Call loadEvents when the page loads
+document.addEventListener('DOMContentLoaded', loadEvents);
