@@ -748,7 +748,7 @@ a {
 
 @media screen and (max-width: 950px) and (min-width: 770px) {
     .contact-details li {
-        font-size: clamp(11px, 1.5vw, 13px);
+        font-size: clamp(10px, 1vw, 11px);
     }
 
     .weekday {
@@ -763,7 +763,7 @@ a {
 /* Update your existing mobile styles */
 @media screen and (max-width: 769px) {
     .contact-details li {
-        font-size: clamp(12px, 2vw, 14px);
+        font-size: clamp(10px, 2vw, 12px);
     }
 
     .weekday {
@@ -1025,8 +1025,32 @@ a {
         align-self: center;
     }
 
+
 }
 
+@media screen and (max-width: 440px) {
+    .contact-details li {
+        font-size: clamp(9px, 2.5vw, 11px);
+    }
+
+    .weekday {
+        min-width: 100px;
+        margin-right: 5px;
+    }
+
+    .contact-info {
+        padding: 20px 10px;
+    }
+
+    .contact-details h3 {
+        font-size: 16px;
+    }
+
+    .contact-social a {
+        font-size: 1.5em;
+        margin: 0 8px;
+    }
+}
 
 /* Extra small screens */
 @media screen and (max-width: 360px) {
