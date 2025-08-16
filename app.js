@@ -98,95 +98,77 @@ function syncNavSidebarActiveState() {
     });
 }
 
-// Call sync function when page loads
-document.addEventListener('DOMContentLoaded', syncNavSidebarActiveState);
-
-const menuItems = document.querySelectorAll(".starters");
-const previewImg = document.getElementById("menu-preview-img");
-
-menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrc = item.getAttribute("data-image");
-        previewImg.src = imgSrc;
-    });
-});
-
-const menuItemsMain = document.querySelectorAll(".main-dish");
-const previewImgMain = document.getElementById("menu-preview-img-main");
-
-menuItemsMain.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrcMain = item.getAttribute("data-image");
-        previewImgMain.src = imgSrcMain;
-    });
-});
-
-const menuItemsDess = document.querySelectorAll(".desserts");
-const previewImgDess = document.getElementById("menu-preview-img-dess");
-
-menuItemsDess.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrcDess = item.getAttribute("data-image");
-        previewImgDess.src = imgSrcDess;
-    });
-});
-
-// Add this to your existing app.js
+// Combine all DOMContentLoaded events into one
 document.addEventListener('DOMContentLoaded', function () {
+    // Sync nav sidebar
+    syncNavSidebarActiveState();
+
+    // Handle contact form if it exists
     const form = document.querySelector('.contact-form form');
-    const urlParams = new URLSearchParams(window.location.search);
+    if (form) {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+            alert('Thank you for your message! We will get back to you soon.');
+        }
 
-    // Show success message if redirected after successful submission
-    if (urlParams.get('status') === 'success') {
-        alert('Thank you for your message! We will get back to you soon.');
-    }
+        // Add form submission handler
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-    // Add form submission handler
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+            // Basic validation
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
 
-        // Basic validation
-        const requiredFields = form.querySelectorAll('[required]');
-        let isValid = true;
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('error');
+                } else {
+                    field.classList.remove('error');
+                }
+            });
 
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-                field.classList.add('error');
-            } else {
-                field.classList.remove('error');
+            if (isValid) {
+                form.submit();
             }
         });
+    }
 
-        if (isValid) {
-            form.submit();
-        }
-    });
+    // Load events
+    loadEvents();
 });
 
-// Load events from JSON file
+// Update loadEvents function with better error handling
 async function loadEvents() {
     const eventsGrid = document.getElementById('events-grid');
-
     if (!eventsGrid) return;
 
     try {
         const response = await fetch('./events.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
+
+        if (!data.events || !Array.isArray(data.events)) {
+            throw new Error('Invalid events data structure');
+        }
+
+        eventsGrid.innerHTML = ''; // Clear existing content
 
         data.events.forEach(event => {
             const eventCard = document.createElement('div');
             eventCard.className = 'event-card';
             eventCard.innerHTML = `
-                <a href="${event.url}" class="event-link">
-                    <img src="${event.image}" 
-                         alt="${event.title}" 
+                <a href="${event.url}" class="event-link" target="_blank">
+                    <img src="${event.image || 'media/default-event.jpg'}" 
+                         alt="${event.title || 'Event'}" 
                          class="event-image"
                          onerror="this.src='media/default-event.jpg'">
                     <div class="event-content">
-                        <div class="event-date">${event.date}</div>
-                        <h3 class="event-title">${event.title}</h3>
-                        <p class="event-description">${event.description}</p>
+                        <div class="event-date">${event.date || 'Date TBA'}</div>
+                        <h3 class="event-title">${event.title || 'Event Title'}</h3>
+                        <p class="event-description">${event.description || ''}</p>
                     </div>
                 </a>
             `;
@@ -194,8 +176,9 @@ async function loadEvents() {
         });
     } catch (error) {
         console.error('Error loading events:', error);
+        eventsGrid.innerHTML = '<p class="error-message">Unable to load events. Please try again later.</p>';
     }
 }
 
-// Call loadEvents when the page loads
-document.addEventListener('DOMContentLoaded', loadEvents);
+// Close all sidebars on page load to ensure a clean state
+closeAllSidebars();
