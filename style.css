@@ -810,15 +810,14 @@ a {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    /* Adds consistent spacing between elements */
+    gap: 10px;
 }
 
 .event-date {
-    color: #FFCE00;
+    color: white;
     font-weight: bold;
-    font-size: 0.9em;
-    margin-bottom: 4px;
+    font-size: 1em;
+    margin-bottom: 5px;
 }
 
 .event-title {
