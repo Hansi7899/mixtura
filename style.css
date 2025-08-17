@@ -1295,6 +1295,11 @@ a {
         align-self: center;
     }
 
+    .carousel-track {
+        height: 40vh;
+        background-size: 200% 100%;
+        animation: scroll-carousel 10s linear infinite;
+    }
 
 }
 
