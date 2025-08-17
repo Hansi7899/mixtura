@@ -1380,7 +1380,7 @@ a {
     }
 
     .carousel-track {
-        animation: scroll-carousel 30s linear infinite;
+        animation: scroll-carousel 10s linear infinite;
         height: 50vh;
         background-size: 300% 100%;
     }
