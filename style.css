@@ -1078,6 +1078,16 @@ a {
     .venue-hero {
         height: 50vh;
     }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .newsletter-section {
+        text-align: center;
+    }
 }
 
 
@@ -1249,4 +1259,107 @@ a {
     100% {
         transform: translateX(-50%);
     }
+}
+
+.main-footer {
+    background: #001982;
+    padding: 60px 20px 20px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.newsletter-section {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.newsletter-section h3 {
+    color: #FFCE00;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.consent-checkbox {
+    margin: 15px 0;
+    text-align: left;
+}
+
+.consent-checkbox label {
+    margin-left: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-social-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-social-center h4 {
+    color: #FFCE00;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.footer-social-center .social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-social-center .social-links a {
+    font-size: 2em;
+    color: #FFCE00;
+    transition: transform 0.3s ease;
+}
+
+.footer-social-center .social-links a:hover {
+    transform: scale(1.1);
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 8px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1em;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-newsletter {
+    background: #FFCE00;
+    color: #001982;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.btn-newsletter:hover {
+    background: black;
+    transform: translateY(-2px);
 }
