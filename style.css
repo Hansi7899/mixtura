@@ -833,6 +833,9 @@ a {
 }
 
 .btn-events {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
     background-color: #f4eadb;
     color: #1d2e3e;
 }
@@ -1363,6 +1366,18 @@ a {
 
     .footer-legal a {
         font-size: 0.8em;
+    }
+
+    .contact-details a {
+        font-size: clamp(13px, 2.5vw, 15px);
+    }
+
+    .contact-details li {
+        font-size: clamp(10px, 2vw, 12px);
+    }
+
+    .contact-details ul {
+        width: auto;
     }
 }
 
