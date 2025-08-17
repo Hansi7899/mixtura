@@ -1379,6 +1379,10 @@ a {
     .contact-details ul {
         width: auto;
     }
+
+    .carousel-track {
+        animation: scroll-carousel 10s linear infinite;
+    }
 }
 
 /* Extra small screens */
