@@ -191,5 +191,35 @@ document.addEventListener('DOMContentLoaded', function () {
     loadEvents();
 });
 
-// Close all sidebars on page load to ensure a clean state
+
+
+const menuItems = document.querySelectorAll(".starters");
+const previewImg = document.getElementById("menu-preview-img");
+
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrc = item.getAttribute("data-image");
+        previewImg.src = imgSrc;
+    });
+});
+
+const menuItemsMain = document.querySelectorAll(".main-dish");
+const previewImgMain = document.getElementById("menu-preview-img-main");
+
+menuItemsMain.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcMain = item.getAttribute("data-image");
+        previewImgMain.src = imgSrcMain;
+    });
+});
+
+const menuItemsDess = document.querySelectorAll(".desserts");
+const previewImgDess = document.getElementById("menu-preview-img-dess");
+
+menuItemsDess.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcDess = item.getAttribute("data-image");
+        previewImgDess.src = imgSrcDess;
+    });
+});
 closeAllSidebars();
