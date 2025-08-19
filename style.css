@@ -422,7 +422,7 @@ a {
     margin: 60px auto 0;
     background: #28A300;
     background-image: url(media/menu-bg.png);
-    background-size: 85%;
+    background-size: 100%;
     padding: 20px;
     border-radius: 40px;
 }
