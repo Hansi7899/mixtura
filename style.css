@@ -410,8 +410,9 @@ a {
 }
 
 .menu-body {
-    background-image: url(media/avocado-bg-db.jpg);
-    background-size: 30%;
+    background-image: url(media/bg_avoc.png);
+    background-size: 46%;
+    background-position: 50%;
 }
 
 .menu-container {
