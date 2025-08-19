@@ -1218,6 +1218,10 @@ a {
     .newsletter-section {
         text-align: center;
     }
+
+    .venue-info {
+        padding-top: 0;
+    }
 }
 
 
