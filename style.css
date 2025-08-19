@@ -1103,7 +1103,7 @@ a {
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: scroll-carousel 20s linear infinite;
+        animation: scroll-carousel 15s linear infinite;
     }
 
     .carousel-track img {
@@ -1396,7 +1396,7 @@ a {
     }
 
     .carousel-track {
-        animation: scroll-carousel 30s linear infinite;
+        animation: scroll-carousel 20s linear infinite;
         height: 50vh;
         background-size: 300% 100%;
     }
