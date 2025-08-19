@@ -191,7 +191,7 @@ a {
     height: 70vh;
     display: flex;
     width: max-content;
-    animation: scroll-carousel 50s linear infinite;
+    animation: scroll-carousel 20s linear infinite;
     background: repeating-linear-gradient(to right, rgba(255, 0, 219, 1) 0%, rgba(234, 0, 0, 1) 30%, rgba(255, 0, 219, 1) 50%);
 }
 
@@ -1308,6 +1308,7 @@ a {
 
     .carousel-track {
         height: 40vh;
+        width: max-content;
         background-size: 200% 100%;
 
     }
@@ -1396,7 +1397,7 @@ a {
     }
 
     .carousel-track {
-        animation: scroll-carousel 20s linear infinite;
+        animation: scroll-carousel 15s linear infinite;
         height: 50vh;
         background-size: 300% 100%;
     }
