@@ -54,7 +54,8 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
             // Date
             const dateEl = card.querySelector('time, [class*="date" i]');
             const date = (dateEl?.getAttribute('datetime') || dateEl?.textContent || '').trim();
-
+            // Insert a space between day/month and time if missing (e.g., '21 Aug18:00' → '21 Aug 18:00')
+            date = date.replace(/(\d{1,2}\s\w{3})(\d{1,2}:\d{2})/, '$1 $2');
             // Description (optional, best-effort)
             const descEl = card.querySelector('p, [class*="description" i]');
             const description = (descEl?.textContent || '').trim();
