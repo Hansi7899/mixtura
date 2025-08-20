@@ -66,7 +66,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Keep only plausible cards (must have a title)
             if (title) {
-                results.push({ title, date, ' ', image, description, url });
+                results.push({ title, date, image, description, url });
             }
         }
 
