@@ -1,0 +1,46 @@
+{
+    "events": [
+        {
+            "title": "Punch Needling Workshop",
+            "date": "August 21. 17:00-19:00",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ca36ffbfd339fe1f11f143_Fleck%20banner%201920x1080.png",
+            "description": "Punch needling workshop for beginners to professionals 🪡",
+            "url": "https://www.gleisgarten.com/events/workshop-punch-needling-gleisgarten-x-atelier-fleck-14"
+        },
+        {
+            "title": "Workshop: Structural painting with napkins with kurzlii",
+            "date": "August 21. 18:00-19:30",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67d14e8693884acfc43afc84_J%C3%A4germeister%20(1).jpg",
+            "description": "Immerse yourself, discover, create!",
+            "url": "https://www.gleisgarten.com/events/workshop-strukturmalerei-mit-servietten-mit-kurtzlii-2"
+        },
+        {
+            "title": "Calle libre festival youtopia",
+            "date": "August 16-23.",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68639cf2ff04a2a169fcffff_Callelibre_Header_Text.png",
+            "description": "Street art meets street food!",
+            "url": "https://www.gleisgarten.com/events/calle-libre-festival-youtopia"
+        },
+        {
+            "title": "Play & Date",
+            "date": "August 26. 18:15",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668e535f6d3632c88a0d8d07_Thumbnail%20Gleisgarten.jpg",
+            "description": "The playful way to meet new people!",
+            "url": "https://www.gleisgarten.com/events/play-date-3"
+        },
+        {
+            "title": "Foodmarket Quiz",
+            "date": "August 27. 19:00",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ba41b2a6e2036cd90a881d_Fotokomposition%205-Kreis%20Venn-Dia.png",
+            "description": "A quiz night just for adults!",
+            "url": "https://www.gleisgarten.com/events/foodhall-quiz-10"
+        },
+        {
+            "title": "Lonildruck Workshop",
+            "date": "August 28. 17:00",
+            "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a48e6f77667f8d7e519f1b_WorkshopGleisGartenBanner_1%20(1).jpeg",
+            "description": "Step by step to becoming a professional!",
+            "url": "https://www.gleisgarten.com/en/events/linoldruck-workshop-12"
+        }
+    ]
+}
