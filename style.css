@@ -773,9 +773,10 @@ a {
 
 .venue-info p {
     font-family: "Raleway", sans-serif;
-    font-weight: bold;
+    font-size: clamp(14px, 3vw, 22px);
     margin-bottom: 20px;
     line-height: 1.6;
+    text-align: center;
 }
 
 .events-container {
