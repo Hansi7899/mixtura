@@ -134,87 +134,117 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    import fetch from "node-fetch";
-    import * as cheerio from "cheerio";
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM loaded');
+        const eventsGrid = document.getElementById('events-grid');
 
-    export async function handler() {
-        const response = await fetch("https://www.gleisgarten.com/events");
-        const html = await response.text();
-        const $ = cheerio.load(html);
+        if (eventsGrid) {
+            console.log('Events grid found');
+            loadEvents();
+        }
+    });
 
-        let events = [];
-        $("..events_list_item-link").each((i, el) => {
-            events.push({
-                title: $(el).find(".heading-style-h4").text().trim(),
-                date: $(el).find(".events_slider_label-text.is-small").text().trim(),
-                image: $(el).find(".events_list_image").attr("src"),
-                description: $(el).find(".text-style-3lines").text().trim(),
-                url: $(el).find("a").attr("href"),
+    async function loadEvents() {
+        try {
+            console.log('Loading events...');
+            const response = await fetch('./events.json');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const eventsGrid = document.getElementById('events-grid');
+
+            if (!data.events || !Array.isArray(data.events)) {
+                throw new Error('Invalid events data structure');
+            }
+
+            eventsGrid.innerHTML = ''; // Clear existing content
+
+            data.events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <a href="${event.url}" class="event-link" target="_blank">
+                        <img src="${event.image}" 
+                             alt="${event.title}" 
+                             class="event-image"
+                             onerror="this.src='media/default-event.jpg'">
+                        <div class="event-content">
+                            <div class="event-date">${event.date || ''}</div>
+                            <h3 class="event-title">${event.title || ''}</h3>
+                            <p class="event-description">${event.description || ''}</p>
+                        </div>
+                    </a>
+                `;
+                eventsGrid.appendChild(eventCard);
             });
-        });
-
-        return {
-            statusCode: 200,
-            body: JSON.stringify(events),
-        };
+        } catch (error) {
+            console.error('Error loading events:', error);
+            const eventsGrid = document.getElementById('events-grid');
+            eventsGrid.innerHTML = `<p class="error-message">Unable to load events :c Try again later</p>`;
+        }
     }
 
+    // Load events
+    loadEvents();
+});
 
 
 
-    const menuItems = document.querySelectorAll(".starters");
-    const previewImg = document.getElementById("menu-preview-img");
+const menuItems = document.querySelectorAll(".starters");
+const previewImg = document.getElementById("menu-preview-img");
 
-    menuItems.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrc = item.getAttribute("data-image");
-            previewImg.src = imgSrc;
-        });
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrc = item.getAttribute("data-image");
+        previewImg.src = imgSrc;
     });
+});
 
-    const menuItemsMain = document.querySelectorAll(".main-dish");
-    const previewImgMain = document.getElementById("menu-preview-img-main");
+const menuItemsMain = document.querySelectorAll(".main-dish");
+const previewImgMain = document.getElementById("menu-preview-img-main");
 
-    menuItemsMain.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrcMain = item.getAttribute("data-image");
-            previewImgMain.src = imgSrcMain;
-        });
+menuItemsMain.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcMain = item.getAttribute("data-image");
+        previewImgMain.src = imgSrcMain;
     });
+});
 
-    const menuItemsDess = document.querySelectorAll(".desserts");
-    const previewImgDess = document.getElementById("menu-preview-img-dess");
+const menuItemsDess = document.querySelectorAll(".desserts");
+const previewImgDess = document.getElementById("menu-preview-img-dess");
 
-    menuItemsDess.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrcDess = item.getAttribute("data-image");
-            previewImgDess.src = imgSrcDess;
-        });
+menuItemsDess.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcDess = item.getAttribute("data-image");
+        previewImgDess.src = imgSrcDess;
     });
+});
 
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 0,
 
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 0,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
 
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
+    grabCursor: true, // enables grabbing hand + drag
+    effect: "slide",  // make sure it's sliding, not fading
 
-        grabCursor: true, // enables grabbing hand + drag
-        effect: "slide",  // make sure it's sliding, not fading
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
 
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-    closeAllSidebars();
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+closeAllSidebars();
