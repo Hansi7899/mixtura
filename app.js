@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             console.log('Loading events...');
             // Replace with your published CSV URL
-            const response = await fetch("https://docs.google.com/spreadsheets/d/e/YOUR-SHEET-ID/pub?output=csv");
+            const response = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSBQx0MCQbZepgHJM6wl8SCpiz61e8X5-pHRSnAIDUx8d8czREzJzDNlHUtdVPYxqay4RuAMjv6mK2-/pub?output=csv");
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
