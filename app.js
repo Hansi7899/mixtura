@@ -134,30 +134,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM loaded');
+        const eventsGrid = document.getElementById('events-grid');
+
+        if (eventsGrid) {
+            console.log('Events grid found');
+            loadEvents();
+        }
+    });
+
     async function loadEvents() {
         try {
             console.log('Loading events...');
-            const response = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSBQx0MCQbZepgHJM6wl8SCpiz61e8X5-pHRSnAIDUx8d8czREzJzDNlHUtdVPYxqay4RuAMjv6mK2-/pub?output=csv");
-            const text = await response.text();
-            const rows = text.split("\n").map(r => r.split(","));
+            // Replace with your published CSV URL
+            const response = await fetch("https://docs.google.com/spreadsheets/d/e/YOUR-SHEET-ID/pub?output=csv");
 
-            const headers = rows.shift(); // first row is headers
-            const events = rows.map(r => {
-                return {
-                    title: r[0],
-                    date: r[1],
-                    image: r[2],
-                    description: r[3],
-                    url: r[4]
-                };
-            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-            const eventsGrid = document.getElementById("events-grid");
-            eventsGrid.innerHTML = "";
+            const csvText = await response.text();
+            const events = parseCSV(csvText);
+
+            const eventsGrid = document.getElementById('events-grid');
+            eventsGrid.innerHTML = ''; // Clear existing content
 
             events.forEach(event => {
-                const eventCard = document.createElement("div");
-                eventCard.className = "event-card";
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
                 eventCard.innerHTML = `
                 <a href="${event.url}" class="event-link" target="_blank">
                     <img src="${event.image}" 
@@ -165,21 +170,36 @@ document.addEventListener('DOMContentLoaded', function () {
                          class="event-image"
                          onerror="this.src='media/default-event.jpg'">
                     <div class="event-content">
-                        <div class="event-date">${event.date}</div>
-                        <h3 class="event-title">${event.title}</h3>
-                        <p class="event-description">${event.description}</p>
+                        <div class="event-date">${event.date || ''}</div>
+                        <h3 class="event-title">${event.title || ''}</h3>
+                        <p class="event-description">${event.description || ''}</p>
                     </div>
                 </a>
             `;
                 eventsGrid.appendChild(eventCard);
             });
         } catch (error) {
-            console.error("Error loading events:", error);
+            console.error('Error loading events:', error);
+            const eventsGrid = document.getElementById('events-grid');
+            eventsGrid.innerHTML = `<p class="error-message">Unable to load events :c Try again later</p>`;
         }
     }
 
-    loadEvents();
+    // Simple CSV parser → converts to array of objects
+    function parseCSV(csvText) {
+        const lines = csvText.split("\n").filter(l => l.trim() !== "");
+        const headers = lines[0].split(",").map(h => h.trim());
+        const rows = lines.slice(1);
 
+        return rows.map(row => {
+            const values = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); // handles commas inside quotes
+            let obj = {};
+            headers.forEach((header, i) => {
+                obj[header] = values[i] ? values[i].replace(/^"|"$/g, "") : "";
+            });
+            return obj;
+        });
+    }
 
 
 
