@@ -53,7 +53,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Date
             const dateEl = card.querySelector('time, [class*="date" i]');
-            const date = (dateEl?.getAttribute('datetime') || dateEl?.textContent || '').trim();
+            const date = (dateEl?.getAttribute(' datetime') || dateEl?.textContent || '').trim();
 
             // Description (optional, best-effort)
             const descEl = card.querySelector('p, [class*="description" i]');
