@@ -229,7 +229,7 @@ const swiper = new Swiper('.swiper', {
     spaceBetween: 0,
 
     autoplay: {
-        delay: 4000,
+        delay: 3000,
         disableOnInteraction: false,
     },
 
