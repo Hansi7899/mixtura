@@ -134,119 +134,117 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    //     document.addEventListener('DOMContentLoaded', function () {
-    //         console.log('DOM loaded');
-    //         const eventsGrid = document.getElementById('events-grid');
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM loaded');
+        const eventsGrid = document.getElementById('events-grid');
 
-    //         if (eventsGrid) {
-    //             console.log('Events grid found');
-    //             loadEvents();
-    //         }
-    //     });
-
-    //     async function loadEvents() {
-    //         try {
-    //             console.log('Loading events...');
-    //             const response = await fetch('./events.json');
-
-    //             if (!response.ok) {
-    //                 throw new Error(`HTTP error! status: ${response.status}`);
-    //             }
-
-    //             const data = await response.json();
-    //             const eventsGrid = document.getElementById('events-grid');
-
-    //             if (!data.events || !Array.isArray(data.events)) {
-    //                 throw new Error('Invalid events data structure');
-    //             }
-
-    //             eventsGrid.innerHTML = ''; // Clear existing content
-
-    //             data.events.forEach(event => {
-    //                 const eventCard = document.createElement('div');
-    //                 eventCard.className = 'event-card';
-    //                 eventCard.innerHTML = `
-    //                     <a href="${event.url}" class="event-link" target="_blank">
-    //                         <img src="${event.image}" 
-    //                              alt="${event.title}" 
-    //                              class="event-image"
-    //                              onerror="this.src='media/default-event.jpg'">
-    //                         <div class="event-content">
-    //                             <div class="event-date">${event.date || ''}</div>
-    //                             <h3 class="event-title">${event.title || ''}</h3>
-    //                             <p class="event-description">${event.description || ''}</p>
-    //                         </div>
-    //                     </a>
-    //                 `;
-    //                 eventsGrid.appendChild(eventCard);
-    //             });
-    //         } catch (error) {
-    //             console.error('Error loading events:', error);
-    //             const eventsGrid = document.getElementById('events-grid');
-    //             eventsGrid.innerHTML = `<p class="error-message">Unable to load events :c Try again later</p>`;
-    //         }
-    //     }
-
-    //     // Load events
-    //     loadEvents();
-    // });
-
-
-
-
-
-    const menuItems = document.querySelectorAll(".starters");
-    const previewImg = document.getElementById("menu-preview-img");
-
-    menuItems.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrc = item.getAttribute("data-image");
-            previewImg.src = imgSrc;
-        });
+        if (eventsGrid) {
+            console.log('Events grid found');
+            loadEvents();
+        }
     });
 
-    const menuItemsMain = document.querySelectorAll(".main-dish");
-    const previewImgMain = document.getElementById("menu-preview-img-main");
+    async function loadEvents() {
+        try {
+            console.log('Loading events...');
+            const response = await fetch('./events.json');
 
-    menuItemsMain.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrcMain = item.getAttribute("data-image");
-            previewImgMain.src = imgSrcMain;
-        });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const eventsGrid = document.getElementById('events-grid');
+
+            if (!data.events || !Array.isArray(data.events)) {
+                throw new Error('Invalid events data structure');
+            }
+
+            eventsGrid.innerHTML = ''; // Clear existing content
+
+            data.events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                        <a href="${event.url}" class="event-link" target="_blank">
+                            <img src="${event.image}" 
+                                 alt="${event.title}" 
+                                 class="event-image"
+                                 onerror="this.src='media/default-event.jpg'">
+                            <div class="event-content">
+                                <div class="event-date">${event.date || ''}</div>
+                                <h3 class="event-title">${event.title || ''}</h3>
+                                <p class="event-description">${event.description || ''}</p>
+                            </div>
+                        </a>
+                    `;
+                eventsGrid.appendChild(eventCard);
+            });
+        } catch (error) {
+            console.error('Error loading events:', error);
+            const eventsGrid = document.getElementById('events-grid');
+            eventsGrid.innerHTML = `<p class="error-message">Unable to load events :c Try again later</p>`;
+        }
+    }
+
+    // Load events
+    loadEvents();
+});
+
+
+
+const menuItems = document.querySelectorAll(".starters");
+const previewImg = document.getElementById("menu-preview-img");
+
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrc = item.getAttribute("data-image");
+        previewImg.src = imgSrc;
     });
+});
 
-    const menuItemsDess = document.querySelectorAll(".desserts");
-    const previewImgDess = document.getElementById("menu-preview-img-dess");
+const menuItemsMain = document.querySelectorAll(".main-dish");
+const previewImgMain = document.getElementById("menu-preview-img-main");
 
-    menuItemsDess.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrcDess = item.getAttribute("data-image");
-            previewImgDess.src = imgSrcDess;
-        });
+menuItemsMain.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcMain = item.getAttribute("data-image");
+        previewImgMain.src = imgSrcMain;
     });
+});
 
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 0,
+const menuItemsDess = document.querySelectorAll(".desserts");
+const previewImgDess = document.getElementById("menu-preview-img-dess");
 
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-
-        grabCursor: true, // enables grabbing hand + drag
-        effect: "slide",  // make sure it's sliding, not fading
-
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+menuItemsDess.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcDess = item.getAttribute("data-image");
+        previewImgDess.src = imgSrcDess;
     });
-    closeAllSidebars();
+});
+
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 0,
+
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+
+    grabCursor: true, // enables grabbing hand + drag
+    effect: "slide",  // make sure it's sliding, not fading
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+closeAllSidebars();
