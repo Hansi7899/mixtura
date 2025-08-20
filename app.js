@@ -147,35 +147,37 @@ document.addEventListener('DOMContentLoaded', function () {
     async function loadEvents() {
         try {
             console.log('Loading events...');
-            // Replace with your published CSV URL
-            const response = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSBQx0MCQbZepgHJM6wl8SCpiz61e8X5-pHRSnAIDUx8d8czREzJzDNlHUtdVPYxqay4RuAMjv6mK2-/pub?output=csv");
+            const response = await fetch('./events.json');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            const csvText = await response.text();
-            const events = parseCSV(csvText);
-
+            const data = await response.json();
             const eventsGrid = document.getElementById('events-grid');
+
+            if (!data.events || !Array.isArray(data.events)) {
+                throw new Error('Invalid events data structure');
+            }
+
             eventsGrid.innerHTML = ''; // Clear existing content
 
-            events.forEach(event => {
+            data.events.forEach(event => {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'event-card';
                 eventCard.innerHTML = `
-                <a href="${event.url}" class="event-link" target="_blank">
-                    <img src="${event.image}" 
-                         alt="${event.title}" 
-                         class="event-image"
-                         onerror="this.src='media/default-event.jpg'">
-                    <div class="event-content">
-                        <div class="event-date">${event.date || ''}</div>
-                        <h3 class="event-title">${event.title || ''}</h3>
-                        <p class="event-description">${event.description || ''}</p>
-                    </div>
-                </a>
-            `;
+                    <a href="${event.url}" class="event-link" target="_blank">
+                        <img src="${event.image}" 
+                             alt="${event.title}" 
+                             class="event-image"
+                             onerror="this.src='media/default-event.jpg'">
+                        <div class="event-content">
+                            <div class="event-date">${event.date || ''}</div>
+                            <h3 class="event-title">${event.title || ''}</h3>
+                            <p class="event-description">${event.description || ''}</p>
+                        </div>
+                    </a>
+                `;
                 eventsGrid.appendChild(eventCard);
             });
         } catch (error) {
@@ -185,77 +187,65 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Simple CSV parser → converts to array of objects
-    function parseCSV(csvText) {
-        const lines = csvText.split("\n").filter(l => l.trim() !== "");
-        const headers = lines[0].split(",").map(h => h.trim());
-        const rows = lines.slice(1);
-
-        return rows.map(row => {
-            const values = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); // handles commas inside quotes
-            let obj = {};
-            headers.forEach((header, i) => {
-                obj[header] = values[i] ? values[i].replace(/^"|"$/g, "") : "";
-            });
-            return obj;
-        });
-    }
+    // Load events
+    loadEvents();
+});
 
 
 
-    const menuItems = document.querySelectorAll(".starters");
-    const previewImg = document.getElementById("menu-preview-img");
+const menuItems = document.querySelectorAll(".starters");
+const previewImg = document.getElementById("menu-preview-img");
 
-    menuItems.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrc = item.getAttribute("data-image");
-            previewImg.src = imgSrc;
-        });
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrc = item.getAttribute("data-image");
+        previewImg.src = imgSrc;
     });
+});
 
-    const menuItemsMain = document.querySelectorAll(".main-dish");
-    const previewImgMain = document.getElementById("menu-preview-img-main");
+const menuItemsMain = document.querySelectorAll(".main-dish");
+const previewImgMain = document.getElementById("menu-preview-img-main");
 
-    menuItemsMain.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrcMain = item.getAttribute("data-image");
-            previewImgMain.src = imgSrcMain;
-        });
+menuItemsMain.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcMain = item.getAttribute("data-image");
+        previewImgMain.src = imgSrcMain;
     });
+});
 
-    const menuItemsDess = document.querySelectorAll(".desserts");
-    const previewImgDess = document.getElementById("menu-preview-img-dess");
+const menuItemsDess = document.querySelectorAll(".desserts");
+const previewImgDess = document.getElementById("menu-preview-img-dess");
 
-    menuItemsDess.forEach(item => {
-        item.addEventListener("click", () => {
-            const imgSrcDess = item.getAttribute("data-image");
-            previewImgDess.src = imgSrcDess;
-        });
+menuItemsDess.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgSrcDess = item.getAttribute("data-image");
+        previewImgDess.src = imgSrcDess;
     });
+});
 
 
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 0,
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 0,
 
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
 
-        grabCursor: true, // enables grabbing hand + drag
-        effect: "slide",  // make sure it's sliding, not fading
+    grabCursor: true, // enables grabbing hand + drag
+    effect: "slide",  // make sure it's sliding, not fading
 
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-    closeAllSidebars();
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+closeAllSidebars();
