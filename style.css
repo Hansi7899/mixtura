@@ -523,7 +523,7 @@ a {
 }
 
 .menu-price {
-    font-size: clamp(10px, 2vw, 19px);
+    font-size: clamp(15px, 2vw, 19px);
     white-space: nowrap;
     color: white;
     font-weight: bold;
