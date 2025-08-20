@@ -134,116 +134,108 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log('DOM loaded');
-        const eventsGrid = document.getElementById('events-grid');
-
-        if (eventsGrid) {
-            console.log('Events grid found');
-            loadEvents();
-        }
-    });
-
     async function loadEvents() {
         try {
             console.log('Loading events...');
-            const response = await fetch('./events.json');
+            const response = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSBQx0MCQbZepgHJM6wl8SCpiz61e8X5-pHRSnAIDUx8d8czREzJzDNlHUtdVPYxqay4RuAMjv6mK2-/pub?output=csv");
+            const text = await response.text();
+            const rows = text.split("\n").map(r => r.split(","));
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            const headers = rows.shift(); // first row is headers
+            const events = rows.map(r => {
+                return {
+                    title: r[0],
+                    date: r[1],
+                    image: r[2],
+                    description: r[3],
+                    url: r[4]
+                };
+            });
 
-            const data = await response.json();
-            const eventsGrid = document.getElementById('events-grid');
+            const eventsGrid = document.getElementById("events-grid");
+            eventsGrid.innerHTML = "";
 
-            if (!data.events || !Array.isArray(data.events)) {
-                throw new Error('Invalid events data structure');
-            }
-
-            eventsGrid.innerHTML = ''; // Clear existing content
-
-            data.events.forEach(event => {
-                const eventCard = document.createElement('div');
-                eventCard.className = 'event-card';
+            events.forEach(event => {
+                const eventCard = document.createElement("div");
+                eventCard.className = "event-card";
                 eventCard.innerHTML = `
-                    <a href="${event.url}" class="event-link" target="_blank">
-                        <img src="${event.image}" 
-                             alt="${event.title}" 
-                             class="event-image"
-                             onerror="this.src='media/default-event.jpg'">
-                        <div class="event-content">
-                            <div class="event-date">${event.date || ''}</div>
-                            <h3 class="event-title">${event.title || ''}</h3>
-                            <p class="event-description">${event.description || ''}</p>
-                        </div>
-                    </a>
-                `;
+                <a href="${event.url}" class="event-link" target="_blank">
+                    <img src="${event.image}" 
+                         alt="${event.title}" 
+                         class="event-image"
+                         onerror="this.src='media/default-event.jpg'">
+                    <div class="event-content">
+                        <div class="event-date">${event.date}</div>
+                        <h3 class="event-title">${event.title}</h3>
+                        <p class="event-description">${event.description}</p>
+                    </div>
+                </a>
+            `;
                 eventsGrid.appendChild(eventCard);
             });
         } catch (error) {
-            console.error('Error loading events:', error);
-            const eventsGrid = document.getElementById('events-grid');
-            eventsGrid.innerHTML = `<p class="error-message">Unable to load events :c Try again later</p>`;
+            console.error("Error loading events:", error);
         }
     }
 
-    // Load events
     loadEvents();
-});
 
 
 
-const menuItems = document.querySelectorAll(".starters");
-const previewImg = document.getElementById("menu-preview-img");
 
-menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrc = item.getAttribute("data-image");
-        previewImg.src = imgSrc;
+    const menuItems = document.querySelectorAll(".starters");
+    const previewImg = document.getElementById("menu-preview-img");
+
+    menuItems.forEach(item => {
+        item.addEventListener("click", () => {
+            const imgSrc = item.getAttribute("data-image");
+            previewImg.src = imgSrc;
+        });
     });
-});
 
-const menuItemsMain = document.querySelectorAll(".main-dish");
-const previewImgMain = document.getElementById("menu-preview-img-main");
+    const menuItemsMain = document.querySelectorAll(".main-dish");
+    const previewImgMain = document.getElementById("menu-preview-img-main");
 
-menuItemsMain.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrcMain = item.getAttribute("data-image");
-        previewImgMain.src = imgSrcMain;
+    menuItemsMain.forEach(item => {
+        item.addEventListener("click", () => {
+            const imgSrcMain = item.getAttribute("data-image");
+            previewImgMain.src = imgSrcMain;
+        });
     });
-});
 
-const menuItemsDess = document.querySelectorAll(".desserts");
-const previewImgDess = document.getElementById("menu-preview-img-dess");
+    const menuItemsDess = document.querySelectorAll(".desserts");
+    const previewImgDess = document.getElementById("menu-preview-img-dess");
 
-menuItemsDess.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrcDess = item.getAttribute("data-image");
-        previewImgDess.src = imgSrcDess;
+    menuItemsDess.forEach(item => {
+        item.addEventListener("click", () => {
+            const imgSrcDess = item.getAttribute("data-image");
+            previewImgDess.src = imgSrcDess;
+        });
     });
-});
-const swiper = new Swiper('.swiper', {
-    loop: true,
-    slidesPerView: 1,
-    centeredSlides: true,
-    spaceBetween: 0,
 
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
 
-    grabCursor: true, // enables grabbing hand + drag
-    effect: "slide",  // make sure it's sliding, not fading
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 0,
 
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
-closeAllSidebars();
+        grabCursor: true, // enables grabbing hand + drag
+        effect: "slide",  // make sure it's sliding, not fading
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+    closeAllSidebars();
