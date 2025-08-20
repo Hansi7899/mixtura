@@ -177,6 +177,7 @@ a {
     animation: burger-hover 2s infinite ease-in-out alternate forwards 600ms;
 }
 
+/* 
 .hero-carousel {
     position: relative;
     width: 100%;
@@ -201,6 +202,19 @@ a {
     min-height: 200px;
     object-fit: contain;
     flex-shrink: 0;
+} */
+
+.swiper {
+    width: 100%;
+    height: 60vh;
+    margin: 0;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .middle-title {
@@ -1097,7 +1111,7 @@ a {
         flex: 0 0 auto;
     }
 
-    .hero-carousel {
+    /* .hero-carousel {
         height: 30vh;
         min-height: 250px;
         display: flex;
@@ -1118,7 +1132,7 @@ a {
         width: 80vw;
         height: 70vh;
         min-height: 250px;
-    }
+    } */
 
 
     .middle-title {
@@ -1249,7 +1263,7 @@ a {
         height: 40px;
     }
 
-    .hero-carousel {
+    /* .hero-carousel {
         height: 40vh;
         min-height: 200px;
     }
@@ -1257,7 +1271,7 @@ a {
     .carousel-track img {
         height: 40vh;
         min-height: 200px;
-    }
+    } */
 
     .middle-title {
         padding-top: 20px;
@@ -1317,12 +1331,12 @@ a {
         align-self: center;
     }
 
-    .carousel-track {
+    /* .carousel-track {
         height: 40vh;
         width: max-content;
         background-size: 200% 100%;
 
-    }
+    } */
 
 }
 
@@ -1407,7 +1421,7 @@ a {
         width: auto;
     }
 
-    .carousel-track {
+    /* .carousel-track {
         animation: scroll-carousel 15s linear infinite;
         height: 50vh;
         background-size: 300% 100%;
@@ -1421,7 +1435,7 @@ a {
         width: 60vh;
         height: 50vh;
         min-height: 150px;
-    }
+    } */
 
     .menu-image-preview {
         max-width: 90%;

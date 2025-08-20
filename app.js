@@ -222,4 +222,28 @@ menuItemsDess.forEach(item => {
         previewImgDess.src = imgSrcDess;
     });
 });
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 0,
+
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+
+    grabCursor: true, // enables grabbing hand + drag
+    effect: "slide",  // make sure it's sliding, not fading
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
 closeAllSidebars();
