@@ -53,7 +53,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Date
             const dateEl = card.querySelector('time, [class*="date" i]');
-            const date = (dateEl?.getAttribute(' datetime') || dateEl?.textContent || '').trim();
+            const date = (dateEl?.getAttribute('datetime') || dateEl?.textContent || '').trim();
 
             // Description (optional, best-effort)
             const descEl = card.querySelector('p, [class*="description" i]');
@@ -66,7 +66,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Keep only plausible cards (must have a title)
             if (title) {
-                results.push({ title, date, image, description, url });
+                results.push({ title, date, ' ', image, description, url });
             }
         }
 
