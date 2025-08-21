@@ -22,8 +22,13 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
     await page.waitForSelector('a[href*="/events/"]', { timeout: 20000 }).catch(() => { });
 
     const events = await page.evaluate(() => {
-        // helper: extract background-image url if used instead of <img>
-        const bgUrl = el => {
+        const normalize = (s) => (s || "").replace(/\s+/g, " ").trim();
+        const isTimeText = (s) =>
+            /\b\d{1,2}:\d{2}(?:\s*[–-]\s*\d{1,2}:\d{2})?\b/i.test(s) || // 18:00 or 18:00-19:30
+            /\bab\s*\d{1,2}\s*Uhr\b/i.test(s) ||                         // ab 16 Uhr
+            /\b\d{1,2}\s*Uhr\b/i.test(s);                                // 16 Uhr
+
+        const bgUrl = (el) => {
             if (!el) return null;
             const bg = getComputedStyle(el).backgroundImage;
             const m = bg && bg.match(/url\(["']?(.*?)["']?\)/i);
@@ -36,53 +41,76 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
         for (const a of anchors) {
             const url = new URL(a.href, location.origin).href;
-            if (seen.has(url)) continue; // dedupe
+            if (seen.has(url)) continue;
             seen.add(url);
 
-            // Try to limit to card-like elements (skip header/footer/social links)
             const card =
                 a.closest('article, .w-dyn-item, .card, li, .event, .events_item, .events-card') || a;
 
             // Title
             const titleEl = card.querySelector('h1, h2, h3, [class*="title" i], [class*="name" i]');
-            const title =
-                (titleEl && titleEl.textContent.trim()) ||
-                a.getAttribute('aria-label') ||
-                a.title ||
-                a.textContent.trim();
+            const title = normalize(titleEl?.innerText || a.getAttribute('aria-label') || a.title || a.innerText);
 
-            // Date
-            const dateEl = card.querySelector('time, [class*="date" i]');
+            // --- Date & Time extraction (robust) ---
+            const selectors = [
+                'time',
+                '[class*="date" i]',
+                '[class*="day" i]',
+                '[class*="weekday" i]',
+                '[class*="when" i]',
+                '[class*="time" i]',
+                '[class*="hour" i]',
+            ];
+
+            const candidates = [];
+            for (const sel of selectors) {
+                card.querySelectorAll(sel).forEach((el) => {
+                    const t = normalize(el.innerText || el.textContent);
+                    if (t) candidates.push(t);
+                });
+            }
+
+            // Dedupe & join with spaces so lines don’t collapse together
+            const uniq = Array.from(new Set(candidates));
             let date = '';
             let time = '';
 
-            if (dateEl) {
-                // Use innerText to preserve line breaks (textContent removes them)
-                const parts = dateEl.innerText
-                    .split('\n') // split by line breaks
-                    .map(p => p.trim())
-                    .filter(Boolean);
+            if (uniq.length) {
+                // Prefer explicitly time-looking piece as time
+                time = normalize(uniq.find(isTimeText) || '');
+                // Everything else is date-ish
+                date = normalize(uniq.filter((p) => p !== time).join(' '));
 
-                if (parts.length > 0) date = parts[0];  // first line = date
-                if (parts.length > 1) time = parts[1];  // second line = time (if exists)
+                // Fallback: if we still have a glued string, split using regex
+                if (!time) {
+                    const joined = normalize(uniq.join(' '));
+                    const m = joined.match(
+                        /\b\d{1,2}:\d{2}(?:\s*[–-]\s*\d{1,2}:\d{2})?\b|\bab\s*\d{1,2}\s*Uhr\b|\b\d{1,2}\s*Uhr\b/i
+                    );
+                    if (m) {
+                        time = normalize(m[0]);
+                        date = normalize(joined.replace(m[0], ' '));
+                    } else {
+                        date = joined;
+                    }
+                }
             }
 
-            // Description (optional, best-effort)
+            // Description (best-effort)
             const descEl = card.querySelector('p, [class*="description" i]');
-            const description = (descEl?.textContent || '').trim();
+            const description = normalize(descEl?.innerText);
 
-            // Image (prefer <img>, fallback to background-image)
+            // Image
             const imgEl = card.querySelector('img') || a.querySelector('img');
             let image = imgEl ? (imgEl.currentSrc || imgEl.src) : (bgUrl(card) || bgUrl(a));
             if (image && image.startsWith('/')) image = new URL(image, location.origin).href;
 
-            // Keep only plausible cards (must have a title)
             if (title) {
                 results.push({ title, date, time, image, description, url });
             }
         }
 
-        // Heuristic: remove obvious duplicates by title+url
+        // De-dupe by title+url
         const unique = [];
         const keyset = new Set();
         for (const e of results) {
