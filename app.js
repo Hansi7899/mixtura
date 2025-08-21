@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function loadEvents() {
         try {
             console.log('Loading events...');
-            const response = await fetch('./events.json');
+            const response = await fetch('gleisgarten-scraper/events.json');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
