@@ -15,17 +15,11 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
     const page = await context.newPage();
 
     await page.goto(EVENTS_URL, { waitUntil: 'domcontentloaded' });
-
-    // Let JS-driven content load
     await page.waitForLoadState('networkidle').catch(() => { });
     await page.waitForSelector('a[href*="/events/"]', { timeout: 20000 }).catch(() => { });
 
     const events = await page.evaluate(() => {
         const normalize = (s) => (s || "").replace(/\s+/g, " ").trim();
-        const isTimeText = (s) =>
-            /\b\d{1,2}:\d{2}(?:\s*[–-]\s*\d{1,2}:\d{2})?\b/i.test(s) || // 18:00 or 18:00-19:30
-            /\bab\s*\d{1,2}\s*Uhr\b/i.test(s) ||                         // ab 16 Uhr
-            /\b\d{1,2}\s*Uhr\b/i.test(s);                                // 16 Uhr
 
         const bgUrl = (el) => {
             if (!el) return null;
@@ -50,43 +44,36 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
             const titleEl = card.querySelector('h1, h2, h3, [class*="title" i], [class*="name" i]');
             const title = normalize(titleEl?.innerText || a.getAttribute('aria-label') || a.title || a.innerText);
 
-            // --- Date & Time ---
-            const selectors = [
-                'time',
-                '[class*="date" i]',
-                '[class*="day" i]',
-                '[class*="weekday" i]',
-                '[class*="when" i]',
-                '[class*="time" i]',
-                '[class*="hour" i]',
-            ];
-
-            const candidates = [];
-            for (const sel of selectors) {
-                card.querySelectorAll(sel).forEach((el) => {
-                    const t = normalize(el.innerText || el.textContent);
-                    if (t) candidates.push(t);
-                });
-            }
+            // --- Date & Time extraction ---
+            const dateEl = card.querySelector(
+                '[class*="date" i], [class*="day" i], time, [class*="when" i], [class*="hour" i]'
+            );
 
             let date = '';
             let time = '';
 
-            if (candidates.length) {
-                const uniq = Array.from(new Set(candidates));
+            if (dateEl) {
+                // Replace <br> with pipe, then split
+                const raw = dateEl.innerHTML.replace(/<br\s*\/?>/gi, '|');
+                const parts = raw.split('|').map(s => normalize(s)).filter(Boolean);
 
-                // If one part looks like time, split it cleanly
-                const timePart = uniq.find(isTimeText);
-                if (timePart) {
-                    time = normalize(timePart);
-                    date = normalize(uniq.filter((p) => p !== timePart).join(' '));
+                if (parts.length === 1) {
+                    // If glued -> try to split date and time
+                    const match = parts[0].match(/^(.*?)(\d{1,2}:\d{2}.*)$/);
+                    if (match) {
+                        date = match[1].trim();
+                        time = match[2].trim();
+                    } else {
+                        date = parts[0];
+                    }
                 } else {
-                    // Otherwise everything is just a date
-                    date = normalize(uniq.join(' '));
+                    // Two lines: first = date, second = time
+                    date = parts[0];
+                    time = parts[1];
                 }
             }
 
-            // Description (best-effort)
+            // Description
             const descEl = card.querySelector('p, [class*="description" i]');
             const description = normalize(descEl?.innerText);
 
@@ -96,13 +83,11 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
             if (image && image.startsWith('/')) image = new URL(image, location.origin).href;
 
             if (title) {
-                const event = { title, date, image, description, url };
-                if (time) event.time = time; // only add if it exists
-                results.push(event);
+                results.push({ title, date, time, image, description, url });
             }
         }
 
-        // Deduplicate by title+url
+        // Deduplicate
         const unique = [];
         const keyset = new Set();
         for (const e of results) {
@@ -115,10 +100,19 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
         return unique;
     });
 
-    // Save JSON
-    const out = { events };
+    // --- Ensure consistent JSON structure ---
+    const cleanEvents = events.map(ev => ({
+        title: ev.title || "",
+        date: ev.date || "",
+        time: ev.time || "",
+        image: ev.image || "",
+        description: ev.description || "",
+        url: ev.url || ""
+    }));
+
+    const out = { events: cleanEvents };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
-    console.log(`Saved ${events.length} events to events.json`);
+    console.log(`Saved ${cleanEvents.length} events to events.json`);
 
     await browser.close();
 })();
