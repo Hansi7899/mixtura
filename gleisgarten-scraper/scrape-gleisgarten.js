@@ -53,7 +53,19 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Date
             const dateEl = card.querySelector('time, [class*="date" i]');
-            const date = (dateEl?.getAttribute('datetime') || dateEl?.textContent || '').trim();
+            let date = '';
+            let time = '';
+
+            if (dateEl) {
+                // Use innerText to preserve line breaks (textContent removes them)
+                const parts = dateEl.innerText
+                    .split('\n') // split by line breaks
+                    .map(p => p.trim())
+                    .filter(Boolean);
+
+                if (parts.length > 0) date = parts[0];  // first line = date
+                if (parts.length > 1) time = parts[1];  // second line = time (if exists)
+            }
 
             // Description (optional, best-effort)
             const descEl = card.querySelector('p, [class*="description" i]');
@@ -66,7 +78,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Keep only plausible cards (must have a title)
             if (title) {
-                results.push({ title, date, image, description, url });
+                results.push({ title, date, time, image, description, url });
             }
         }
 
