@@ -18,7 +18,6 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
     // Let JS-driven content load
     await page.waitForLoadState('networkidle').catch(() => { });
-    // Generic wait for links that look like event cards
     await page.waitForSelector('a[href*="/events/"]', { timeout: 20000 }).catch(() => { });
 
     const events = await page.evaluate(() => {
@@ -51,7 +50,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
             const titleEl = card.querySelector('h1, h2, h3, [class*="title" i], [class*="name" i]');
             const title = normalize(titleEl?.innerText || a.getAttribute('aria-label') || a.title || a.innerText);
 
-            // --- Date & Time extraction (robust) ---
+            // --- Date & Time ---
             const selectors = [
                 'time',
                 '[class*="date" i]',
@@ -70,29 +69,20 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
                 });
             }
 
-            // Dedupe & join with spaces so lines don’t collapse together
-            const uniq = Array.from(new Set(candidates));
             let date = '';
             let time = '';
 
-            if (uniq.length) {
-                // Prefer explicitly time-looking piece as time
-                time = normalize(uniq.find(isTimeText) || '');
-                // Everything else is date-ish
-                date = normalize(uniq.filter((p) => p !== time).join(' '));
+            if (candidates.length) {
+                const uniq = Array.from(new Set(candidates));
 
-                // Fallback: if we still have a glued string, split using regex
-                if (!time) {
-                    const joined = normalize(uniq.join(' '));
-                    const m = joined.match(
-                        /\b\d{1,2}:\d{2}(?:\s*[–-]\s*\d{1,2}:\d{2})?\b|\bab\s*\d{1,2}\s*Uhr\b|\b\d{1,2}\s*Uhr\b/i
-                    );
-                    if (m) {
-                        time = normalize(m[0]);
-                        date = normalize(joined.replace(m[0], ' '));
-                    } else {
-                        date = joined;
-                    }
+                // If one part looks like time, split it cleanly
+                const timePart = uniq.find(isTimeText);
+                if (timePart) {
+                    time = normalize(timePart);
+                    date = normalize(uniq.filter((p) => p !== timePart).join(' '));
+                } else {
+                    // Otherwise everything is just a date
+                    date = normalize(uniq.join(' '));
                 }
             }
 
@@ -106,11 +96,13 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
             if (image && image.startsWith('/')) image = new URL(image, location.origin).href;
 
             if (title) {
-                results.push({ title, date, time, image, description, url });
+                const event = { title, date, image, description, url };
+                if (time) event.time = time; // only add if it exists
+                results.push(event);
             }
         }
 
-        // De-dupe by title+url
+        // Deduplicate by title+url
         const unique = [];
         const keyset = new Set();
         for (const e of results) {
@@ -123,7 +115,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
         return unique;
     });
 
-    // Save into the same shape your site expects
+    // Save JSON
     const out = { events };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
     console.log(`Saved ${events.length} events to events.json`);
