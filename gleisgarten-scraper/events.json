@@ -2,103 +2,103 @@
   "events": [
     {
       "title": "Workshop: Strukturmalerei mit Servietten mit kurtzlii",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text\">21 Aug</div><div class=\"events_slider_label-text w-condition-invisible\">",
-      "time": "18:00-19:30</div></div>",
+      "date": "21 Aug",
+      "time": "18:00-19:30",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67d14e8693884acfc43afc84_J%C3%A4germeister%20(1)-p-1600.jpg",
       "description": "Eintauchen, entdecken, erschaffen!",
       "url": "https://www.gleisgarten.com/events/workshop-strukturmalerei-mit-servietten-mit-kurtzlii-2"
     },
     {
       "title": "Calle Libre Festival Youtopia",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text w-condition-invisible\">23 Aug</div><div class=\"events_slider_label-text\">16.-23.08.</div></div>",
-      "time": "",
+      "date": "23 Aug",
+      "time": "16.-23.08.",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68639cf2ff04a2a169fcffff_Callelibre_Header_Text-p-1600.png",
       "description": "Streetart trifft Streetfood!",
       "url": "https://www.gleisgarten.com/events/calle-libre-festival-youtopia"
     },
     {
       "title": "Play & Date 🎲",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text\">26 Aug</div><div class=\"events_slider_label-text w-condition-invisible\">",
-      "time": "18:15</div></div>",
+      "date": "26 Aug",
+      "time": "18:15",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668e535f6d3632c88a0d8d07_Thumbnail%20Gleisgarten.jpg",
       "description": "Die spielvolle Art neue Leute kennen zu lernen!",
       "url": "https://www.gleisgarten.com/events/play-date-3"
     },
     {
       "title": "Foodmarket Quiz",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text\">27 Aug</div><div class=\"events_slider_label-text w-condition-invisible\">",
-      "time": "19:00</div></div>",
+      "date": "27 Aug",
+      "time": "19:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ba41b2a6e2036cd90a881d_Fotokomposition%205-Kreis%20Venn-Dia.png",
       "description": "Ein Quizabend nur für die Erwachsenen!",
       "url": "https://www.gleisgarten.com/events/foodhall-quiz-10"
     },
     {
       "title": "Linoldruck Workshop",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text\">28 Aug</div><div class=\"events_slider_label-text w-condition-invisible\">",
-      "time": "17:00</div></div>",
+      "date": "28 Aug",
+      "time": "17:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a48e6f77667f8d7e519f1b_WorkshopGleisGartenBanner_1%20(1).jpeg",
       "description": "Schritt für Schritt zum Profi!",
       "url": "https://www.gleisgarten.com/events/linoldruck-workshop-12"
     },
     {
       "title": "bildBalance auf Schiene",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text w-condition-invisible\">31 Aug</div><div class=\"events_slider_label-text\">01.08.-31.08.</div></div>",
-      "time": "",
+      "date": "31 Aug",
+      "time": "01.08.-31.08.",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6852bd848507b73f0906eba2_J%C3%A4germeister%20(31).jpg",
       "description": "Kunstaustellung im August 🎨",
       "url": "https://www.gleisgarten.com/events/bildbalance-auf-schiene"
     },
     {
       "title": "Beer Pong Monday",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text w-condition-invisible\">1 Sep</div><div class=\"events_slider_label-text\">01-29.09.</div></div>",
-      "time": "",
+      "date": "1 Sep",
+      "time": "01-29.09.",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
       "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
       "url": "https://www.gleisgarten.com/events/beer-pong-monday"
     },
     {
       "title": "Kinderyoga 🧘",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text\">2 Sep</div><div class=\"events_slider_label-text w-condition-invisible\">",
-      "time": "16:00</div></div>",
+      "date": "2 Sep",
+      "time": "16:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668bb7c9b488dd9a4e71d86a_Manuela%20Sideras.jpg",
       "description": "Pure Entspannung im Gleis//Garten 🧘",
       "url": "https://www.gleisgarten.com/events/kinderyoga-fur-kindergartenkinder"
     },
     {
       "title": "Pouring Workshop",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text\">4 Sep</div><div class=\"events_slider_label-text w-condition-invisible\">",
-      "time": "18:00-19:30</div></div>",
+      "date": "4 Sep",
+      "time": "18:00-19:30",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67bd88d16df2b815f1238e2e_Komprimiert%20Bild%20(1).jpg",
       "description": "DIY: Kunstwerk mit fließender Farbe 🎨",
       "url": "https://www.gleisgarten.com/events/pouring-workshop-3"
     },
     {
       "title": "Beer Pong Monday",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar\"></div><div color=\"\" class=\"events_slider_date-label-text-block\"><div class=\"events_slider_label-text w-condition-invisible\">8 Sep</div><div class=\"events_slider_label-text\">01-29.09.</div></div>",
-      "time": "",
+      "date": "8 Sep",
+      "time": "01-29.09.",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
       "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
       "url": "https://www.gleisgarten.com/events/beer-pong-monday-2"
     },
     {
       "title": "Public Viewing: European Qualifiers",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar is-small is-2-rows w-condition-invisible\"></div><div class=\"events_slider_date-label-2rows\"><div color=\"\" class=\"events_slider_date-label-text-block is-small w-condition-invisible\"><div dot=\"\" class=\"events_slider_label-text is-small\">9 Sep</div></div><div color=\"\" class=\"events_slider_date-label-text-block is-small is-bottom-row\"><div class=\"events_slider_label-text is-small\">04.09.-09.09.</div></div></div>",
-      "time": "",
+      "date": "9 Sep",
+      "time": "04.09.-09.09.",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68908756a01002754d224d44_Champions%20League.jpg",
       "description": "Jubeln, mitfiebern und Bier genießen! ⚽🍻",
       "url": "https://www.gleisgarten.com/events/european-qali"
     },
     {
       "title": "Kinderbasteln ✏️",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar is-small is-2-rows\"></div><div class=\"events_slider_date-label-2rows\"><div color=\"\" class=\"events_slider_date-label-text-block is-small\"><div dot=\"\" class=\"events_slider_label-text is-small\">9 Sep</div></div><div color=\"\" class=\"events_slider_date-label-text-block is-small is-bottom-row\"><div class=\"events_slider_label-text is-small\">",
-      "time": "16:00</div></div></div>",
+      "date": "9 Sep",
+      "time": "16:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/66705c27d7bcd9be80e8cbbc_unnamed%20(1).jpg",
       "description": "Bastelspaß für Kinder - lasst uns gemeinsam kreativ werden! 🎨",
       "url": "https://www.gleisgarten.com/events/kinderbasteln-26"
     },
     {
       "title": "Eltern-Stammtisch: Elternwerkstatt 🧒",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar is-small is-2-rows\"></div><div class=\"events_slider_date-label-2rows\"><div color=\"\" class=\"events_slider_date-label-text-block is-small\"><div dot=\"\" class=\"events_slider_label-text is-small\">9 Sep</div></div><div color=\"\" class=\"events_slider_date-label-text-block is-small is-bottom-row\"><div class=\"events_slider_label-text is-small\">ab 16 Uhr </div></div></div>",
+      "date": "9 Sep ab 16 Uhr",
       "time": "",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65df053703ac144c18cd5325_Fotokomposition%205-Kreis%20Venn-Dia%20(6).png",
       "description": "Spannender Austausch mit Expert:innen!",
@@ -106,16 +106,16 @@
     },
     {
       "title": "Afterwork & Dance: Salsa",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar is-small is-2-rows\"></div><div class=\"events_slider_date-label-2rows\"><div color=\"\" class=\"events_slider_date-label-text-block is-small\"><div dot=\"\" class=\"events_slider_label-text is-small\">10 Sep</div></div><div color=\"\" class=\"events_slider_date-label-text-block is-small is-bottom-row\"><div class=\"events_slider_label-text is-small\">",
-      "time": "18:00-22:00</div></div></div>",
+      "date": "10 Sep",
+      "time": "18:00-22:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67e41bf4693c4e9f0a8371f3_parejita-1030x687.jpg",
       "description": "Spaß, Rhythmus und Leidenschaft!",
       "url": "https://www.gleisgarten.com/events/afterwork-dance-salsa-3"
     },
     {
       "title": "Beer Pong Monday",
-      "date": "<div color=\"\" class=\"events_slider_date-left-bar is-small is-2-rows w-condition-invisible\"></div><div class=\"events_slider_date-label-2rows\"><div color=\"\" class=\"events_slider_date-label-text-block is-small w-condition-invisible\"><div dot=\"\" class=\"events_slider_label-text is-small\">15 Sep</div></div><div color=\"\" class=\"events_slider_date-label-text-block is-small is-bottom-row\"><div class=\"events_slider_label-text is-small\">01-29.09.</div></div></div>",
-      "time": "",
+      "date": "15 Sep",
+      "time": "01-29.09.",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
       "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
       "url": "https://www.gleisgarten.com/events/beer-pong-monday-3"

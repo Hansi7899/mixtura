@@ -15,13 +15,12 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
     const page = await context.newPage();
 
     await page.goto(EVENTS_URL, { waitUntil: 'domcontentloaded' });
+
     await page.waitForLoadState('networkidle').catch(() => { });
     await page.waitForSelector('a[href*="/events/"]', { timeout: 20000 }).catch(() => { });
 
     const events = await page.evaluate(() => {
-        const normalize = (s) => (s || "").replace(/\s+/g, " ").trim();
-
-        const bgUrl = (el) => {
+        const bgUrl = el => {
             if (!el) return null;
             const bg = getComputedStyle(el).backgroundImage;
             const m = bg && bg.match(/url\(["']?(.*?)["']?\)/i);
@@ -42,40 +41,37 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Title
             const titleEl = card.querySelector('h1, h2, h3, [class*="title" i], [class*="name" i]');
-            const title = normalize(titleEl?.innerText || a.getAttribute('aria-label') || a.title || a.innerText);
+            const title =
+                (titleEl && titleEl.textContent.trim()) ||
+                a.getAttribute('aria-label') ||
+                a.title ||
+                a.textContent.trim();
 
-            // --- Date & Time extraction ---
-            const dateEl = card.querySelector(
-                '[class*="date" i], [class*="day" i], time, [class*="when" i], [class*="hour" i]'
-            );
-
+            // Date & Time
+            const dateBlock = card.querySelector('.events_slider_date-label-text-block, .events_slider_date-label-2rows');
             let date = '';
             let time = '';
 
-            if (dateEl) {
-                // Replace <br> with pipe, then split
-                const raw = dateEl.innerHTML.replace(/<br\s*\/?>/gi, '|');
-                const parts = raw.split('|').map(s => normalize(s)).filter(Boolean);
+            if (dateBlock) {
+                const parts = Array.from(dateBlock.querySelectorAll('.events_slider_label-text'))
+                    .map(el => el.textContent.trim())
+                    .filter(Boolean);
 
-                if (parts.length === 1) {
-                    // If glued -> try to split date and time
-                    const match = parts[0].match(/^(.*?)(\d{1,2}:\d{2}.*)$/);
-                    if (match) {
-                        date = match[1].trim();
-                        time = match[2].trim();
-                    } else {
-                        date = parts[0];
+                if (parts.length > 0) {
+                    // Heuristic: if part looks like time (has ":" or "-"), treat as time
+                    for (const p of parts) {
+                        if (/\d{1,2}:\d{2}/.test(p) || p.includes('-')) {
+                            time = time ? time + ' ' + p : p;
+                        } else {
+                            date = date ? date + ' ' + p : p;
+                        }
                     }
-                } else {
-                    // Two lines: first = date, second = time
-                    date = parts[0];
-                    time = parts[1];
                 }
             }
 
             // Description
             const descEl = card.querySelector('p, [class*="description" i]');
-            const description = normalize(descEl?.innerText);
+            const description = (descEl?.textContent || '').trim();
 
             // Image
             const imgEl = card.querySelector('img') || a.querySelector('img');
@@ -87,7 +83,6 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
             }
         }
 
-        // Deduplicate
         const unique = [];
         const keyset = new Set();
         for (const e of results) {
@@ -100,19 +95,9 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
         return unique;
     });
 
-    // --- Ensure consistent JSON structure ---
-    const cleanEvents = events.map(ev => ({
-        title: ev.title || "",
-        date: ev.date || "",
-        time: ev.time || "",
-        image: ev.image || "",
-        description: ev.description || "",
-        url: ev.url || ""
-    }));
-
-    const out = { events: cleanEvents };
+    const out = { events };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
-    console.log(`Saved ${cleanEvents.length} events to events.json`);
+    console.log(`Saved ${events.length} events to events.json`);
 
     await browser.close();
 })();
