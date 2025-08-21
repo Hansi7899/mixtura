@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                  class="event-image"
                                  onerror="this.src='media/default-event.jpg'">
                             <div class="event-content">
-                                <div class="event-date">${event.date || ''}</div>
+                                <div class="event-date">${event.dateTime || ''}</div>
                                 <h3 class="event-title">${event.title || ''}</h3>
                                 <p class="event-description">${event.description || ''}</p>
                             </div>
