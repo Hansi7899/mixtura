@@ -4,6 +4,59 @@ const fs = require('fs');
 
 const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
+function formatDateTime(dateText) {
+    const monthMap = {
+        'Jan': 'Jän',
+        'Feb': 'Feb',
+        'Mar': 'Mär',
+        'Apr': 'Apr',
+        'May': 'Mai',
+        'Jun': 'Jun',
+        'Jul': 'Jul',
+        'Aug': 'Aug',
+        'Sep': 'Sep',
+        'Oct': 'Okt',
+        'Nov': 'Nov',
+        'Dec': 'Dez'
+    };
+
+    let formatted = dateText.trim().replace(/\s+/g, ' ');
+
+    if (formatted.includes('.')) {
+        // Handle time formats like "18:00-19:30" or "ab 16 Uhr"
+        if (formatted.match(/\d{2}:\d{2}/) || formatted.includes('ab')) {
+            return formatted;
+        }
+
+        // Handle recurring events like "01.-29. Sep"
+        if (formatted.match(/\d+\s+[A-Za-z]+\s+01-29\.\d{2}\./)) {
+            const month = formatted.match(/\s+([A-Za-z]+)\s+/)[1];
+            formatted = `01.-29. ${month}`;
+        }
+        // Handle month ranges like "01.-31. Aug"
+        else if (formatted.match(/\d+\.\-\d+\.\s+[A-Za-z]+$/)) {
+            return formatted; // Already in correct format
+        }
+        // Handle cases like "23 Aug 16.-23.08."
+        else if (formatted.match(/\d+\s+[A-Za-z]+\s+\d+\.\-\d+\.\d{2}\./)) {
+            formatted = formatted.replace(/\d+\s+([A-Za-z]+)\s+(\d+)\.\-(\d+)\.\d{2}\./,
+                (_, month, start, end) => `${start}.-${end}. ${month}`);
+        }
+        // Handle full date formats "31 Aug 01.08.-31.08."
+        else if (formatted.match(/\d+\s+[A-Za-z]+\s+\d{2}\.\d{2}\.\-\d{2}\.\d{2}\./)) {
+            formatted = formatted.replace(/\d+\s+([A-Za-z]+)\s+(\d{2})\.\d{2}\.\-(\d{2})\.\d{2}\./,
+                (_, month, start, end) => `${start}.-${end}. ${month}`);
+        }
+    }
+
+    // Convert English months to German
+    Object.entries(monthMap).forEach(([eng, ger]) => {
+        formatted = formatted.replace(new RegExp(eng, 'gi'), ger);
+    });
+
+    return formatted;
+}
+
 (async () => {
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({
@@ -19,7 +72,7 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
     await page.waitForLoadState('networkidle').catch(() => { });
     await page.waitForSelector('a[href*="/events/"]', { timeout: 20000 }).catch(() => { });
 
-    const events = await page.evaluate(() => {
+    const rawEvents = await page.evaluate(() => {
         const bgUrl = el => {
             if (!el) return null;
             const bg = getComputedStyle(el).backgroundImage;
@@ -49,24 +102,14 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
 
             // Date & Time
             const dateBlock = card.querySelector('.events_slider_date-label-text-block, .events_slider_date-label-2rows');
-            let date = '';
-            let time = '';
+            let dateTime = '';
 
             if (dateBlock) {
-                const parts = Array.from(dateBlock.querySelectorAll('.events_slider_label-text'))
+                // Get all text content from date block and combine
+                dateTime = Array.from(dateBlock.querySelectorAll('.events_slider_label-text'))
                     .map(el => el.textContent.trim())
-                    .filter(Boolean);
-
-                if (parts.length > 0) {
-                    // Heuristic: if part looks like time (has ":" or "-"), treat as time
-                    for (const p of parts) {
-                        if (/\d{1,2}:\d{2}/.test(p) || p.includes('-')) {
-                            time = time ? time + ' ' + p : p;
-                        } else {
-                            date = date ? date + ' ' + p : p;
-                        }
-                    }
-                }
+                    .filter(Boolean)
+                    .join(' ');
             }
 
             // Description
@@ -79,7 +122,13 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
             if (image && image.startsWith('/')) image = new URL(image, location.origin).href;
 
             if (title) {
-                results.push({ title, date, time, image, description, url });
+                results.push({
+                    title,
+                    dateTime,
+                    image,
+                    description,
+                    url
+                });
             }
         }
 
@@ -94,6 +143,12 @@ const EVENTS_URL = 'https://www.gleisgarten.com/events';
         }
         return unique;
     });
+
+    // Format dates after page evaluation
+    const events = rawEvents.map(event => ({
+        ...event,
+        dateTime: event.dateTime ? formatDateTime(event.dateTime) : ''
+    }));
 
     const out = { events };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
