@@ -1515,3 +1515,29 @@ a {
         transform: translateX(-50%);
     }
 }
+
+.name-fields {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.name-fields input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.name-fields input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 480px) {
+    .name-fields {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
