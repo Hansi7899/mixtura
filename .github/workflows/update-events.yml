@@ -1,36 +1,35 @@
-name: Update events.json
+name: Update Events
 
 on:
   schedule:
-    - cron: '0 */12 * * *'   # every 6 hours
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    - cron: '0 3 * * *'  # Runs at 3 AM UTC daily
+  workflow_dispatch:      # Allows manual trigger
 
 jobs:
-  scrape:
+  update-events:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-
-      - run: npm ci || npm i
-      - run: npx playwright install --with-deps chromium
-
-      - run: node scrape-gleisgarten.js
-
-      - name: Commit and push if changed
+          node-version: '18'
+          
+      - name: Install dependencies
         run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "Update events.json"
-            git push
-          else
-            echo "No changes."
-          fi
+          cd gleisgarten-scraper
+          npm install
+          
+      - name: Run scraper
+        run: |
+          cd gleisgarten-scraper
+          node scrape-gleisgarten.js
+          
+      - name: Commit and push if changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add events.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update events" && git push)

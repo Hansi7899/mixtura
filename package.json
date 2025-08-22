@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "prebuild": "cp gleisgarten-scraper/events.json public/",
+        "build": "your-existing-build-command"
+    }
+}
