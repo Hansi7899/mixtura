@@ -136,7 +136,7 @@ function formatDateTime(dateText) {
         const keyset = new Set();
         for (const e of results) {
             const k = (e.title || '') + '|' + (e.url || '');
-            if (!keyset.has(k)) {
+            if (!keyset.has(k) && unique.length < 5) {  // Add length check
                 keyset.add(k);
                 unique.push(e);
             }
@@ -145,12 +145,10 @@ function formatDateTime(dateText) {
     });
 
     // Format dates after page evaluation
-    const events = rawEvents
-        .map(event => ({
-            ...event,
-            dateTime: event.dateTime ? formatDateTime(event.dateTime) : ''
-        }))
-        .slice(0, 5);  // Keep only first 5 events
+    const events = rawEvents.map(event => ({
+        ...event,
+        dateTime: event.dateTime ? formatDateTime(event.dateTime) : ''
+    }));
 
     const out = { events };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
