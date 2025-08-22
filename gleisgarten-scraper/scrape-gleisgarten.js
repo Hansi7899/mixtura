@@ -145,10 +145,12 @@ function formatDateTime(dateText) {
     });
 
     // Format dates after page evaluation
-    const events = rawEvents.map(event => ({
-        ...event,
-        dateTime: event.dateTime ? formatDateTime(event.dateTime) : ''
-    }));
+    const events = rawEvents
+        .map(event => ({
+            ...event,
+            dateTime: event.dateTime ? formatDateTime(event.dateTime) : ''
+        }))
+        .slice(0, 5);  // Keep only first 5 events
 
     const out = { events };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
