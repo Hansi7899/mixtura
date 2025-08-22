@@ -1,8 +1,28 @@
 // scrape-gleisgarten.js
 const { chromium } = require('playwright');
 const fs = require('fs');
+const { Translate } = require('@google-cloud/translate').v2;
 
 const EVENTS_URL = 'https://www.gleisgarten.com/events';
+
+// Initialize Google Translate
+const translate = new Translate({
+    projectId: 'your-project-id',
+    keyFilename: './google-translate-key.json'
+});
+
+async function translateText(text) {
+    try {
+        const [translation] = await translate.translate(text, {
+            from: 'de',
+            to: 'en'
+        });
+        return translation;
+    } catch (error) {
+        console.error('Translation error:', error);
+        return text; // Return original text if translation fails
+    }
+}
 
 function formatDateTime(dateText) {
     const monthMap = {
@@ -43,7 +63,7 @@ function formatDateTime(dateText) {
                 (_, month, start, end) => `${start}.-${end}. ${month}`);
         }
         // Handle full date formats "31 Aug 01.08.-31.08."
-        else if (formatted.match(/\d+\s+[A-Za-z]+\s+\d{2}\.\d{2}\.\-\d{2}\.\d{2}\./)) {
+        else if (formatted.match(/\d+\s+[A-Za-z]+\s+\d{2}\.\d{2}\.\-(\d{2})\.\d{2}\./)) {
             formatted = formatted.replace(/\d+\s+([A-Za-z]+)\s+(\d{2})\.\d{2}\.\-(\d{2})\.\d{2}\./,
                 (_, month, start, end) => `${start}.-${end}. ${month}`);
         }
@@ -132,27 +152,32 @@ function formatDateTime(dateText) {
             }
         }
 
+        // Filter unique events first
         const unique = [];
         const keyset = new Set();
         for (const e of results) {
-            const k = (e.title || '') + '|' + (e.url || '');
-            if (!keyset.has(k) && unique.length < 5) {  // Add length check
+            const k = (e.title || '') + '|' + (e.dateTime || '');  // Include dateTime in key
+            if (!keyset.has(k)) {
                 keyset.add(k);
                 unique.push(e);
             }
         }
-        return unique;
+
+        // Return only first 5 events
+        return unique.slice(0, 5);
     });
 
-    // Format dates after page evaluation
-    const events = rawEvents.map(event => ({
+    // Format dates and translate after page evaluation
+    const events = await Promise.all(rawEvents.map(async event => ({
         ...event,
-        dateTime: event.dateTime ? formatDateTime(event.dateTime) : ''
-    }));
+        dateTime: event.dateTime ? formatDateTime(event.dateTime) : '',
+        title: await translateText(event.title),
+        description: event.description ? await translateText(event.description) : ''
+    })));
 
     const out = { events };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
-    console.log(`Saved ${events.length} events to events.json`);
+    console.log(`Saved ${events.length} translated events to events.json`);
 
     await browser.close();
 })();
