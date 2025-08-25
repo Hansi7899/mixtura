@@ -1,28 +1,8 @@
 // scrape-gleisgarten.js
 const { chromium } = require('playwright');
 const fs = require('fs');
-const { Translate } = require('@google-cloud/translate').v2;
 
 const EVENTS_URL = 'https://www.gleisgarten.com/events';
-
-// Initialize Google Translate
-const translate = new Translate({
-    projectId: 'your-project-id',
-    keyFilename: './google-translate-key.json'
-});
-
-async function translateText(text) {
-    try {
-        const [translation] = await translate.translate(text, {
-            from: 'de',
-            to: 'en'
-        });
-        return translation;
-    } catch (error) {
-        console.error('Translation error:', error);
-        return text; // Return original text if translation fails
-    }
-}
 
 function formatDateTime(dateText) {
     const monthMap = {
@@ -167,17 +147,15 @@ function formatDateTime(dateText) {
         return unique.slice(0, 5);
     });
 
-    // Format dates and translate after page evaluation
-    const events = await Promise.all(rawEvents.map(async event => ({
+    // Format dates without translation
+    const events = rawEvents.map(event => ({
         ...event,
-        dateTime: event.dateTime ? formatDateTime(event.dateTime) : '',
-        title: await translateText(event.title),
-        description: event.description ? await translateText(event.description) : ''
-    })));
+        dateTime: event.dateTime ? formatDateTime(event.dateTime) : ''
+    }));
 
     const out = { events };
     fs.writeFileSync('events.json', JSON.stringify(out, null, 2));
-    console.log(`Saved ${events.length} translated events to events.json`);
+    console.log(`Saved ${events.length} events to events.json`);
 
     await browser.close();
 })();
