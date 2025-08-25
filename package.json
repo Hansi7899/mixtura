@@ -1,9 +1,0 @@
-{
-    "scripts": {
-        "prebuild": "cp gleisgarten-scraper/events.json public/",
-        "build": "your-existing-build-command"
-    },
-    "dependencies": {
-        "@google-cloud/translate": "^9.2.0"
-    }
-}
