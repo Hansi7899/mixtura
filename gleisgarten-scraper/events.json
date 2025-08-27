@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Play & Date 🎲",
-      "dateTime": "26 Aug 18:15",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668e535f6d3632c88a0d8d07_Thumbnail%20Gleisgarten.jpg",
-      "description": "Die spielvolle Art neue Leute kennen zu lernen!",
-      "url": "https://www.gleisgarten.com/events/play-date-3"
-    },
-    {
       "title": "Foodmarket Quiz",
       "dateTime": "27 Aug 19:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ba41b2a6e2036cd90a881d_Fotokomposition%205-Kreis%20Venn-Dia.png",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
       "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
       "url": "https://www.gleisgarten.com/events/beer-pong-monday"
+    },
+    {
+      "title": "Kinderyoga 🧘",
+      "dateTime": "2 Sep 16:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668bb7c9b488dd9a4e71d86a_Manuela%20Sideras.jpg",
+      "description": "Pure Entspannung im Gleis//Garten 🧘",
+      "url": "https://www.gleisgarten.com/events/kinderyoga-fur-kindergartenkinder"
     }
   ]
 }
