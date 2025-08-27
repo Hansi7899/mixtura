@@ -2,22 +2,22 @@ name: Update Events
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # Runs at 3 AM UTC daily
-  workflow_dispatch:      # Allows manual trigger
-  push:                  # Add this section for testing
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+  push:
     branches:
-      - test-workflow    # Create a test branch
+      - test-workflow
 
 jobs:
   update-events:
     runs-on: ubuntu-latest
     permissions:
-      contents: write    # Add permissions to write to repository
+      contents: write
     
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Explicitly set token
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -28,7 +28,12 @@ jobs:
         run: |
           cd gleisgarten-scraper
           npm install
-          npx playwright install --with-deps chromium
+          
+      - name: Install Playwright
+        run: |
+          cd gleisgarten-scraper
+          npx playwright install chromium
+          sudo npx playwright install-deps chromium
           
       - name: Run scraper
         run: |
