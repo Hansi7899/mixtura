@@ -4,13 +4,20 @@ on:
   schedule:
     - cron: '0 3 * * *'  # Runs at 3 AM UTC daily
   workflow_dispatch:      # Allows manual trigger
+  push:                  # Add this section for testing
+    branches:
+      - test-workflow    # Create a test branch
 
 jobs:
   update-events:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write    # Add permissions to write to repository
     
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Explicitly set token
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -21,7 +28,6 @@ jobs:
         run: |
           cd gleisgarten-scraper
           npm install
-          # install playwright browser binaries
           npx playwright install --with-deps chromium
           
       - name: Run scraper
@@ -34,4 +40,5 @@ jobs:
           git config --global user.name 'Hansi7899'
           git config --global user.email 'johann7899@gmail.com'
           git add gleisgarten-scraper/events.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update events" && git push)
+          git commit -m "Auto-update events" || echo "No changes to commit"
+          git push origin ${GITHUB_REF#refs/heads/}
