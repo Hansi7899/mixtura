@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Foodmarket Quiz",
-      "dateTime": "27 Aug 19:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ba41b2a6e2036cd90a881d_Fotokomposition%205-Kreis%20Venn-Dia.png",
-      "description": "Ein Quizabend nur für die Erwachsenen!",
-      "url": "https://www.gleisgarten.com/events/foodhall-quiz-10"
-    },
-    {
       "title": "Linoldruck Workshop",
       "dateTime": "28 Aug 17:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a48e6f77667f8d7e519f1b_WorkshopGleisGartenBanner_1%20(1).jpeg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668bb7c9b488dd9a4e71d86a_Manuela%20Sideras.jpg",
       "description": "Pure Entspannung im Gleis//Garten 🧘",
       "url": "https://www.gleisgarten.com/events/kinderyoga-fur-kindergartenkinder"
+    },
+    {
+      "title": "Pouring Workshop",
+      "dateTime": "4 Sep 18:00-19:30",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67bd88d16df2b815f1238e2e_Komprimiert%20Bild%20(1).jpg",
+      "description": "DIY: Kunstwerk mit fließender Farbe 🎨",
+      "url": "https://www.gleisgarten.com/events/pouring-workshop-3"
     }
   ]
 }
