@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Linoldruck Workshop",
-      "dateTime": "28 Aug 17:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a48e6f77667f8d7e519f1b_WorkshopGleisGartenBanner_1%20(1).jpeg",
-      "description": "Schritt für Schritt zum Profi!",
-      "url": "https://www.gleisgarten.com/events/linoldruck-workshop-12"
-    },
-    {
       "title": "bildBalance auf Schiene",
       "dateTime": "01.-31. Aug",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6852bd848507b73f0906eba2_J%C3%A4germeister%20(31).jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67bd88d16df2b815f1238e2e_Komprimiert%20Bild%20(1).jpg",
       "description": "DIY: Kunstwerk mit fließender Farbe 🎨",
       "url": "https://www.gleisgarten.com/events/pouring-workshop-3"
+    },
+    {
+      "title": "Creative Weekend",
+      "dateTime": "06.-07. Sep2025",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a6d4bc2d11acf8077cb83a_250804_Entgleisung_LP%20(1).jpg",
+      "description": "Creating and experiencing art live.",
+      "url": "https://www.gleisgarten.com/events/creative"
     }
   ]
 }
