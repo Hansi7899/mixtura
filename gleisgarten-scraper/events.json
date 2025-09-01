@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "bildBalance auf Schiene",
-      "dateTime": "01.-31. Aug",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6852bd848507b73f0906eba2_J%C3%A4germeister%20(31).jpg",
-      "description": "Kunstaustellung im August 🎨",
-      "url": "https://www.gleisgarten.com/events/bildbalance-auf-schiene"
-    },
-    {
       "title": "Beer Pong Monday",
       "dateTime": "01.-29. Sep",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a6d4bc2d11acf8077cb83a_250804_Entgleisung_LP%20(1).jpg",
       "description": "Creating and experiencing art live.",
       "url": "https://www.gleisgarten.com/events/creative"
+    },
+    {
+      "title": "Beer Pong Monday",
+      "dateTime": "01.-29. Sep",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
+      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
+      "url": "https://www.gleisgarten.com/events/beer-pong-monday-2"
     }
   ]
 }
