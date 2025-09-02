@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Beer Pong Monday",
-      "dateTime": "01.-29. Sep",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
-      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
-      "url": "https://www.gleisgarten.com/events/beer-pong-monday"
-    },
-    {
       "title": "Kinderyoga 🧘",
       "dateTime": "2 Sep 16:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668bb7c9b488dd9a4e71d86a_Manuela%20Sideras.jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
       "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
       "url": "https://www.gleisgarten.com/events/beer-pong-monday-2"
+    },
+    {
+      "title": "Kinderbasteln ✏️",
+      "dateTime": "9 Sep 16:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/66705c27d7bcd9be80e8cbbc_unnamed%20(1).jpg",
+      "description": "Bastelspaß für Kinder - lasst uns gemeinsam kreativ werden! 🎨",
+      "url": "https://www.gleisgarten.com/events/kinderbasteln-26"
     }
   ]
 }
