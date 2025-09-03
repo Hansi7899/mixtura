@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Kinderyoga 🧘",
-      "dateTime": "2 Sep 16:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/668bb7c9b488dd9a4e71d86a_Manuela%20Sideras.jpg",
-      "description": "Pure Entspannung im Gleis//Garten 🧘",
-      "url": "https://www.gleisgarten.com/events/kinderyoga-fur-kindergartenkinder"
-    },
-    {
       "title": "Pouring Workshop",
       "dateTime": "4 Sep 18:00-19:30",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67bd88d16df2b815f1238e2e_Komprimiert%20Bild%20(1).jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/66705c27d7bcd9be80e8cbbc_unnamed%20(1).jpg",
       "description": "Bastelspaß für Kinder - lasst uns gemeinsam kreativ werden! 🎨",
       "url": "https://www.gleisgarten.com/events/kinderbasteln-26"
+    },
+    {
+      "title": "Eltern-Stammtisch: Elternwerkstatt 🧒",
+      "dateTime": "9 Sep ab 16 Uhr",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65df053703ac144c18cd5325_Fotokomposition%205-Kreis%20Venn-Dia%20(6).png",
+      "description": "Spannender Austausch mit Expert:innen!",
+      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-elternwerkstatt-13"
     }
   ]
 }
