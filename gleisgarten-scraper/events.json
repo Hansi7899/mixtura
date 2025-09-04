@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Pouring Workshop",
-      "dateTime": "4 Sep 18:00-19:30",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67bd88d16df2b815f1238e2e_Komprimiert%20Bild%20(1).jpg",
-      "description": "DIY: Kunstwerk mit fließender Farbe 🎨",
-      "url": "https://www.gleisgarten.com/events/pouring-workshop-3"
-    },
-    {
       "title": "Creative Weekend",
       "dateTime": "06.-07. Sep2025",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a6d4bc2d11acf8077cb83a_250804_Entgleisung_LP%20(1).jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65df053703ac144c18cd5325_Fotokomposition%205-Kreis%20Venn-Dia%20(6).png",
       "description": "Spannender Austausch mit Expert:innen!",
       "url": "https://www.gleisgarten.com/events/eltern-stammtisch-elternwerkstatt-13"
+    },
+    {
+      "title": "Public Viewing: European Qualifiers",
+      "dateTime": "04.-09. Sep",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68908756a01002754d224d44_Champions%20League.jpg",
+      "description": "Jubeln, mitfiebern und Bier genießen! ⚽🍻",
+      "url": "https://www.gleisgarten.com/events/european-qali"
     }
   ]
 }
