@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Creative Weekend",
-      "dateTime": "06.-07. Sep2025",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a6d4bc2d11acf8077cb83a_250804_Entgleisung_LP%20(1).jpg",
-      "description": "Creating and experiencing art live.",
-      "url": "https://www.gleisgarten.com/events/creative"
-    },
-    {
       "title": "Beer Pong Monday",
       "dateTime": "01.-29. Sep",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68908756a01002754d224d44_Champions%20League.jpg",
       "description": "Jubeln, mitfiebern und Bier genießen! ⚽🍻",
       "url": "https://www.gleisgarten.com/events/european-qali"
+    },
+    {
+      "title": "Afterwork & Dance: Salsa",
+      "dateTime": "10 Sep 18:00-22:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67e41bf4693c4e9f0a8371f3_parejita-1030x687.jpg",
+      "description": "Spaß, Rhythmus und Leidenschaft!",
+      "url": "https://www.gleisgarten.com/events/afterwork-dance-salsa-3"
     }
   ]
 }
