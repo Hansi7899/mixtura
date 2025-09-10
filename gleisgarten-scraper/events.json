@@ -1,27 +1,6 @@
 {
   "events": [
     {
-      "title": "Kinderbasteln ✏️",
-      "dateTime": "9 Sep 16:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/66705c27d7bcd9be80e8cbbc_unnamed%20(1).jpg",
-      "description": "Bastelspaß für Kinder - lasst uns gemeinsam kreativ werden! 🎨",
-      "url": "https://www.gleisgarten.com/events/kinderbasteln-26"
-    },
-    {
-      "title": "Eltern-Stammtisch: Elternwerkstatt 🧒",
-      "dateTime": "9 Sep ab 16 Uhr",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65df053703ac144c18cd5325_Fotokomposition%205-Kreis%20Venn-Dia%20(6).png",
-      "description": "Spannender Austausch mit Expert:innen!",
-      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-elternwerkstatt-13"
-    },
-    {
-      "title": "Public Viewing: European Qualifiers",
-      "dateTime": "04.-09. Sep",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68908756a01002754d224d44_Champions%20League.jpg",
-      "description": "Jubeln, mitfiebern und Bier genießen! ⚽🍻",
-      "url": "https://www.gleisgarten.com/events/european-qali"
-    },
-    {
       "title": "Afterwork & Dance: Salsa",
       "dateTime": "10 Sep 18:00-22:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67e41bf4693c4e9f0a8371f3_parejita-1030x687.jpg",
@@ -34,6 +13,27 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/687f47077e8fcaa50dfcf309_IMG_3757_compressed.jpg",
       "description": "Eintauchen, entdecken, erschaffen!",
       "url": "https://www.gleisgarten.com/events/turkranz-mit-trockenblumen"
+    },
+    {
+      "title": "Beer Pong Monday",
+      "dateTime": "01.-29. Sep",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
+      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
+      "url": "https://www.gleisgarten.com/events/beer-pong-monday-3"
+    },
+    {
+      "title": "Na Bumm ! – Der Kasperl kommt",
+      "dateTime": "16 Sep 16:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6613abd3386eab14b502cdc5_Banner_willkommen-768x384.png",
+      "description": "Der Kasperl kommt in den Gleis//Garten 🚂",
+      "url": "https://www.gleisgarten.com/events/na-bumm---der-kasperl-kommt-10"
+    },
+    {
+      "title": "Workshop: Earrings Bar",
+      "dateTime": "18 Sep 17:30-19:30",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67d997937d1a306ae54a77ce_J%C3%A4germeister%20(8).jpg",
+      "description": "Create Your Customized Earrings",
+      "url": "https://www.gleisgarten.com/events/workshop-earrings-bar-4"
     }
   ]
 }
