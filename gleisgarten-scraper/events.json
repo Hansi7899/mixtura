@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Afterwork & Dance: Salsa",
-      "dateTime": "10 Sep 18:00-22:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67e41bf4693c4e9f0a8371f3_parejita-1030x687.jpg",
-      "description": "Spaß, Rhythmus und Leidenschaft!",
-      "url": "https://www.gleisgarten.com/events/afterwork-dance-salsa-3"
-    },
-    {
       "title": "Workshop: Türkranz mit Trockenblumen 💐",
       "dateTime": "11 Sep 17:00-19:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/687f47077e8fcaa50dfcf309_IMG_3757_compressed.jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67d997937d1a306ae54a77ce_J%C3%A4germeister%20(8).jpg",
       "description": "Create Your Customized Earrings",
       "url": "https://www.gleisgarten.com/events/workshop-earrings-bar-4"
+    },
+    {
+      "title": "Burger Festival",
+      "dateTime": "21 Sep 18.-21.Sept",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68b586986183a033fa4c0f9d_Burger%20Festival%20(5).jpg",
+      "description": "",
+      "url": "https://www.gleisgarten.com/events/burgerfestival"
     }
   ]
 }
