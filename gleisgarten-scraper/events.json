@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Workshop: Türkranz mit Trockenblumen 💐",
-      "dateTime": "11 Sep 17:00-19:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/687f47077e8fcaa50dfcf309_IMG_3757_compressed.jpg",
-      "description": "Eintauchen, entdecken, erschaffen!",
-      "url": "https://www.gleisgarten.com/events/turkranz-mit-trockenblumen"
-    },
-    {
       "title": "Beer Pong Monday",
       "dateTime": "01.-29. Sep",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68b586986183a033fa4c0f9d_Burger%20Festival%20(5).jpg",
       "description": "",
       "url": "https://www.gleisgarten.com/events/burgerfestival"
+    },
+    {
+      "title": "Beer Pong Monday",
+      "dateTime": "01.-29. Sep",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
+      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
+      "url": "https://www.gleisgarten.com/events/beer-pong-monday-4"
     }
   ]
 }
