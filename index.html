@@ -27,12 +27,12 @@
                         <nav class="main-menu">
                             <a href="index.html">Home</a>
                             <a href="menu.html">Menu</a>
-                            <a href="about.html">About</a>
                             <a href="contact.html">Contact</a>
                         </nav>
                     </div>
                     <div class="links-box">
-                        <div class="link-btn"><a href="https://www.gleisgarten.com/#" class="btn">
+                        <div class="link-btn"><a href="https://www.gleisgarten.com/#" class="btn" target="_blank"
+                                rel="noopener">
                                 Book a Table
                             </a></div>
                         <div class="burger"><button class="info-btn"><span class="hamburger">
@@ -50,7 +50,6 @@
                 <img src="media/mixtura.png" class="logo-mixtura" alt="Logo MixturaLatina">
                 <a href="index.html">Home</a>
                 <a href="menu.html">Menu</a>
-                <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
                 <br>
                 <br>
@@ -84,7 +83,7 @@
         </div>
     </div>
     <div class="hero-text">
-        <h3 class="middle-title">Mixtura Latina</h3>
+        <h3 class="middle-title" translate="no">Mixtura Latina</h3>
 
         <p>Welcome to Mixtura Latina! Your corner of Latin American food in Vienna</p>
 
@@ -151,12 +150,12 @@
             <div class="newsletter-section">
                 <h3>Join Our Newsletter</h3>
                 <p>Subscribe to receive updates about events and special offers!</p>
-                <form class="newsletter-form">
+                <form class="newsletter-form" method="POST" action="subscribe.php">
                     <div class="name-fields">
                         <input type="text" placeholder="First name" required>
                         <input type="text" placeholder="Last name" required>
                     </div>
-                    <input type="email" placeholder="Enter your email" required>
+                    <input type="email" name="email" placeholder="Enter your email" required>
                     <div class="consent-checkbox">
                         <input type="checkbox" id="consent" required>
                         <label for="consent">I agree to receive emails from Mixtura Latina</label>

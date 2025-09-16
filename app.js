@@ -134,15 +134,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log('DOM loaded');
-        const eventsGrid = document.getElementById('events-grid');
+    const eventsGrid = document.getElementById('events-grid');
 
-        if (eventsGrid) {
-            console.log('Events grid found');
-            loadEvents();
-        }
-    });
+    if (eventsGrid) {
+        console.log('Events grid found');
+        loadEvents();
+    }
 
     async function loadEvents() {
         try {
@@ -189,62 +186,60 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Load events
     loadEvents();
-});
 
+    const menuItems = document.querySelectorAll(".starters");
+    const previewImg = document.getElementById("menu-preview-img");
 
-
-const menuItems = document.querySelectorAll(".starters");
-const previewImg = document.getElementById("menu-preview-img");
-
-menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrc = item.getAttribute("data-image");
-        previewImg.src = imgSrc;
+    menuItems.forEach(item => {
+        item.addEventListener("click", () => {
+            const imgSrc = item.getAttribute("data-image");
+            previewImg.src = imgSrc;
+        });
     });
-});
 
-const menuItemsMain = document.querySelectorAll(".main-dish");
-const previewImgMain = document.getElementById("menu-preview-img-main");
+    const menuItemsMain = document.querySelectorAll(".main-dish");
+    const previewImgMain = document.getElementById("menu-preview-img-main");
 
-menuItemsMain.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrcMain = item.getAttribute("data-image");
-        previewImgMain.src = imgSrcMain;
+    menuItemsMain.forEach(item => {
+        item.addEventListener("click", () => {
+            const imgSrcMain = item.getAttribute("data-image");
+            previewImgMain.src = imgSrcMain;
+        });
     });
-});
 
-const menuItemsDess = document.querySelectorAll(".desserts");
-const previewImgDess = document.getElementById("menu-preview-img-dess");
+    const menuItemsDess = document.querySelectorAll(".desserts");
+    const previewImgDess = document.getElementById("menu-preview-img-dess");
 
-menuItemsDess.forEach(item => {
-    item.addEventListener("click", () => {
-        const imgSrcDess = item.getAttribute("data-image");
-        previewImgDess.src = imgSrcDess;
+    menuItemsDess.forEach(item => {
+        item.addEventListener("click", () => {
+            const imgSrcDess = item.getAttribute("data-image");
+            previewImgDess.src = imgSrcDess;
+        });
     });
-});
 
-const swiper = new Swiper('.swiper', {
-    loop: true,
-    slidesPerView: 1,
-    centeredSlides: true,
-    spaceBetween: 0,
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 0,
 
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
 
-    grabCursor: true, // enables grabbing hand + drag
-    effect: "slide",  // make sure it's sliding, not fading
+        grabCursor: true, // enables grabbing hand + drag
+        effect: "slide",  // make sure it's sliding, not fading
 
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
-closeAllSidebars();
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    closeAllSidebars();

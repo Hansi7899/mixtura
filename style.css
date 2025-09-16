@@ -1331,13 +1331,10 @@ a {
         align-self: center;
     }
 
-    /* .carousel-track {
-        height: 40vh;
-        width: max-content;
-        background-size: 200% 100%;
-
-    } */
-
+    .name-fields {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 
 @media screen and (max-width: 440px) {
@@ -1533,11 +1530,4 @@ a {
 
 .name-fields input::placeholder {
     color: rgba(255, 255, 255, 0.7);
-}
-
-@media screen and (max-width: 480px) {
-    .name-fields {
-        flex-direction: column;
-        gap: 15px;
-    }
 }
