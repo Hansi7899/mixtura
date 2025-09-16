@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Beer Pong Monday",
-      "dateTime": "01.-29. Sep",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
-      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
-      "url": "https://www.gleisgarten.com/events/beer-pong-monday-3"
-    },
-    {
       "title": "Na Bumm ! – Der Kasperl kommt",
       "dateTime": "16 Sep 16:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6613abd3386eab14b502cdc5_Banner_willkommen-768x384.png",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
       "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
       "url": "https://www.gleisgarten.com/events/beer-pong-monday-4"
+    },
+    {
+      "title": "Kinderschminken",
+      "dateTime": "23 Sep 16:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/660e692a523acb1ad47e8e1a_Bild%20Komprimieren%20(4).jpg",
+      "description": "Kinderschminken für Kinder 🎨",
+      "url": "https://www.gleisgarten.com/events/kinderschminken-3"
     }
   ]
 }
