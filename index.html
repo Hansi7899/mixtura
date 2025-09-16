@@ -12,6 +12,19 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title>Mixtura Latina</title>
+    <!-- MailerLite Universal -->
+    <script>
+        (function (w, d, e, u, f, l, n) {
+            w[f] = w[f] || function () {
+                (w[f].q = w[f].q || [])
+                    .push(arguments);
+            }, l = d.createElement(e), l.async = 1, l.src = u,
+                n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
+        })
+            (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
+        ml('account', '1799883');
+    </script>
+    <!-- End MailerLite Universal -->
 </head>
 
 <body>
@@ -150,19 +163,46 @@
             <div class="newsletter-section">
                 <h3>Join Our Newsletter</h3>
                 <p>Subscribe to receive updates about events and special offers!</p>
-                <form class="newsletter-form" method="POST" action="/subscribe.php">
-                    <div class="name-fields">
-                        <input type="text" placeholder="First name" required>
-                        <input type="text" placeholder="Last name" required>
+                <div id="mlb2-30940178" class="newsletter-container">
+                    <form class="newsletter-form"
+                        action="https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/subscribe"
+                        method="post" target="_blank">
+                        <div class="name-fields">
+                            <input type="text" name="fields[name]" placeholder="First name" required
+                                autocomplete="given-name">
+                            <input type="text" name="fields[last_name]" placeholder="Last name" required
+                                autocomplete="family-name">
+                        </div>
+                        <input type="email" name="fields[email]" placeholder="Enter your email" required
+                            autocomplete="email">
+                        <div class="consent-checkbox">
+                            <input type="checkbox" id="consent" required>
+                            <label for="consent">I agree to receive emails from Mixtura Latina</label>
+                        </div>
+                        <input type="hidden" name="ml-submit" value="1">
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                    <div class="success-message" style="display: none;">
+                        <h4>Thank you!</h4>
+                        <p>You have successfully joined our subscriber list.</p>
                     </div>
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <div class="consent-checkbox">
-                        <input type="checkbox" id="consent" required>
-                        <label for="consent">I agree to receive emails from Mixtura Latina</label>
-                    </div>
-                    <button type="submit" class="btn-newsletter">Subscribe</button>
-                </form>
+                </div>
             </div>
+
+            <script>
+                function ml_webform_success_30940178() {
+                    const form = document.querySelector('.newsletter-form');
+                    const success = document.querySelector('.success-message');
+                    if (form && success) {
+                        form.style.display = 'none';
+                        success.style.display = 'block';
+                    }
+                }
+            </script>
+            <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"></script>
+            <script>
+                fetch("https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/takel");
+            </script>
 
             <div class="footer-social-center">
                 <h4>Follow Us</h4>
