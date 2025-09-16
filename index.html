@@ -161,48 +161,66 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="newsletter-section">
-                <h3>Join Our Newsletter</h3>
-                <p>Subscribe to receive updates about events and special offers!</p>
-                <div id="mlb2-30940178" class="newsletter-container">
-                    <form class="newsletter-form"
-                        action="https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/subscribe"
-                        method="post" target="_blank">
-                        <div class="name-fields">
-                            <input type="text" name="fields[name]" placeholder="First name" required
-                                autocomplete="given-name">
-                            <input type="text" name="fields[last_name]" placeholder="Last name" required
-                                autocomplete="family-name">
-                        </div>
-                        <input type="email" name="fields[email]" placeholder="Enter your email" required
-                            autocomplete="email">
-                        <div class="consent-checkbox">
-                            <input type="checkbox" id="consent" required>
-                            <label for="consent">I agree to receive emails from Mixtura Latina</label>
-                        </div>
-                        <input type="hidden" name="ml-submit" value="1">
-                        <button type="submit" class="btn-newsletter">Subscribe</button>
-                    </form>
-                    <div class="success-message" style="display: none;">
-                        <h4>Thank you!</h4>
-                        <p>You have successfully joined our subscriber list.</p>
+                <div class="newsletter-content">
+                    <h3>Join Our Newsletter</h3>
+                    <p>Subscribe to receive updates about events and special offers!</p>
+                    <div id="mlb2-30940178" class="newsletter-container">
+                        <form class="newsletter-form"
+                            action="https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/subscribe"
+                            method="post" target="_blank">
+                            <div class="name-fields">
+                                <input type="text" name="fields[name]" placeholder="First name" required
+                                    autocomplete="given-name">
+                                <input type="text" name="fields[last_name]" placeholder="Last name" required
+                                    autocomplete="family-name">
+                            </div>
+                            <input type="email" name="fields[email]" placeholder="Enter your email" required
+                                autocomplete="email">
+                            <div class="consent-checkbox">
+                                <input type="checkbox" id="consent" required>
+                                <label for="consent">I agree to receive emails from Mixtura Latina</label>
+                            </div>
+                            <input type="hidden" name="ml-submit" value="1">
+                            <button type="submit" class="btn-newsletter">Subscribe</button>
+                        </form>
                     </div>
+                </div>
+                <div class="success-message" style="display: none;">
+                    <h4>Thank you!</h4>
+                    <p>You have successfully joined our newsletter.</p>
                 </div>
             </div>
 
             <script>
-                function ml_webform_success_30940178() {
+                document.addEventListener('DOMContentLoaded', function () {
+                    const newsletterContent = document.querySelector('.newsletter-content');
                     const form = document.querySelector('.newsletter-form');
-                    const success = document.querySelector('.success-message');
-                    if (form && success) {
-                        form.style.display = 'none';
-                        success.style.display = 'block';
+                    const successMessage = document.querySelector('.success-message');
+
+                    if (form) {
+                        form.addEventListener('submit', async function (e) {
+                            e.preventDefault();
+
+                            try {
+                                const formData = new FormData(form);
+                                const response = await fetch(form.action, {
+                                    method: 'POST',
+                                    body: formData
+                                });
+
+                                if (response.ok) {
+                                    newsletterContent.style.display = 'none';
+                                    successMessage.style.display = 'block';
+                                }
+                            } catch (error) {
+                                console.error('Form submission error:', error);
+                            }
+                        });
                     }
-                }
+                });
             </script>
+
             <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"></script>
-            <script>
-                fetch("https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/takel");
-            </script>
 
             <div class="footer-social-center">
                 <h4>Follow Us</h4>

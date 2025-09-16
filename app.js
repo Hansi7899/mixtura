@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function loadEvents() {
         try {
             console.log('Loading events...');
-            const response = await fetch('gleisgarten-scraper/events.json');
+            const response = await fetch('./gleisgarten-scraper/events.json');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -157,30 +157,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error('Invalid events data structure');
             }
 
-            eventsGrid.innerHTML = ''; // Clear existing content
+            eventsGrid.innerHTML = '';
+
+            if (data.events.length === 0) {
+                eventsGrid.innerHTML = '<p class="error-message">No upcoming events at the moment.</p>';
+                return;
+            }
 
             data.events.forEach(event => {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'event-card';
                 eventCard.innerHTML = `
-                        <a href="${event.url}" class="event-link" target="_blank">
-                            <img src="${event.image}" 
-                                 alt="${event.title}" 
-                                 class="event-image"
-                                 onerror="this.src='media/default-event.jpg'">
-                            <div class="event-content">
-                                <div class="event-date">${event.dateTime || ''}</div>
-                                <h3 class="event-title">${event.title || ''}</h3>
-                                <p class="event-description">${event.description || ''}</p>
-                            </div>
-                        </a>
-                    `;
+                <a href="${event.url}" class="event-link" target="_blank" rel="noopener">
+                    <img src="${event.image}" 
+                         alt="${event.title}" 
+                         class="event-image"
+                         onerror="this.src='media/default-event.jpg'">
+                    <div class="event-content">
+                        <div class="event-date">${event.dateTime || ''}</div>
+                        <h3 class="event-title">${event.title || ''}</h3>
+                        <p class="event-description">${event.description || ''}</p>
+                    </div>
+                </a>
+            `;
                 eventsGrid.appendChild(eventCard);
             });
         } catch (error) {
             console.error('Error loading events:', error);
             const eventsGrid = document.getElementById('events-grid');
-            eventsGrid.innerHTML = `<p class="error-message">Unable to load events :c Try again later</p>`;
+            eventsGrid.innerHTML = `<p class="error-message">Unable to load events. Please try again later.</p>`;
         }
     }
 
