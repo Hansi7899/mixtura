@@ -243,41 +243,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     closeAllSidebars();
 
-    // Language switcher
-    const langBtn = document.querySelector('.lang-btn');
-    const langDropdown = document.querySelector('.lang-dropdown');
-    const langOptions = document.querySelectorAll('.lang-option');
-    const currentLang = document.querySelector('.current-lang');
 
-    if (langBtn && langDropdown) {
-        // Toggle dropdown on button click
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langDropdown.classList.toggle('show-dropdown');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            langDropdown.classList.remove('show-dropdown');
-        });
-
-        // Prevent dropdown from closing when clicking inside it
-        langDropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-
-        // Handle language selection
-        langOptions.forEach(option => {
-            option.addEventListener('click', function (e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-
-                currentLang.textContent = lang.toUpperCase();
-                langDropdown.classList.remove('show-dropdown');
-            });
-        });
-    }
 });
