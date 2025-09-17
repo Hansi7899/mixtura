@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Na Bumm ! – Der Kasperl kommt",
-      "dateTime": "16 Sep 16:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6613abd3386eab14b502cdc5_Banner_willkommen-768x384.png",
-      "description": "Der Kasperl kommt in den Gleis//Garten 🚂",
-      "url": "https://www.gleisgarten.com/events/na-bumm---der-kasperl-kommt-10"
-    },
-    {
       "title": "Workshop: Earrings Bar",
       "dateTime": "18 Sep 17:30-19:30",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/67d997937d1a306ae54a77ce_J%C3%A4germeister%20(8).jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/660e692a523acb1ad47e8e1a_Bild%20Komprimieren%20(4).jpg",
       "description": "Kinderschminken für Kinder 🎨",
       "url": "https://www.gleisgarten.com/events/kinderschminken-3"
+    },
+    {
+      "title": "Eltern-Stammtisch: Papainfo",
+      "dateTime": "23 Sep 16:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6718d6ef39ba19bfd2ba6210_Komprimieren%20(35).jpg",
+      "description": "mit Papainfo",
+      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-papainfo-4"
     }
   ]
 }
