@@ -733,6 +733,7 @@ a {
 }
 
 .venue-section {
+    display: flex;
     width: 100%;
     margin-top: 50px;
 }
@@ -751,8 +752,6 @@ a {
 
 .venue-content {
     display: flex;
-    padding: 50px 20px;
-    max-width: 1200px;
     margin: 0 auto;
     gap: 50px;
 }
@@ -760,7 +759,9 @@ a {
 .venue-info,
 .events-container {
     flex: 1;
-    padding-top: 40px;
+    max-width: calc(50% - 25px);
+    border-radius: 15px;
+    text-align: center;
 }
 
 .venue-info h2,
@@ -857,17 +858,9 @@ a {
 }
 
 .btn-events {
-    display: block;
     width: fit-content;
     margin: 20px auto;
-    background-color: #f4eadb;
-    color: #1d2e3e;
-}
-
-.btn-events:hover {
-    background-color: #7d333d;
-    color: white;
-    transform: scale(1.05);
+    margin-bottom: 50px;
 }
 
 
