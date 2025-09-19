@@ -250,3 +250,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const newsletterContent = document.querySelector('.newsletter-content');
+    const form = document.querySelector('.newsletter-form');
+    const successMessage = document.querySelector('.success-message');
+
+    if (form) {
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    newsletterContent.style.display = 'none';
+                    successMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+            }
+        });
+    }
+});

@@ -174,7 +174,7 @@
                             <div class="name-fields">
                                 <input type="text" name="fields[name]" placeholder="First name" required
                                     autocomplete="given-name">
-                                <input type="text" name="fields[last_name]" placeholder="Last name" required
+                                <input type="text" name="fields[last_name]" placeholder="Last name"
                                     autocomplete="family-name">
                             </div>
                             <input type="email" name="fields[email]" placeholder="Enter your email" required
@@ -193,37 +193,6 @@
                     <p>You have successfully joined our newsletter.</p>
                 </div>
             </div>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const newsletterContent = document.querySelector('.newsletter-content');
-                    const form = document.querySelector('.newsletter-form');
-                    const successMessage = document.querySelector('.success-message');
-
-                    if (form) {
-                        form.addEventListener('submit', async function (e) {
-                            e.preventDefault();
-
-                            try {
-                                const formData = new FormData(form);
-                                const response = await fetch(form.action, {
-                                    method: 'POST',
-                                    body: formData
-                                });
-
-                                if (response.ok) {
-                                    newsletterContent.style.display = 'none';
-                                    successMessage.style.display = 'block';
-                                }
-                            } catch (error) {
-                                console.error('Form submission error:', error);
-                            }
-                        });
-                    }
-                });
-            </script>
-
-            <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"></script>
 
             <div class="footer-social-center">
                 <h4>Follow Us</h4>
@@ -248,6 +217,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
     <script src="https://kit.fontawesome.com/4e352a0006.js" crossorigin="anonymous"></script>
