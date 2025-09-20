@@ -734,52 +734,51 @@ a {
 
 .venue-section {
     display: flex;
-    width: 100%;
-    margin-top: 50px;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.venue-hero {
-    width: 100%;
-    height: 45vh;
-    overflow: hidden;
-}
-
-.venue-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.venue-hero .venue-content {
+    display: flex;
+    flex: 1;
+    max-width: calc(50% - 25px);
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
 .venue-content {
     display: flex;
+    padding: 50px 20px;
+    max-width: 1400px;
     margin: 0 auto;
     gap: 50px;
+    align-items: center;
 }
 
-.venue-info,
-.events-container {
+.venue-info {
     flex: 1;
-    max-width: calc(50% - 25px);
-    border-radius: 15px;
+    padding: 40px;
     text-align: center;
 }
 
-.venue-info h2,
-.events-container h2 {
-    color: #7d333d;
-    font-size: clamp(1.5em, 3vw, 2em);
-    margin-bottom: 20px;
+.venue-hero img {
+    width: 700px;
+    border-radius: 15px;
 }
 
 .venue-info p {
     font-family: "Raleway", sans-serif;
-    font-size: clamp(14px, 3vw, 22px);
+    font-size: clamp(12px, 2vw, 15px);
     margin-bottom: 20px;
     line-height: 1.3;
     text-align: center;
 }
 
-.events-container {
+/* .events-container {
     background: white;
     border-radius: 15px;
     padding: 30px;
@@ -855,7 +854,7 @@ a {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.9em;
     line-height: 1.4;
-}
+} */
 
 .btn-events {
     width: fit-content;
@@ -1020,6 +1019,16 @@ a {
     .contact-details {
         font-size: clamp(14px, 2vw, 16px);
 
+    }
+
+    .venue-content {
+        padding: 0;
+    }
+
+    .venue-info {
+        font-size: clamp(12px, 2vw, 10px);
+
+        padding: 0px;
     }
 }
 
@@ -1215,27 +1224,27 @@ a {
 
     }
 
-    .venue-content {
+    .venue-section {
         flex-direction: column;
+        padding: auto 20px 20px 50px;
+        gap: 0px;
     }
 
-    .venue-hero {
-        height: 50vh;
-    }
 
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 
-    .newsletter-section {
-        text-align: center;
+    .venue-hero img {
+        width: 100%;
+        max-width: auto;
     }
 
     .venue-info {
+        width: 100%;
         padding-top: 0;
+        padding: 20px;
+        text-align: center;
     }
+
+
 }
 
 

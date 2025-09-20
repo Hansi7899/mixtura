@@ -145,16 +145,16 @@
             <form action="https://formspree.io/f/xzzvweyg" method="POST">
                 <input type="hidden" name="form-name" value="Contact">
                 <div class="form-group">
-                    <input type="text" name="Name" placeholder="Your name *" required>
+                    <input type="text" id="name" name="name" placeholder="Your name *" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="Email" placeholder="Your email *" required>
+                    <input type="email" id="email" name="email" placeholder="Your email *" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" name="Phone" placeholder="Your phone number">
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number">
                 </div>
                 <div class="form-group">
-                    <textarea name="Message" placeholder="Your message *" required></textarea>
+                    <textarea id="message" name="message" placeholder="Your message *" required></textarea>
                 </div>
                 <p class="required">* required fields</p>
                 <button type="submit" class="btn">Send Message</button>
@@ -183,38 +183,42 @@
             </div>
         </div>
     </section>
+
     <footer class="main-footer">
         <div class="footer-content">
-            <div class="newsletter-content">
-                <h3>Join Our Newsletter</h3>
-                <p>Subscribe to receive updates about events and special offers!</p>
-                <div id="mlb2-30940178" class="newsletter-container">
-                    <form class="newsletter-form"
-                        action="https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/subscribe"
-                        method="post" target="_blank">
-                        <div class="name-fields">
-                            <input type="text" name="fields[name]" placeholder="First name" required
-                                autocomplete="given-name">
-                            <input type="text" name="fields[last_name]" placeholder="Last name"
-                                autocomplete="family-name">
-                        </div>
-                        <input type="email" name="fields[email]" placeholder="Enter your email" required
-                            autocomplete="email">
-                        <div class="consent-checkbox">
-                            <input type="checkbox" id="consent" required>
-                            <label for="consent">I agree to receive emails from Mixtura Latina</label>
-                        </div>
-                        <input type="hidden" name="ml-submit" value="1">
-                        <button type="submit" class="btn-newsletter">Subscribe</button>
-                    </form>
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <h3>Join Our Newsletter</h3>
+                    <p>Subscribe to receive updates about events and special offers!</p>
+                    <div id="mlb2-30940178" class="newsletter-container">
+                        <form class="newsletter-form"
+                            action="https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/subscribe"
+                            method="post" target="_blank">
+                            <div class="name-fields">
+                                <input type="text" name="fields[name]" placeholder="First name" required
+                                    autocomplete="given-name">
+                                <input type="text" name="fields[last_name]" placeholder="Last name"
+                                    autocomplete="family-name">
+                            </div>
+                            <input type="email" name="fields[email]" placeholder="Enter your email" required
+                                autocomplete="email">
+                            <div class="consent-checkbox">
+                                <input type="checkbox" id="consent" required>
+                                <label for="consent">I agree to receive emails from Mixtura Latina</label>
+                            </div>
+                            <input type="hidden" name="ml-submit" value="1">
+                            <button type="submit" class="btn-newsletter">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="success-message" style="display: none;">
+                    <h4>Thank you!</h4>
+                    <p>You have successfully joined our newsletter.</p>
                 </div>
             </div>
-            <div class="success-message" style="display: none;">
-                <h4>Thank you!</h4>
-                <p>You have successfully joined our newsletter.</p>
-            </div>
-
             <div class="footer-social-center">
+                <a href="https://www.gleisgarten.com/events" class="btn btn-events" target="_blank" rel="noopener">View
+                    Upcoming Events</a>
                 <h4>Follow Us</h4>
                 <div class="social-links">
                     <a href="https://www.instagram.com/mixturalatina.at/" target="_blank" rel="noopener"><i
@@ -224,6 +228,7 @@
                     <a href="https://www.tiktok.com/@mixturalatina.at" target="_blank" rel="noopener"><i
                             class="fa-brands fa-tiktok"></i></a>
                 </div>
+
             </div>
         </div>
 
