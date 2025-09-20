@@ -607,7 +607,6 @@ a {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: clamp(10px, 2vw, 14px);
-
     margin-top: 30px;
     width: 50%;
 }
@@ -1188,7 +1187,7 @@ a {
 
 
     .social-small {
-        margin-top: 30px;
+        margin-top: 70px;
         display: flex;
         justify-content: center;
         font-weight: 700;
@@ -1483,10 +1482,6 @@ a {
     .menu-items {
         flex-direction: column;
         align-items: center;
-    }
-
-    .contact-form button {
-        width: 0%;
     }
 
 }
