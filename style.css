@@ -868,13 +868,14 @@ a {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: clamp(12px, 2vw, 16px);
+    margin-top: 100px;
 }
 
 
 .main-footer {
     background: #001982;
     padding: 60px 20px 20px;
-    margin-top: 100px;
+    margin-top: 150px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
