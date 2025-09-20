@@ -512,6 +512,7 @@ a {
     font-size: clamp(16px, 2.5vw, 28px);
     margin: 0;
     color: white;
+    translate: no;
 }
 
 .menu-line {
@@ -923,7 +924,7 @@ a {
 .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .newsletter-form input[type="email"] {
@@ -937,7 +938,7 @@ a {
 .consent-checkbox {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     color: white;
 }
 
@@ -1232,7 +1233,7 @@ a {
     }
 
     .contact-social a {
-        font-size: 1.8em;
+        font-size: 2.2em;
         margin: 0 10px;
     }
 
@@ -1559,4 +1560,24 @@ a {
 
 .name-fields input::placeholder {
     color: rgba(255, 255, 255, 0.7);
+}
+
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.form-success h3 {
+    color: #FFCE00;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.form-success p {
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.1em;
 }

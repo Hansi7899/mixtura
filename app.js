@@ -98,107 +98,132 @@ function syncNavSidebarActiveState() {
     });
 }
 
-// Combine all DOMContentLoaded events into one
+// Move these variables to the top of the file
+let contactForm = null;
+let newsletterForm = null;
+
 document.addEventListener('DOMContentLoaded', function () {
+    // Update variable references
+    contactForm = document.getElementById('contactForm');
+    newsletterForm = document.querySelector('.newsletter-form');
+
     // Sync nav sidebar
     syncNavSidebarActiveState();
 
-    // Handle contact form if it exists
-    const form = document.querySelector('.contact-form form');
-    if (form) {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('status') === 'success') {
-            alert('Thank you for your message! We will get back to you soon.');
-        }
+    // Handle newsletter form
+    const newsletterContent = document.querySelector('.newsletter-content');
+    const successMessage = document.querySelector('.success-message');
 
-        // Add form submission handler
-        form.addEventListener('submit', function (e) {
+    if (newsletterForm) {
+        const submitHandler = async function (e) {
+            e.preventDefault();
+            try {
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    if (newsletterContent) {
+                        newsletterContent.style.display = 'none';
+                    }
+                    if (successMessage) {
+                        successMessage.style.display = 'block';
+                    } else {
+                        // Create success message if it doesn't exist
+                        const newSuccess = document.createElement('div');
+                        newSuccess.className = 'success-message';
+                        newSuccess.innerHTML = `
+                            <h3>Thank You!</h3>
+                            <p>You have successfully joined our newsletter.</p>
+                        `;
+                        this.parentNode.appendChild(newSuccess);
+                    }
+                }
+            } catch (error) {
+                console.error('Newsletter submission error:', error);
+            }
+        };
+        newsletterForm.submitHandler = submitHandler;
+        newsletterForm.addEventListener('submit', submitHandler);
+    }
+
+    // Handle contact form
+    const formContainer = document.querySelector('.contact-form');
+
+    if (contactForm && formContainer) {
+        const submitHandler = async function (e) {
             e.preventDefault();
 
-            // Basic validation
-            const requiredFields = form.querySelectorAll('[required]');
-            let isValid = true;
+            try {
+                const formData = new FormData(this);
+                const response = await fetch('https://formspree.io/f/xzzvweyg', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('error');
-                } else {
-                    field.classList.remove('error');
+                if (response.ok) {
+                    // Hide only the form and the header text
+                    const formTitle = formContainer.querySelector('h2');
+                    const formDesc = formContainer.querySelector('p:not(.form-success p)');
+
+                    if (formTitle) formTitle.style.display = 'none';
+                    if (formDesc) formDesc.style.display = 'none';
+                    contactForm.style.display = 'none';
+
+                    // Show or create success message
+                    let successMessage = formContainer.querySelector('.form-success');
+                    if (!successMessage) {
+                        successMessage = document.createElement('div');
+                        successMessage.className = 'form-success';
+                        successMessage.innerHTML = `
+                            <h3>Thank You!</h3>
+                            <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                        `;
+                        formContainer.appendChild(successMessage);
+                    }
+                    successMessage.style.display = 'block';
+
+                    // Clear form
+                    this.reset();
                 }
-            });
-
-            if (isValid) {
-                form.submit();
+            } catch (error) {
+                console.error('Contact form error:', error);
+                alert('There was a problem sending your message. Please try again.');
             }
-        });
+        };
+        contactForm.submitHandler = submitHandler;
+        contactForm.addEventListener('submit', submitHandler);
     }
 
+    // Handle events grid
     const eventsGrid = document.getElementById('events-grid');
-
     if (eventsGrid) {
-        console.log('Events grid found');
         loadEvents();
     }
-
-    async function loadEvents() {
-        try {
-            console.log('Loading events...');
-            const response = await fetch('./gleisgarten-scraper/events.json');
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            const eventsGrid = document.getElementById('events-grid');
-
-            if (!data.events || !Array.isArray(data.events)) {
-                throw new Error('Invalid events data structure');
-            }
-
-            eventsGrid.innerHTML = '';
-
-            if (data.events.length === 0) {
-                eventsGrid.innerHTML = '<p class="error-message">No upcoming events at the moment.</p>';
-                return;
-            }
-
-            data.events.forEach(event => {
-                const eventCard = document.createElement('div');
-                eventCard.className = 'event-card';
-                eventCard.innerHTML = `
-                <a href="${event.url}" class="event-link" target="_blank" rel="noopener">
-                    <img src="${event.image}" 
-                         alt="${event.title}" 
-                         class="event-image"
-                         onerror="this.src='media/default-event.jpg'">
-                    <div class="event-content">
-                        <div class="event-date">${event.dateTime || ''}</div>
-                        <h3 class="event-title">${event.title || ''}</h3>
-                        <p class="event-description">${event.description || ''}</p>
-                    </div>
-                </a>
-            `;
-                eventsGrid.appendChild(eventCard);
-            });
-        } catch (error) {
-            console.error('Error loading events:', error);
-            const eventsGrid = document.getElementById('events-grid');
-            eventsGrid.innerHTML = `<p class="error-message">Unable to load events. Please try again later.</p>`;
-        }
-    }
-
-    // Load events
-    loadEvents();
 
     const menuItems = document.querySelectorAll(".starters");
     const previewImg = document.getElementById("menu-preview-img");
 
+    // Add error handling for menu preview images
+    function updatePreviewImage(img, src) {
+        if (img) {
+            img.onerror = () => {
+                img.src = 'media/default-menu.jpg';
+                console.error('Failed to load menu image:', src);
+            };
+            img.src = src;
+        }
+    }
+
     menuItems.forEach(item => {
         item.addEventListener("click", () => {
             const imgSrc = item.getAttribute("data-image");
-            previewImg.src = imgSrc;
+            updatePreviewImage(previewImg, imgSrc);
         });
     });
 
@@ -250,29 +275,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
-document.addEventListener('DOMContentLoaded', function () {
-    const newsletterContent = document.querySelector('.newsletter-content');
-    const form = document.querySelector('.newsletter-form');
-    const successMessage = document.querySelector('.success-message');
 
-    if (form) {
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
+// Move loadEvents function outside DOMContentLoaded
+async function loadEvents() {
+    try {
+        console.log('Loading events...');
+        const response = await fetch('./gleisgarten-scraper/events.json');
 
-            try {
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData
-                });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-                if (response.ok) {
-                    newsletterContent.style.display = 'none';
-                    successMessage.style.display = 'block';
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-            }
+        const data = await response.json();
+        const eventsGrid = document.getElementById('events-grid');
+
+        if (!data.events || !Array.isArray(data.events)) {
+            throw new Error('Invalid events data structure');
+        }
+
+        eventsGrid.innerHTML = '';
+
+        if (data.events.length === 0) {
+            eventsGrid.innerHTML = '<p class="error-message">No upcoming events at the moment.</p>';
+            return;
+        }
+
+        data.events.forEach(event => {
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card';
+            eventCard.innerHTML = `
+                <a href="${event.url}" class="event-link" target="_blank" rel="noopener">
+                    <img src="${event.image}" 
+                         alt="${event.title}" 
+                         class="event-image"
+                         onerror="this.src='media/default-event.jpg'">
+                    <div class="event-content">
+                        <div class="event-date">${event.dateTime || ''}</div>
+                        <h3 class="event-title">${event.title || ''}</h3>
+                        <p class="event-description">${event.description || ''}</p>
+                    </div>
+                </a>
+            `;
+            eventsGrid.appendChild(eventCard);
         });
+    } catch (error) {
+        console.error('Error loading events:', error);
+        const eventsGrid = document.getElementById('events-grid');
+        eventsGrid.innerHTML = `<p class="error-message">Unable to load events. Please try again later.</p>`;
     }
+}
+
+// Add cleanup function for forms
+function cleanupForm(form) {
+    if (form) {
+        form.removeEventListener('submit', form.submitHandler);
+    }
+}
+
+// Add to relevant event listeners
+window.addEventListener('unload', () => {
+    cleanupForm(contactForm);
+    cleanupForm(newsletterForm);
 });
