@@ -411,6 +411,7 @@ a {
     flex-direction: column;
     align-items: center;
     padding: 0 10px;
+    margin-bottom: 50px;
 }
 
 .hero-text p {
@@ -858,17 +859,17 @@ a {
 } */
 
 .btn-events {
+    float: right;
     background: #FFCE00;
     color: #001982;
-    width: 100%;
     padding: 12px 24px;
     border: none;
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 40px;
-    font-size: clamp(14px, 2vw, 18px);
+    font-size: clamp(12px, 2vw, 16px);
+
 }
 
 
