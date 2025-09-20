@@ -337,3 +337,31 @@ window.addEventListener('unload', () => {
     cleanupForm(contactForm);
     cleanupForm(newsletterForm);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Burger menu functionality
+    const burger = document.querySelector('.burger');
+    const navSidebar = document.querySelector('.nav-sidebar');
+    const closeNavSidebar = document.querySelector('.close-nav-sidebar');
+
+    if (burger && navSidebar && closeNavSidebar) {
+        // Open menu
+        burger.addEventListener('click', () => {
+            navSidebar.classList.add('show');
+        });
+
+        // Close menu
+        closeNavSidebar.addEventListener('click', () => {
+            navSidebar.classList.remove('show');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navSidebar.contains(e.target) && !burger.contains(e.target)) {
+                navSidebar.classList.remove('show');
+            }
+        });
+    }
+
+});
+
