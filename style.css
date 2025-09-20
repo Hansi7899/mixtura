@@ -598,13 +598,23 @@ a {
 }
 
 .contact-form button {
+    background: #FFCE00;
+    color: #001982;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: clamp(10px, 2vw, 14px);
+
     margin-top: 30px;
     width: 50%;
 }
 
 .contact-form button:hover {
-    background: #FFCE00;
-    color: black;
+    background: white;
+    color: #001982;
     transform: scale(1.05);
 }
 
