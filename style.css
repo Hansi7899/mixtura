@@ -1321,6 +1321,10 @@ a {
         gap: 30px;
     }
 
+    .footer-social-center {
+        order: 1;
+        margin-top: 20px;
+    }
 }
 
 
