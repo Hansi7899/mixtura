@@ -868,7 +868,10 @@ a {
 } */
 
 .btn-events {
-    float: right;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #FFCE00;
     color: #001982;
     padding: 12px 24px;
@@ -885,7 +888,6 @@ a {
 .main-footer {
     background: #001982;
     padding: 60px 20px 20px;
-    margin-top: 150px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -924,10 +926,10 @@ a {
 .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .newsletter-form input[type="email"] {
+    margin-top: -5px;
     padding: 12px;
     border-radius: 25px;
     border: none;
@@ -940,6 +942,7 @@ a {
     align-items: center;
     gap: 5px;
     color: white;
+    margin: 30px 0;
 }
 
 .btn-newsletter {
@@ -1249,7 +1252,7 @@ a {
 
     .venue-section {
         flex-direction: column;
-        padding: auto 20px 20px 50px;
+        padding: 20px 20px 0px 20px;
         gap: 0px;
     }
 
