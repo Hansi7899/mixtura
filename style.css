@@ -915,7 +915,6 @@ a {
 
 .newsletter-section p {
     font-family: "Raleway", sans-serif;
-    color: white;
     margin-bottom: 20px;
 }
 
@@ -926,6 +925,11 @@ a {
 .newsletter-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    /* Set a maximum width */
+    margin: 0 auto;
+    /* Center the form */
 }
 
 .newsletter-form input[type="email"] {
@@ -1550,32 +1554,27 @@ a {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .name-fields input {
     flex: 1;
+    min-width: 0;
+    /* This prevents flex items from overflowing */
     padding: 12px;
     border-radius: 25px;
     border: none;
     background: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
 }
 
-.form-success {
-    display: none;
-    text-align: center;
-    padding: 40px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
+@media screen and (max-width: 768px) {
+    .name-fields {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.form-success h3 {
-    color: #FFCE00;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.form-success p {
-    color: white;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.1em;
+    .name-fields input {
+        width: 100%;
+    }
 }
