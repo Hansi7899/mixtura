@@ -1558,11 +1558,6 @@ a {
     border-radius: 25px;
     border: none;
     background: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.name-fields input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
 }
 
 .form-success {
