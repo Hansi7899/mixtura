@@ -1,4 +1,5 @@
 * {
+    width: auto;
     margin: 0px;
     padding: 0px;
     border: none;
@@ -9,6 +10,7 @@
 
 body {
     background: #001982;
+    width: auto;
     margin: 0;
     font-weight: 400;
     letter-spacing: 1px;
@@ -215,6 +217,38 @@ a {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* Responsive adjustments for different screen sizes */
+@media screen and (max-width: 1200px) {
+    .swiper {
+        height: 45vh;
+        max-height: 450px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .swiper {
+        height: 40vh;
+        min-height: 250px;
+        max-height: 350px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .swiper {
+        height: 35vh;
+        min-height: 200px;
+        max-height: 280px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .swiper {
+        height: 30vh;
+        min-height: 180px;
+        max-height: 250px;
+    }
 }
 
 .middle-title {
