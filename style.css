@@ -738,7 +738,7 @@ a {
 
 .weekday {
     font-weight: bold;
-    min-width: 140px;
+    min-width: 160px;
     margin-right: auto;
     text-align: left;
 }
@@ -1039,7 +1039,7 @@ a {
     }
 
     .contact-details {
-        font-size: clamp(14px, 2vw, 16px);
+        font-size: clamp(15px, 2vw, 17px);
 
     }
 
@@ -1056,7 +1056,7 @@ a {
 
 @media screen and (max-width: 950px) and (min-width: 770px) {
     .contact-details li {
-        font-size: clamp(10px, 1vw, 11px);
+        font-size: clamp(11px, 1vw, 12px);
     }
 
     .weekday {
@@ -1440,11 +1440,11 @@ a {
     }
 
     .contact-details a {
-        font-size: clamp(13px, 2.5vw, 15px);
+        font-size: clamp(14px, 2.5vw, 16px);
     }
 
     .contact-details li {
-        font-size: clamp(10px, 2vw, 12px);
+        font-size: clamp(11px, 2vw, 13px);
     }
 
     .contact-details ul {
