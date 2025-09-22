@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Burger Festival",
-      "dateTime": "21 Sep 18.-21.Sept",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68b586986183a033fa4c0f9d_Burger%20Festival%20(5).jpg",
-      "description": "",
-      "url": "https://www.gleisgarten.com/events/burgerfestival"
-    },
-    {
       "title": "Beer Pong Monday",
       "dateTime": "01.-29. Sep",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6674349a5730ba222e5b9eb9_Kompremieren.jpg",
       "description": "Lust, dich nach einem langen Arbeitstag einfach mal kreativ auszutoben?\n🖌️",
       "url": "https://www.gleisgarten.com/events/workshop-paint-sip---das-aussergewohnliche-afterwork-erlebnis-in-wien"
+    },
+    {
+      "title": "Charity-Flohmarkt",
+      "dateTime": "28 Sep 11:00-17:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a41acf4a9dcb10efa97c9e_Komprimieren%20(2).jpg",
+      "description": "Raritäten // Wertvolles von Stars & Athleten 💌",
+      "url": "https://www.gleisgarten.com/events/flohmarkt"
     }
   ]
 }
