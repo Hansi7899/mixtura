@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Beer Pong Monday",
-      "dateTime": "01.-29. Sep",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
-      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
-      "url": "https://www.gleisgarten.com/events/beer-pong-monday-4"
-    },
-    {
       "title": "Kinderschminken",
       "dateTime": "23 Sep 16:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/660e692a523acb1ad47e8e1a_Bild%20Komprimieren%20(4).jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a41acf4a9dcb10efa97c9e_Komprimieren%20(2).jpg",
       "description": "Raritäten // Wertvolles von Stars & Athleten 💌",
       "url": "https://www.gleisgarten.com/events/flohmarkt"
+    },
+    {
+      "title": "Beer Pong Monday",
+      "dateTime": "01.-29. Sep",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
+      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
+      "url": "https://www.gleisgarten.com/events/beer-pong-monday-5"
     }
   ]
 }
