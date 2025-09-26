@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Paint & Sip",
-      "dateTime": "25 Sep 19:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6674349a5730ba222e5b9eb9_Kompremieren.jpg",
-      "description": "Lust, dich nach einem langen Arbeitstag einfach mal kreativ auszutoben?\n🖌️",
-      "url": "https://www.gleisgarten.com/events/workshop-paint-sip---das-aussergewohnliche-afterwork-erlebnis-in-wien"
-    },
-    {
       "title": "Charity-Flohmarkt",
       "dateTime": "28 Sep 11:00-17:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a41acf4a9dcb10efa97c9e_Komprimieren%20(2).jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ba41b2a6e2036cd90a881d_Fotokomposition%205-Kreis%20Venn-Dia.png",
       "description": "Ein Quizabend nur für die Erwachsenen!",
       "url": "https://www.gleisgarten.com/events/foodhall-quiz-9"
+    },
+    {
+      "title": "Eltern-Stammtisch: Elternwerkstatt 🧒",
+      "dateTime": "30 Sep ab 16 Uhr",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65df053703ac144c18cd5325_Fotokomposition%205-Kreis%20Venn-Dia%20(6).png",
+      "description": "Spannender Austausch mit Expert:innen!",
+      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-elternwerkstatt-14"
     }
   ]
 }
