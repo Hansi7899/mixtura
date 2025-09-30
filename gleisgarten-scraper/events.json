@@ -1,39 +1,39 @@
 {
   "events": [
     {
-      "title": "Burger Festival",
-      "dateTime": "21 Sep 18.-21.Sept",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68b586986183a033fa4c0f9d_Burger%20Festival%20(5).jpg",
-      "description": "",
-      "url": "https://www.gleisgarten.com/events/burgerfestival"
+      "title": "Foodmarket Quiz",
+      "dateTime": "30 Sep 19:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ba41b2a6e2036cd90a881d_Fotokomposition%205-Kreis%20Venn-Dia.png",
+      "description": "Ein Quizabend nur für die Erwachsenen!",
+      "url": "https://www.gleisgarten.com/events/foodhall-quiz-9"
     },
     {
-      "title": "Beer Pong Monday",
-      "dateTime": "01.-29. Sep",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6890c1a80f68da0ff7e529b4_Beer%20Pong%20Monday.jpg",
-      "description": "Im September heißt es wieder: Beer Pong & beste Stimmung zum Semesterstart!",
-      "url": "https://www.gleisgarten.com/events/beer-pong-monday-4"
+      "title": "Eltern-Stammtisch: Elternwerkstatt 🧒",
+      "dateTime": "30 Sep ab 16 Uhr",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65df053703ac144c18cd5325_Fotokomposition%205-Kreis%20Venn-Dia%20(6).png",
+      "description": "Spannender Austausch mit Expert:innen!",
+      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-elternwerkstatt-14"
     },
     {
-      "title": "Kinderschminken",
-      "dateTime": "23 Sep 16:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/660e692a523acb1ad47e8e1a_Bild%20Komprimieren%20(4).jpg",
-      "description": "Kinderschminken für Kinder 🎨",
-      "url": "https://www.gleisgarten.com/events/kinderschminken-3"
+      "title": "Linoldruck Workshop",
+      "dateTime": "2 Okt 17:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a48e6f77667f8d7e519f1b_WorkshopGleisGartenBanner_1%20(1).jpeg",
+      "description": "Schritt für Schritt zum Profi!",
+      "url": "https://www.gleisgarten.com/events/linoldruck-workshop-14"
     },
     {
-      "title": "Eltern-Stammtisch: Papainfo",
-      "dateTime": "23 Sep 16:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6718d6ef39ba19bfd2ba6210_Komprimieren%20(35).jpg",
-      "description": "mit Papainfo",
-      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-papainfo-4"
+      "title": "Oktoberfest unter Palmen🌴",
+      "dateTime": "5 Okt 02.-05.Okt",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a33292d4e245d3a2a25173_Komprimieren.jpg",
+      "description": "Unter dem Motto „O’zapft is!“ laden wir euch vom 2. bis 5. Oktober ein, die goldene Jahreszeit mit uns zu feiern. Euch erwarten vier Tage voller bayrischer Gemütlichkeit, Live-Musik, Tanz und traditioneller Schmankerl. Kommt vorbei, bringt eure Freund*innen mit und erlebt ein Stück Oktoberfest-Tradition in bester Gleis//Garten-Atmosphäre. Wir freuen uns auf euch – Prost! 🍻🎉",
+      "url": "https://www.gleisgarten.com/events/gleis-garten-oktoberfest-2"
     },
     {
-      "title": "Paint & Sip",
-      "dateTime": "25 Sep 19:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6674349a5730ba222e5b9eb9_Kompremieren.jpg",
-      "description": "Lust, dich nach einem langen Arbeitstag einfach mal kreativ auszutoben?\n🖌️",
-      "url": "https://www.gleisgarten.com/events/workshop-paint-sip---das-aussergewohnliche-afterwork-erlebnis-in-wien"
+      "title": "VOLXkino 📽",
+      "dateTime": "6 Okt Montag| 19:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68d402b0fe638e7c014e20d3_VOLXKino%20im%20GleisGarten%20(6)%20(1).jpg",
+      "description": "Wöchentlicher gratis Kinoabend!",
+      "url": "https://www.gleisgarten.com/events/volxkino-2"
     }
   ]
 }
