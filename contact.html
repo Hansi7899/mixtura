@@ -118,14 +118,15 @@
                         Eichenstraße 2, 1120 Wien</a></p><br>
                 <p><i class="fas fa-phone"></i><a href="tel:+4369010183870"> +43 690 10183870</a></p><br>
                 <p><a href="mailto:mixturalatinaeu@gmail.com"><i class="fas fa-envelope"></i>
-                        mixturalatinaeu@gmail.com</a>
+                        office@mixturalatina.at</a>
                 </p>
                 <br><br>
-                <h3>Opening Hours</h3>
+                <h3>Latin Kitchen Opening Hours</h3>
                 <ul>
-                    <li><span class="weekday">Monday - Wednesday </span> <span class="time">16:00 - 24:00</span></li>
-                    <li><span class="weekday">Thursday - Friday: </span><span class="time">11:30 - 24:00</span></li>
-                    <li><span class="weekday">Saturday - Sunday: </span><span class="time">11:00 - 24:00</span></li>
+                    <li><span class="weekday">Monday - Wednesday: </span> <span class="time">16:00 - 22:00</span></li>
+                    <li><span class="weekday">Thursday: </span><span class="time">11:00 - 22:00</span></li>
+                    <li><span class="weekday">Friday - Saturday: </span><span class="time">11:00 - 23:00</span></li>
+                    <li><span class="weekday">Sunday: </span><span class="time">11:00 - 21:00</span></li>
                 </ul><br>
 
                 <div class="social-links contact-social">
@@ -140,9 +141,15 @@
         </div>
 
         <div class="contact-form">
-            <h2>Message Us!</h2>
-            <p>Contact us - We aim to respond within 24 hours and are happy to help!</p>
+            <h2>Contact Us</h2>
+            <p>Fill out this form and we'll get back to you soon.</p>
+
+            <!-- Default view: Show form -->
             <form id="contactForm">
+                <input type="hidden" name="access_key" value="99abb3d3-8b45-4df1-963d-1fb50be45c94">
+                <input type="hidden" name="subject" value="Nuevo Mensaje - Mixtura Latina">
+                <input type="hidden" name="from_name" value="Mixtura Latina Website">
+                <input type="hidden" name="replyto" id="replyto">
                 <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Your name *" required>
                 </div>
@@ -158,9 +165,12 @@
                 <p class="required">* required fields</p>
                 <button type="submit" class="btn btn-form">Send Message</button>
             </form>
-            <div class="form-success" style="display: none;">
+
+            <!-- Success message (hidden by default) -->
+            <div class="form-success" id="success">
                 <h3>Thank You!</h3>
-                <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                <p>Your message has been sent successfully. We will get back to you soon!</p>
+                </p>
             </div>
         </div>
     </main>

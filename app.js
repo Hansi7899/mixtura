@@ -18,6 +18,7 @@ function setActiveLink(link) {
 // Apply to both main menu and sidebar links
 mainMenuLinks.forEach(setActiveLink);
 sidebarLinks.forEach(setActiveLink);
+
 // Sidebar elements
 const burgerBtn = document.querySelector('.info-btn');
 const infoSidebar = document.getElementById('infoSidebar');
@@ -37,21 +38,21 @@ function closeAllSidebars() {
 }
 
 // Hamburger button click handler
-burgerBtn.addEventListener('click', () => {
-    if (isMobile()) {
-        // On mobile, show navigation sidebar
-        closeAllSidebars();
-        if (navSidebar) {
-            navSidebar.classList.add('show');
+if (burgerBtn) {
+    burgerBtn.addEventListener('click', () => {
+        if (isMobile()) {
+            closeAllSidebars();
+            if (navSidebar) {
+                navSidebar.classList.add('show');
+            }
+        } else {
+            closeAllSidebars();
+            if (infoSidebar) {
+                infoSidebar.classList.add('show');
+            }
         }
-    } else {
-        // On desktop, show info sidebar
-        closeAllSidebars();
-        if (infoSidebar) {
-            infoSidebar.classList.add('show');
-        }
-    }
-});
+    });
+}
 
 // Close button handlers
 if (closeInfoBtn) {
@@ -84,7 +85,6 @@ document.addEventListener('click', (e) => {
 
 // Handle window resize
 window.addEventListener('resize', () => {
-    // Close all sidebars on resize to prevent issues
     closeAllSidebars();
 });
 
@@ -98,24 +98,16 @@ function syncNavSidebarActiveState() {
     });
 }
 
-// Move these variables to the top of the file
-let contactForm = null;
-let newsletterForm = null;
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Update variable references
-    contactForm = document.getElementById('contactForm');
-    newsletterForm = document.querySelector('.newsletter-form');
-
-    // Sync nav sidebar
     syncNavSidebarActiveState();
 
     // Handle newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form');
     const newsletterContent = document.querySelector('.newsletter-content');
     const successMessage = document.querySelector('.success-message');
 
     if (newsletterForm) {
-        const submitHandler = async function (e) {
+        newsletterForm.addEventListener('submit', async function (e) {
             e.preventDefault();
             try {
                 const formData = new FormData(this);
@@ -131,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (successMessage) {
                         successMessage.style.display = 'block';
                     } else {
-                        // Create success message if it doesn't exist
                         const newSuccess = document.createElement('div');
                         newSuccess.className = 'success-message';
                         newSuccess.innerHTML = `
@@ -144,30 +135,27 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (error) {
                 console.error('Newsletter submission error:', error);
             }
-        };
-        newsletterForm.submitHandler = submitHandler;
-        newsletterForm.addEventListener('submit', submitHandler);
+        });
     }
 
-    // Handle contact form
+    // Contact form handler - prevent page redirect
+    const contactForm = document.getElementById('contactForm');
     const formContainer = document.querySelector('.contact-form');
 
     if (contactForm && formContainer) {
-        const submitHandler = async function (e) {
-            e.preventDefault();
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault(); // Prevent opening new page
 
             try {
+                // Submit form data to Web3Forms
                 const formData = new FormData(this);
-                const response = await fetch('https://formspree.io/f/xzzvweyg', {
+                const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    body: formData
                 });
 
                 if (response.ok) {
-                    // Hide only the form and the header text
+                    // Hide form elements
                     const formTitle = formContainer.querySelector('h2');
                     const formDesc = formContainer.querySelector('p:not(.form-success p)');
 
@@ -175,29 +163,30 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (formDesc) formDesc.style.display = 'none';
                     contactForm.style.display = 'none';
 
-                    // Show or create success message
+                    // Show success message
                     let successMessage = formContainer.querySelector('.form-success');
                     if (!successMessage) {
                         successMessage = document.createElement('div');
                         successMessage.className = 'form-success';
                         successMessage.innerHTML = `
-                            <h3>Thank You!</h3>
-                            <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                            <h3>¡Gracias!</h3>
+                            <p>Tu mensaje ha sido enviado exitosamente. Te responderemos pronto!</p>
+                            <p class="spam-note">
+                                <strong>Nota:</strong> Por favor revisa tu carpeta de spam y agrega 
+                                <em>noreply@web3forms.com</em> a tus contactos.
+                            </p>
                         `;
                         formContainer.appendChild(successMessage);
                     }
-                    successMessage.style.display = 'block';
-
-                    // Clear form
-                    this.reset();
+                    successMessage.style.display = 'flex';
+                } else {
+                    throw new Error('Form submission failed');
                 }
             } catch (error) {
-                console.error('Contact form error:', error);
+                console.error('Error submitting form:', error);
                 alert('There was a problem sending your message. Please try again.');
             }
-        };
-        contactForm.submitHandler = submitHandler;
-        contactForm.addEventListener('submit', submitHandler);
+        });
     }
 
     // Handle events grid
@@ -206,10 +195,10 @@ document.addEventListener('DOMContentLoaded', function () {
         loadEvents();
     }
 
+    // Menu preview functionality
     const menuItems = document.querySelectorAll(".starters");
     const previewImg = document.getElementById("menu-preview-img");
 
-    // Add error handling for menu preview images
     function updatePreviewImage(img, src) {
         if (img) {
             img.onerror = () => {
@@ -233,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menuItemsMain.forEach(item => {
         item.addEventListener("click", () => {
             const imgSrcMain = item.getAttribute("data-image");
-            previewImgMain.src = imgSrcMain;
+            updatePreviewImage(previewImgMain, imgSrcMain);
         });
     });
 
@@ -243,40 +232,38 @@ document.addEventListener('DOMContentLoaded', function () {
     menuItemsDess.forEach(item => {
         item.addEventListener("click", () => {
             const imgSrcDess = item.getAttribute("data-image");
-            previewImgDess.src = imgSrcDess;
+            updatePreviewImage(previewImgDess, imgSrcDess);
         });
     });
 
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 0,
+    // Initialize Swiper
+    if (typeof Swiper !== 'undefined') {
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 1,
+            centeredSlides: true,
+            spaceBetween: 0,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            grabCursor: true,
+            effect: "slide",
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    }
 
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-
-        grabCursor: true, // enables grabbing hand + drag
-        effect: "slide",  // make sure it's sliding, not fading
-
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
     closeAllSidebars();
-
-
 });
 
-// Move loadEvents function outside DOMContentLoaded
+// Load events function
 async function loadEvents() {
     try {
         console.log('Loading events...');
@@ -288,6 +275,8 @@ async function loadEvents() {
 
         const data = await response.json();
         const eventsGrid = document.getElementById('events-grid');
+
+        if (!eventsGrid) return;
 
         if (!data.events || !Array.isArray(data.events)) {
             throw new Error('Invalid events data structure');
@@ -321,47 +310,9 @@ async function loadEvents() {
     } catch (error) {
         console.error('Error loading events:', error);
         const eventsGrid = document.getElementById('events-grid');
-        eventsGrid.innerHTML = `<p class="error-message">Unable to load events. Please try again later.</p>`;
+        if (eventsGrid) {
+            eventsGrid.innerHTML = `<p class="error-message">Unable to load events. Please try again later.</p>`;
+        }
     }
 }
-
-// Add cleanup function for forms
-function cleanupForm(form) {
-    if (form) {
-        form.removeEventListener('submit', form.submitHandler);
-    }
-}
-
-// Add to relevant event listeners
-window.addEventListener('unload', () => {
-    cleanupForm(contactForm);
-    cleanupForm(newsletterForm);
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Burger menu functionality
-    const burger = document.querySelector('.burger');
-    const navSidebar = document.querySelector('.nav-sidebar');
-    const closeNavSidebar = document.querySelector('.close-nav-sidebar');
-
-    if (burger && navSidebar && closeNavSidebar) {
-        // Open menu
-        burger.addEventListener('click', () => {
-            navSidebar.classList.add('show');
-        });
-
-        // Close menu
-        closeNavSidebar.addEventListener('click', () => {
-            navSidebar.classList.remove('show');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navSidebar.contains(e.target) && !burger.contains(e.target)) {
-                navSidebar.classList.remove('show');
-            }
-        });
-    }
-
-});
 
