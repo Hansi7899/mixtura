@@ -218,35 +218,60 @@ a {
     display: block;
 }
 
-/* Responsive adjustments for different screen sizes */
-@media screen and (max-width: 1200px) {
-    .swiper {
-        height: 45vh;
-        max-height: 450px;
+.veggie {
+    width: 30px;
+    vertical-align: middle;
+    height: auto;
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.veggie-small {
+    width: 25px;
+    vertical-align: middle;
+    height: auto;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+/* Media queries for responsive veggie icons */
+@media screen and (max-width: 1024px) {
+    .veggie {
+        width: 25px;
+    }
+
+    .veggie-small {
+        width: 22px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .swiper {
-        height: 40vh;
-        min-height: 250px;
-        max-height: 350px;
+    .veggie {
+        width: 22px;
+    }
+
+    .veggie-small {
+        width: 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .swiper {
-        height: 35vh;
-        min-height: 200px;
-        max-height: 280px;
+    .veggie {
+        width: 18px;
+    }
+
+    .veggie-small {
+        width: 16px;
     }
 }
 
 @media screen and (max-width: 360px) {
-    .swiper {
-        height: 30vh;
-        min-height: 180px;
-        max-height: 250px;
+    .veggie {
+        width: 16px;
+    }
+
+    .veggie-small {
+        width: 14px;
     }
 }
 
@@ -1548,6 +1573,14 @@ a {
         width: 100%;
         margin: 40px auto 0;
         border-radius: 15px;
+    }
+
+    .menu-items h3 {
+        font-size: clamp(12px, 3vw, 20px);
+    }
+
+    .menu-items p {
+        font-size: clamp(10.3px, 2.5vw, 15px);
     }
 
     .hero-text p {
