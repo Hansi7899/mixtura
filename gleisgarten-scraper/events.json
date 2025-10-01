@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "title": "Foodmarket Quiz",
-      "dateTime": "30 Sep 19:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65ba41b2a6e2036cd90a881d_Fotokomposition%205-Kreis%20Venn-Dia.png",
-      "description": "Ein Quizabend nur für die Erwachsenen!",
-      "url": "https://www.gleisgarten.com/events/foodhall-quiz-9"
-    },
-    {
-      "title": "Eltern-Stammtisch: Elternwerkstatt 🧒",
-      "dateTime": "30 Sep ab 16 Uhr",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/65df053703ac144c18cd5325_Fotokomposition%205-Kreis%20Venn-Dia%20(6).png",
-      "description": "Spannender Austausch mit Expert:innen!",
-      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-elternwerkstatt-14"
-    },
-    {
       "title": "Linoldruck Workshop",
       "dateTime": "2 Okt 17:00",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a48e6f77667f8d7e519f1b_WorkshopGleisGartenBanner_1%20(1).jpeg",
@@ -34,6 +20,20 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68d402b0fe638e7c014e20d3_VOLXKino%20im%20GleisGarten%20(6)%20(1).jpg",
       "description": "Wöchentlicher gratis Kinoabend!",
       "url": "https://www.gleisgarten.com/events/volxkino-2"
+    },
+    {
+      "title": "Lilarum - Bilderbuchkino  🐦‍⬛",
+      "dateTime": "7 Okt ab 16:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/688b45a1854556503efcf7d1_compressed_Baeren-auf-Flugwurst-p-1600.jpg",
+      "description": "Herzlich Willkommen zum Lilarum-Bilderbuchkino - der Eintritt ist frei!",
+      "url": "https://www.gleisgarten.com/events/lilarum---bilderbuchkino-4"
+    },
+    {
+      "title": "Eltern-Stammtisch: Papainfo",
+      "dateTime": "7 Okt ab 16:30",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6718d6ef39ba19bfd2ba6210_Komprimieren%20(35).jpg",
+      "description": "mit Papainfo",
+      "url": "https://www.gleisgarten.com/events/eltern-stammtisch-papainfo-5"
     }
   ]
 }
