@@ -1548,12 +1548,13 @@ a {
     .menu-image-preview img {
         width: 100%;
         height: auto;
-        max-height: 200px;
         object-fit: contain;
     }
 
     .image-wrapper {
         width: 100%;
+        margin: 0 auto;
+        display: block;
     }
 
     .menu-items {
@@ -1575,13 +1576,6 @@ a {
         border-radius: 15px;
     }
 
-    .menu-items h3 {
-        font-size: clamp(12px, 3vw, 20px);
-    }
-
-    .menu-items p {
-        font-size: clamp(10.3px, 2.5vw, 15px);
-    }
 
     .hero-text p {
         margin-top: 20px;
@@ -1589,6 +1583,20 @@ a {
 
     .nav-sidebar {
         width: 100vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .menu-header h3 {
+        font-size: clamp(14px, 3vw, 20px);
+    }
+
+    .menu-price {
+        font-size: clamp(12px, 2.5vw, 16px);
+    }
+
+    .menu-description {
+        font-size: clamp(11px, 2.5vw, 15px);
     }
 }
 
