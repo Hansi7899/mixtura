@@ -605,7 +605,7 @@ a {
     top: -5px;
     text-align: center;
     color: white;
-    font-size: clamp(12px, 2vw, 16px);
+    font-size: clamp(14px, 2vw, 18px);
     font-weight: bold;
     text-shadow: 1px 1px 4px black;
     border-radius: 5px;
@@ -1428,8 +1428,8 @@ a {
     }
 
     .image-overlay-text {
-        font-size: 10px;
-        left: -10px;
+        font-size: clamp(10px, 3vw, 15px);
+        left: -20px;
     }
 
     .btn-side {
@@ -1547,8 +1547,9 @@ a {
 
     .menu-image-preview img {
         width: 100%;
+        max-height: 160px;
         height: auto;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     .image-wrapper {
