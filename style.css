@@ -1121,8 +1121,8 @@ a {
     gap: 50px;
     font-family: "Raleway", sans-serif;
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1.2s ease, transform 0.8s ease;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .about-first {
@@ -1161,7 +1161,8 @@ a {
     margin-top: -15px;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.2s ease 0.4s, transform 1.4s ease 1s;
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+    /* Faster with reasonable delay */
 }
 
 .about-text p {
@@ -1171,7 +1172,8 @@ a {
     opacity: 0;
     line-height: 1.4;
     transform: translateY(20px);
-    transition: opacity 1.2s ease 0.8s, transform 1.4s ease 1s;
+    transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+    /* Faster with reasonable delay */
 }
 
 .about.animated {
