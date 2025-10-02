@@ -1851,6 +1851,7 @@ a {
         flex-direction: column;
         gap: 30px;
         padding: 0 15px;
+        margin-bottom: 70px;
     }
 
     .about-image {
@@ -1914,6 +1915,7 @@ a {
     .about {
         gap: 15px;
         padding: 0 8px;
+        margin-bottom: 30px;
     }
 
     .about-image {
