@@ -342,3 +342,30 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(heroText);
     }
 });
+// Scroll animation for about sections
+document.addEventListener('DOMContentLoaded', function () {
+    const aboutSections = document.querySelectorAll('.about');
+
+    // Create the Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // When element enters viewport
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            } else {
+                // Optional: Remove animation when scrolling back up
+                entry.target.classList.remove('animated');
+            }
+        });
+    }, {
+        // Element is considered "visible" when it's 20% in view
+        threshold: 0.3,
+        // Start observing slightly before the element enters viewport
+        rootMargin: '0px 0px -10% 0px'
+    });
+
+    // Start observing all about sections
+    aboutSections.forEach(section => {
+        observer.observe(section);
+    });
+});

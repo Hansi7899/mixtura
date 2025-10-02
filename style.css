@@ -1112,6 +1112,83 @@ a {
     align-items: center;
 }
 
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1500px;
+    gap: 50px;
+    font-family: "Raleway", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease, transform 0.8s ease;
+}
+
+.about-first {
+    margin-top: 100px;
+}
+
+.about-image {
+    width: auto;
+    max-width: 500px;
+    vertical-align: middle;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0 3px;
+    border-radius: 50px;
+}
+
+.about-text {
+    flex: 1;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.2;
+    text-align: justify;
+}
+
+.about-text h2 {
+    color: #FFCE00;
+    font-family: "Grandstander", sans-serif;
+    text-decoration: wavy underline 2px;
+    margin-bottom: 20px;
+    font-size: clamp(24px, 4vw, 30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 60px;
+    margin-top: -150px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease 0.4s, transform 1.4s ease 1s;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: clamp(14px, 2vw, 18px);
+    opacity: 0;
+    line-height: 1.4;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease 0.8s, transform 1.4s ease 1s;
+}
+
+.about.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about.animated .about-text h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about.animated .about-text p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Media Queries for Responsive Design */
 
 /* Large tablets and small laptops */
@@ -1764,4 +1841,94 @@ a {
 #success:target~h2,
 #success:target~p:not(.form-success p) {
     display: none;
+}
+
+/* Improved about section responsive design */
+@media screen and (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 15px;
+    }
+
+    .about-image {
+        max-width: 100%;
+        width: 50%;
+        margin: 0 auto;
+        order: -1;
+        /* Image always on top on mobile */
+    }
+
+    .about-text h2 {
+        margin-top: -20px;
+        /* Reset negative margin on mobile */
+        min-height: unset;
+        text-align: center;
+    }
+
+    .about-first {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about {
+        gap: 20px;
+        padding: 0 10px;
+        margin-bottom: 40px;
+    }
+    
+    .about-image {
+        width: 85%; /* Wider image on small phones */
+        border-radius: 25px; /* Smaller border radius */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Lighter shadow */
+    }
+    
+    .about-text h2 {
+        margin-top: -10px;
+        font-size: clamp(20px, 6vw, 26px);
+        padding: 0 5px;
+        text-decoration-thickness: 1px; /* Thinner underline */
+    }
+    
+    .about-text p {
+        font-size: clamp(13px, 4vw, 16px);
+        line-height: 1.5;
+        padding: 0 5px;
+        margin-bottom: 15px;
+        text-align: center; /* Center text on mobile */
+    }
+    
+    .about-first {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .about {
+        gap: 15px;
+        padding: 0 8px;
+    }
+    
+    .about-image {
+        width: 95%; /* Almost full width on very small screens */
+        border-radius: 15px;
+    }
+    
+    .about-text h2 {
+        font-size: clamp(18px, 5.5vw, 22px);
+        margin-top: -5px;
+        margin-bottom: 12px;
+    }
+    
+    .about-text p {
+        font-size: clamp(12px, 3.8vw, 14px);
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+    
+    /* Simplify animations for better performance on small devices */
+    .about, .about-text h2, .about-text p {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
 }
