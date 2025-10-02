@@ -353,7 +353,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
             } else {
-                // Optional: Remove animation when scrolling back up
                 entry.target.classList.remove('animated');
             }
         });
@@ -361,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Element is considered "visible" when it's 20% in view
         threshold: 0.1,
         // Start observing slightly before the element enters viewport
-        rootMargin: '0px 0px -10% 0px'
+        rootMargin: '0px 0px -5% 0px'
     });
 
     // Start observing all about sections
