@@ -316,3 +316,29 @@ async function loadEvents() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const heroText = document.querySelector('.hero-text');
+
+    // Create the Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // When element enters viewport
+            if (entry.isIntersecting) {
+                heroText.classList.add('animated');
+            } else {
+                // When element exits viewport
+                heroText.classList.remove('animated');
+            }
+        });
+    }, {
+        // Element is considered "visible" when it's 20% in view
+        threshold: 0.2,
+        // Start observing a bit before the element enters the viewport
+        rootMargin: '0px 0px -10% 0px'
+    });
+
+    // Start observing the hero text
+    if (heroText) {
+        observer.observe(heroText);
+    }
+});

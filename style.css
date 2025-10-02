@@ -492,8 +492,14 @@ a {
     letter-spacing: 1.4px;
     margin-top: 40px;
     margin-bottom: 60px;
-    animation: slideUp 1s ease-in forwards;
     opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-text.animated {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-text p {
@@ -1633,18 +1639,6 @@ a {
 }
 
 /* Animations */
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes burger-hover {
     0% {
         width: 100%;
