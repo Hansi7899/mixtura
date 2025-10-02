@@ -270,8 +270,8 @@ a {
         width: 16px;
     }
 
-    .swiper-slide {
-        height: 60vh;
+    .navbox-out {
+        gap: 5px;
     }
 }
 
