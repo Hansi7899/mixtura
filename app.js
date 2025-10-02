@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Element is considered "visible" when it's 20% in view
         threshold: 0.3,
         // Start observing slightly before the element enters viewport
-        rootMargin: '0px 0px -5% 0px'
+        rootMargin: '0px 0px -20% 0px'
     });
 
     // Start observing all about sections
