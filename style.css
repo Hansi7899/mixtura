@@ -1891,7 +1891,7 @@ a {
         margin-top: -10px;
         font-size: clamp(20px, 6vw, 26px);
         padding: 0 5px;
-        text-decoration-thickness: 1px;
+        text-decoration-thickness: 2px;
         /* Thinner underline */
     }
 
@@ -1901,7 +1901,6 @@ a {
         padding: 0 5px;
         margin-bottom: 15px;
         text-align: center;
-        /* Center text on mobile */
     }
 
     .about-first {
