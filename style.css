@@ -278,11 +278,11 @@ a {
 
 .middle-title {
     color: #FFCE00;
-    font-size: clamp(1.5em, 4vw, 2.5em);
+    font-size: clamp(26px, 4vw, 34px);
     font-family: "Grandstander", sans-serif;
     font-weight: 700;
     text-align: center;
-    padding-top: 40px;
+    margin: 0;
     letter-spacing: 2px;
     font-style: thin;
 }
@@ -484,6 +484,9 @@ a {
     flex-direction: column;
     align-items: center;
     padding: 0 10px;
+    letter-spacing: 1.4px;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
 
 .hero-text p {
@@ -844,7 +847,7 @@ a {
 
 .venue-info h2 {
     color: #FFCE00;
-    font-size: clamp(20px, 4vw, 28px);
+    font-size: clamp(24px, 4vw, 28px);
     margin-bottom: 20px;
 }
 
