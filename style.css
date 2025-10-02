@@ -126,7 +126,8 @@ a {
     font-weight: 700;
     padding: 8px 25px;
     font-size: 12px;
-    background: rgb(6, 30, 240);
+    background: #FFCE00;
+    color: #001982;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
     overflow: hidden;
@@ -134,8 +135,7 @@ a {
 }
 
 .btn:hover {
-    background: #FFCE00;
-    color: rgb(255, 255, 255);
+    background: #ffffff;
     transform: scale(1.05);
 }
 
@@ -479,12 +479,6 @@ a {
     margin-top: 25px;
     line-height: 1.3;
 }
-
-/* .menu-body {
-    background-image: url(media/bg_avoc.png);
-    background-size: 46%;
-    background-position: 50%;
-} */
 
 .menu-container {
     font-family: "Grandstander", sans-serif;
