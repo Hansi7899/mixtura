@@ -636,12 +636,13 @@ a {
     color: white;
     font-size: clamp(14px, 2vw, 18px);
     font-weight: bold;
-    text-shadow: 1px 1px 4px black;
     border-radius: 5px;
     pointer-events: none;
     max-width: 100%;
     line-height: 1.2;
     white-space: nowrap;
+    animation: textGlow 2s ease-in-out infinite;
+    transform-origin: center;
 }
 
 .contact-container {
@@ -1643,6 +1644,33 @@ a {
 }
 
 /* Animations */
+@keyframes textGlow {
+    0% {
+        text-shadow:
+            0 0 7px #FFCE00,
+            0 0 10px #FFCE00,
+            0 0 15px #FFCE00;
+        transform: scale(1);
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px #FFCE00,
+            0 0 20px #FFCE00,
+            0 0 30px #FFCE00,
+            0 0 40px #FFCE00;
+        transform: scale(1.03);
+    }
+
+    100% {
+        text-shadow:
+            0 0 7px #FFCE00,
+            0 0 10px #FFCE00,
+            0 0 15px #FFCE00;
+        transform: scale(1);
+    }
+}
+
 @keyframes burger-hover {
     0% {
         width: 100%;
