@@ -1851,7 +1851,7 @@ a {
         flex-direction: column;
         gap: 30px;
         padding: 0 15px;
-        margin-bottom: 70px;
+        margin-bottom: 40px;
     }
 
     .about-image {
@@ -1859,12 +1859,9 @@ a {
         width: 50%;
         margin: 0 auto;
         order: -1;
-        /* Image always on top on mobile */
     }
 
     .about-text h2 {
-        margin-top: -20px;
-        /* Reset negative margin on mobile */
         min-height: unset;
         text-align: center;
     }
@@ -1882,7 +1879,7 @@ a {
     }
 
     .about-image {
-        width: 85%;
+        width: 100%;
         /* Wider image on small phones */
         border-radius: 25px;
         /* Smaller border radius */
@@ -1917,8 +1914,7 @@ a {
     }
 
     .about-image {
-        width: 95%;
-        /* Almost full width on very small screens */
+        width: 100%;
         border-radius: 15px;
     }
 
