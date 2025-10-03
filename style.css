@@ -1878,7 +1878,7 @@ a {
     .about {
         gap: 20px;
         padding: 0 10px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     .about-image {
@@ -1915,7 +1915,7 @@ a {
     .about {
         gap: 15px;
         padding: 0 8px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .about-image {
@@ -1926,7 +1926,6 @@ a {
 
     .about-text h2 {
         font-size: clamp(18px, 5.5vw, 22px);
-        margin-top: -5px;
         margin-bottom: 12px;
     }
 
