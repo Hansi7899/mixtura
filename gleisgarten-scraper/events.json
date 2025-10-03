@@ -1,13 +1,6 @@
 {
   "events": [
     {
-      "title": "Linoldruck Workshop",
-      "dateTime": "2 Okt 17:00",
-      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a48e6f77667f8d7e519f1b_WorkshopGleisGartenBanner_1%20(1).jpeg",
-      "description": "Schritt für Schritt zum Profi!",
-      "url": "https://www.gleisgarten.com/events/linoldruck-workshop-14"
-    },
-    {
       "title": "Oktoberfest unter Palmen🌴",
       "dateTime": "5 Okt 02.-05.Okt",
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68a33292d4e245d3a2a25173_Komprimieren.jpg",
@@ -34,6 +27,13 @@
       "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/6718d6ef39ba19bfd2ba6210_Komprimieren%20(35).jpg",
       "description": "mit Papainfo",
       "url": "https://www.gleisgarten.com/events/eltern-stammtisch-papainfo-5"
+    },
+    {
+      "title": "Siebdruck für Anfänger*innen 🖌️",
+      "dateTime": "9 Okt 17:00",
+      "image": "https://cdn.prod.website-files.com/6319fc8490d9bb2451801aa3/68cc00df8b6f0cb56bf78752_https___cdn.evbuc.com_images_1128027143_1823152140523_1_original.jpg",
+      "description": "Lerne die Grundlagen des Siebdrucks Schritt für Schritt",
+      "url": "https://www.gleisgarten.com/events/siebdruck-fur-anfanger-innen"
     }
   ]
 }
