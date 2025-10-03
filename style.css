@@ -569,10 +569,7 @@ a {
 
 .menu-image-preview img {
     width: 100%;
-    max-width: 350px;
     height: auto;
-    max-height: 460px;
-    object-fit: cover;
     display: block;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     transition: opacity 0.3s ease-in-out;
@@ -1375,6 +1372,7 @@ a {
     }
 
     .menu-image-preview {
+
         max-width: 70%;
         align-self: center;
         order: -1;
@@ -1674,7 +1672,7 @@ a {
 
     .menu-image-preview img {
         width: 100%;
-        max-height: 160px;
+        /* max-height: 160px; */
         height: auto;
         object-fit: cover;
     }
