@@ -537,7 +537,7 @@ a {
     text-align: center;
     color: white;
     text-decoration: overline underline 2px wavy;
-    text-underline-offset: 8px;
+    text-underline-offset: 10px;
 }
 
 .menu-content {
