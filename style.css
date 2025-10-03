@@ -537,6 +537,7 @@ a {
     text-align: center;
     color: white;
     text-decoration: overline underline 2px wavy;
+    text-underline-offset: 8px;
 }
 
 .menu-content {
@@ -1151,6 +1152,7 @@ a {
     color: #FFCE00;
     font-family: "Grandstander", sans-serif;
     text-decoration: wavy underline 2px;
+    text-underline-offset: 6px;
     margin-bottom: 20px;
     font-size: clamp(24px, 4vw, 30px);
     display: flex;
@@ -1891,7 +1893,8 @@ a {
         font-size: clamp(20px, 6vw, 26px);
         padding: 0 5px;
         text-decoration-thickness: 2px;
-        /* Thinner underline */
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .about-text p {
