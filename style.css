@@ -1357,7 +1357,7 @@ a {
     }
 
     .hero-text p {
-        margin-top: 40px;
+        margin-top: 0px;
     }
 
 
@@ -1512,7 +1512,7 @@ a {
     }
 
     .hero-text p {
-        margin-top: 30px;
+        margin-top: 0px;
     }
 
     .menu-container {
@@ -1714,9 +1714,6 @@ a {
     }
 
 
-    .hero-text p {
-        margin-top: 20px;
-    }
 
     .nav-sidebar {
         width: 100vw;
