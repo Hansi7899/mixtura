@@ -569,7 +569,10 @@ a {
 
 .menu-image-preview img {
     width: 100%;
+    max-width: 350px;
     height: auto;
+    max-height: 460px;
+    object-fit: cover;
     display: block;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     transition: opacity 0.3s ease-in-out;
@@ -599,8 +602,7 @@ a {
     font-weight: bolder;
     font-size: clamp(18px, 2.5vw, 28px);
     margin: 0;
-    color: white;
-    translate: no;
+    color: white
 }
 
 .menu-line {
@@ -1003,7 +1005,8 @@ a {
 
 .newsletter-section h3 {
     color: #FFCE00;
-    font-size: 1.5em;
+    fot-size: clamp(20px, 3vw, 24px);
+    font-family: "Grandstander", sans-serif;
     margin-bottom: 15px;
 }
 
@@ -1067,8 +1070,10 @@ a {
 
 .footer-social-center h4 {
     color: #FFCE00;
-    font-size: 1.3em;
+    font-size: clamp(18px, 3vw, 22px);
+    font-family: "Grandstander", sans-serif;
     margin-bottom: 20px;
+    white-space: nowrap;
 }
 
 .footer-social-center .social-links a {
@@ -1250,6 +1255,12 @@ a {
 
     .contact-info {
         padding: 30px 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 }
 
@@ -1682,6 +1693,11 @@ a {
     .menu-container h3 {
         font-size: clamp(14.6px, 4vw, 26px);
     }
+
+    .footer-social-center h4 {
+        font-size: clamp(16px, 3.5vw, 20px);
+        white-space: wrap !important;
+    }
 }
 
 /* Extra small screens */
@@ -1708,6 +1724,7 @@ a {
     .menu-container h3 {
         font-size: clamp(12.4px, 3.5vw, 24px);
     }
+
 }
 
 @media screen and (max-width: 320px) {
@@ -1722,6 +1739,8 @@ a {
     .menu-description {
         font-size: clamp(11px, 2.5vw, 15px);
     }
+
+
 }
 
 /* Animations */
