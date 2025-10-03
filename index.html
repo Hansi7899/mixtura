@@ -12,19 +12,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title translate="no">Mixtura Latina</title>
-    <!-- MailerLite Universal -->
-    <script>
-        (function (w, d, e, u, f, l, n) {
-            w[f] = w[f] || function () {
-                (w[f].q = w[f].q || [])
-                    .push(arguments);
-            }, l = d.createElement(e), l.async = 1, l.src = u,
-                n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
-        })
-            (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-        ml('account', '1799883');
-    </script>
-    <!-- End MailerLite Universal -->
 </head>
 
 <body>
@@ -157,19 +144,18 @@
                     <h3>Do you want to know about our new dishes, parties, and promotions?</h3>
                     <p>Subscribe to our newsletter.</p>
                     <div id="mlb2-30940178" class="newsletter-container">
-                        <form class="newsletter-form"
-                            action="https://assets.mailerlite.com/jsonp/1799883/forms/165697919662425240/subscribe"
-                            method="post" target="_blank">
+                        <form id="sib-form" class="newsletter-form"
+                            action="https://d9dbaed2.sibforms.com/serve/MUIFAIubtf4-mVzs5u2XT6WdXjfWlqPgBr902t0rewjxA5oT_ZD1hE0AfpifbVD3jQWf86xBTb0y5J_70uG--aBGcFN2n0-cVLm_5C4333WbV1q6fUwR1mJ0RPQwd-n975B8F5CTwWhY3Qu3B2cwf0xv_FIUFi1z7W-fZb6kc7jnrrVuu9QnuP7UvqAFc-82AEF0j4jEovPhxWOz"
+                            method="post" target="_blank" data-type="subscription">
                             <div class="name-fields">
-                                <input type="text" name="fields[name]" placeholder="First name" required
+                                <input type="text" name="FIRSTNAME" placeholder="First name" required
                                     autocomplete="given-name">
-                                <input type="text" name="fields[last_name]" placeholder="Last name"
-                                    autocomplete="family-name">
+                                <input type="text" name="LASTNAME" placeholder="Last name" autocomplete="family-name">
                             </div>
-                            <input type="email" name="fields[email]" placeholder="Enter your email" required
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required
                                 autocomplete="email">
                             <div class="consent-checkbox">
-                                <input type="checkbox" id="consent" required>
+                                <input type="checkbox" name="OPT_IN" id="consent" required>
                                 <label for="consent">I agree to receive emails from <span translate="no"> Mixtura
                                         Latina </span></label>
                             </div>
@@ -210,7 +196,6 @@
             </div>
         </div>
     </footer>
-    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
     <script src="https://kit.fontawesome.com/4e352a0006.js" crossorigin="anonymous"></script>

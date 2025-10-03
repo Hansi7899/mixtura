@@ -818,9 +818,16 @@ a {
 }
 
 .success-message {
-    color: #00ff00;
     font-size: 0.9em;
     margin-top: 5px;
+}
+
+.success-message h4 {
+    color: #FFCE00;
+}
+
+.success-message p {
+    color: white;
 }
 
 .weekday {
@@ -1040,6 +1047,7 @@ a {
     gap: 5px;
     color: white;
     margin: 30px 0;
+    white-space: nowrap;
 }
 
 .btn-newsletter {
@@ -1569,6 +1577,10 @@ a {
         flex-direction: column;
         gap: 15px;
     }
+
+    .consent-checkbox {
+        white-space: normal;
+    }
 }
 
 @media screen and (max-width: 440px) {
@@ -1819,6 +1831,7 @@ a {
     border: none;
     background: rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
+    color: white;
 }
 
 .form-success {

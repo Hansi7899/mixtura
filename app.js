@@ -368,3 +368,72 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(section);
     });
 });
+
+// Newsletter form handler - FIXED VERSION
+document.addEventListener('DOMContentLoaded', function () {
+    // Remove any existing handlers by creating a fresh approach
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+
+    newsletterForms.forEach(form => {
+        // Remove any existing listeners first to avoid duplication
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+
+        newForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Find parent containers
+            const newsletterSection = this.closest('.newsletter-section');
+            const newsletterContent = newsletterSection ? newsletterSection.querySelector('.newsletter-content') : null;
+            const successMessage = newsletterSection ? newsletterSection.querySelector('.success-message') : null;
+
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton ? submitButton.textContent : 'Subscribe';
+            if (submitButton) {
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+            }
+
+            // Traditional form submission via iframe for better Brevo compatibility
+            const iframeName = 'hidden_iframe_' + Math.floor(Math.random() * 1000);
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('name', iframeName);
+            iframe.setAttribute('style', 'display:none;');
+            document.body.appendChild(iframe);
+
+            // Set form target to iframe and submit
+            this.setAttribute('target', iframeName);
+
+            // Handle success after submission
+            iframe.onload = function () {
+                // Hide the form
+                if (newsletterContent) {
+                    newsletterContent.style.display = 'none';
+                }
+
+                // Show success message
+                if (successMessage) {
+                    successMessage.style.display = 'block';
+                } else if (newsletterSection) {
+                    const newSuccessMsg = document.createElement('div');
+                    newSuccessMsg.className = 'success-message';
+                    newSuccessMsg.style.display = 'block';
+                    newSuccessMsg.innerHTML = `
+                        <h4>Thank you!</h4>
+                        <p>You have successfully joined our newsletter.</p>
+                    `;
+                    newsletterSection.appendChild(newSuccessMsg);
+                }
+
+                // Clean up
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                }, 500);
+            };
+
+            // Submit the form
+            this.submit();
+        });
+    });
+});
