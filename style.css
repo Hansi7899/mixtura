@@ -1882,18 +1882,15 @@ a {
 
     .about-image {
         width: 100%;
-        /* Wider image on small phones */
         border-radius: 25px;
-        /* Smaller border radius */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        /* Lighter shadow */
     }
 
     .about-text h2 {
         font-size: clamp(20px, 6vw, 26px);
         padding: 0 5px;
         text-decoration-thickness: 2px;
-        margin-top: 10px;
+        margin-top: 15px;
         margin-bottom: 20px;
     }
 
