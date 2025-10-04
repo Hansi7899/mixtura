@@ -2294,3 +2294,115 @@ a {
     font-family: "Grandstander", sans-serif;
     margin-bottom: 10px;
 }
+
+/* Language Selector Styles */
+.language-selector {
+    position: relative;
+    margin-right: 15px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid #FFCE00;
+    color: #FFCE00;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Grandstander", sans-serif;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: #FFCE00;
+    color: #001982;
+}
+
+.lang-btn i {
+    font-size: 16px;
+}
+
+.current-lang {
+    font-size: clamp(18px, 2vw, 20px);
+    font-weight: 600;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #001982;
+    border: 1px solid #FFCE00;
+    border-radius: 4px;
+    margin-top: 5px;
+    display: none;
+    z-index: 1000;
+    width: auto;
+    white-space: nowrap;
+}
+
+.language-selector:hover .lang-dropdown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lang-dropdown img {
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-dropdown a {
+    display: inline-flex;
+    padding: 6px 8px;
+    transition: all 0.3s ease;
+    align-items: center;
+}
+
+.lang-dropdown a:hover {
+    background: rgba(255, 206, 0, 0.1);
+}
+
+.lang-dropdown a.active {
+    background: rgba(255, 206, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .language-selector {
+        margin-right: 10px;
+    }
+
+    .lang-btn {
+        padding: 4px 8px;
+    }
+
+    .lang-dropdown a {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .lang-dropdown img {
+        width: 50px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .lang-dropdown {
+        right: -10px;
+    }
+
+    .lang-dropdown a {
+        padding: 4px 6px;
+    }
+
+    .lang-dropdown img {
+        width: 30px;
+        height: auto;
+    }
+}
