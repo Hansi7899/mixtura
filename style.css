@@ -307,7 +307,7 @@ a {
     position: fixed;
     top: 0;
     right: -100%;
-    width: min(350px, 85vw);
+    width: min(350px, 75vw);
     height: 100vh;
     background-color: #FFCE00;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
@@ -1588,7 +1588,7 @@ a {
     }
 
     .nav-sidebar {
-        width: 95vw;
+        width: 85vw;
     }
 
     .nav-sidebar-content {
@@ -1771,7 +1771,7 @@ a {
 
 
     .nav-sidebar {
-        width: 80vw;
+        width: 75vw;
         height: 100vh;
     }
 
