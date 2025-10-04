@@ -1306,21 +1306,38 @@ a {
 
 /* Tablets and below - Hide nav-box and show hamburger */
 @media screen and (max-width: 768px) {
+    body {
+        padding-top: 80px;
+        /* Adjust based on header height */
+    }
+
     .main-header {
+        position: fixed;
+        width: 100%;
         height: auto;
         min-height: 80px;
+        z-index: 1000;
+        top: 0;
+        left: 0;
     }
 
     .auto-container {
-        flex-wrap: nowrap;
-        gap: 0;
-        padding: 0 15px;
+        display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 10px 15px;
+        background: #001982;
+        position: relative;
+        width: 100%;
     }
 
     .logo-box {
         flex: 0 0 auto;
+        padding: 10px 0;
+    }
+
+    .hamburger {
+        margin-left: auto;
     }
 
     .logo img {
@@ -1754,7 +1771,8 @@ a {
 
 
     .nav-sidebar {
-        width: 100vw;
+        width: 80vw;
+        height: 100vh;
     }
 
     .menu-container h3 {
@@ -1780,6 +1798,18 @@ a {
 }
 
 /* Animations */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes textGlow {
     0% {
         text-shadow:
@@ -2005,19 +2035,24 @@ a {
     max-width: 500px;
     margin: auto;
     z-index: 9999;
-    font-family: Helvetica, sans-serif;
+    font-family: "Raleway", sans-serif;
     text-align: left;
     display: none;
+    flex-direction: column;
+    gap: 10px;
+    animation: slideUp 0.5s ease-out;
+    height: auto;
+    max-width: fit-content;
 }
 
 .cookie-banner p {
-    font-size: 14px;
+    font-size: clamp(12px, 2vw, 14px);
     color: #333;
     margin-bottom: 10px;
 }
 
 .cookie-banner a {
-    color: #0073e6;
+    color: #001982;
     text-decoration: underline;
 }
 
@@ -2031,7 +2066,7 @@ a {
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
-    font-size: 14px;
+    font-size: clamp(12px, 2vw, 14px);
     cursor: pointer;
 }
 
@@ -2238,4 +2273,24 @@ a {
         width: 100%;
         left: 0;
     }
+}
+
+.impressum-main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.impressum {
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.impressum-title {
+    color: #FFCE00;
+    font-size: clamp(28px, 4vw, 36px);
+    font-family: "Grandstander", sans-serif;
+    margin-bottom: 10px;
 }
