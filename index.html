@@ -11,7 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <title translate="no">Mixtura Latina</title>
+    <title translate="no"> Mixtura Latina </title>
 </head>
 
 <body>
@@ -191,11 +191,22 @@
                     reserved.</p>
             </div>
             <div class="footer-legal">
-                <a href="#" id="cookiePreferences">Cookie Preferences</a>
-                <a href="#">Privacy Policy</a>
+                <a href="#" id="cookie-preferences" onclick="openCookiePopup(); return false;">Cookie Preferences</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
             </div>
         </div>
     </footer>
+    <div id="cookie-banner" class="cookie-banner">
+        <p>
+            We use cookies to improve your browsing experience and analyze our website traffic.
+            By clicking “Accept”, you agree to our use of cookies.
+            You can read more in our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+        </p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+            <button id="decline-cookies" class="cookie-btn decline">Decline</button>
+        </div>
+    </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
     <script src="https://kit.fontawesome.com/4e352a0006.js" crossorigin="anonymous"></script>

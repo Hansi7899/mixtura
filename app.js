@@ -437,3 +437,88 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const declineBtn = document.getElementById("decline-cookies");
+
+    // Check if the user has already made a choice
+    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+
+    if (!cookiesAccepted) {
+        banner.style.display = "flex"; // Show the banner
+    }
+
+    // When user clicks "Accept"
+    acceptBtn.addEventListener("click", function () {
+        localStorage.setItem("cookiesAccepted", "true");
+        banner.style.display = "none";
+        // You could add small optional code here, like enabling site preferences
+    });
+
+    // When user clicks "Decline"
+    declineBtn.addEventListener("click", function () {
+        localStorage.setItem("cookiesAccepted", "false");
+        banner.style.display = "none";
+        // Nothing else happens — no cookies, no trackers
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const declineBtn = document.getElementById("decline-cookies");
+    const preferenceLinks = document.querySelectorAll(".cookie-preferences"); // all links with this class
+
+    // Check if the user has already made a choice
+    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+
+    if (!cookiesAccepted) {
+        showBanner();
+    }
+
+    // When user clicks "Accept"
+    if (acceptBtn) {
+        acceptBtn.addEventListener("click", function () {
+            localStorage.setItem("cookiesAccepted", "true");
+            hideBanner();
+        });
+    }
+
+    // When user clicks "Decline"
+    if (declineBtn) {
+        declineBtn.addEventListener("click", function () {
+            localStorage.setItem("cookiesAccepted", "false");
+            hideBanner();
+        });
+    }
+
+    // When user clicks any "Cookie Preferences" link
+    preferenceLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            showBanner();
+        });
+    });
+
+    // Helper functions
+    function showBanner() {
+        banner.style.display = "flex";
+        banner.classList.add("visible");
+    }
+
+    function hideBanner() {
+        banner.classList.remove("visible");
+        setTimeout(() => (banner.style.display = "none"), 300);
+    }
+});
+
+// Optional: if you ever want to open the cookie popup manually
+function openCookiePopup() {
+    const banner = document.getElementById("cookie-banner");
+    if (banner) {
+        banner.style.display = "flex";
+        banner.classList.add("visible");
+    }
+}
