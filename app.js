@@ -522,7 +522,6 @@ function openCookiePopup() {
         banner.classList.add("visible");
     }
 }
-
 // Language selector click functionality
 document.addEventListener('DOMContentLoaded', function () {
     const langBtn = document.querySelector('.lang-btn');
@@ -546,3 +545,32 @@ document.addEventListener('DOMContentLoaded', function () {
         e.stopPropagation();
     });
 });
+
+// Function to set current language display
+function setCurrentLanguage() {
+    const currentPath = window.location.pathname;
+    const currentLang = document.querySelector('.current-lang');
+
+    if (currentPath.includes('/es/')) {
+        currentLang.textContent = 'ES';
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.lang === 'es') link.classList.add('active');
+        });
+    } else if (currentPath.includes('/de/')) {
+        currentLang.textContent = 'DE';
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.lang === 'de') link.classList.add('active');
+        });
+    } else {
+        currentLang.textContent = 'EN';
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.lang === 'en') link.classList.add('active');
+        });
+    }
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', setCurrentLanguage);
