@@ -522,3 +522,27 @@ function openCookiePopup() {
         banner.classList.add("visible");
     }
 }
+
+// Language selector click functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const langBtn = document.querySelector('.lang-btn');
+    const langDropdown = document.querySelector('.lang-dropdown');
+
+    // Toggle dropdown on button click
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('active');
+        }
+    });
+
+    // Prevent dropdown from closing when clicking inside it
+    langDropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+});
