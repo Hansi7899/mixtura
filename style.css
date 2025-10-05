@@ -547,6 +547,10 @@ a {
     text-underline-offset: 10px;
 }
 
+.menu-title:first-of-type {
+    margin-top: 20px;
+}
+
 .menu-content {
     font-family: "Grandstander", sans-serif;
     margin-top: 0;
