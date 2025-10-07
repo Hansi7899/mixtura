@@ -574,3 +574,54 @@ function setCurrentLanguage() {
 
 // Call the function when the page loads
 document.addEventListener('DOMContentLoaded', setCurrentLanguage);
+
+// Add after existing code
+document.addEventListener('DOMContentLoaded', function () {
+    // Create modal element
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <img src="" alt="Menu item">
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Get all menu images
+    const menuImages = document.querySelectorAll('.menu-image-preview img');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-modal');
+
+    // Add click event to all menu images
+    menuImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function () {
+            modalImg.src = this.src;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    });
+
+    // Close modal when clicking close button
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+});
