@@ -69,9 +69,9 @@ body {
 .nav-box {
     display: flex;
     align-items: center;
-    gap: 400px;
     position: static;
     order: 2;
+    white-space: nowrap;
 }
 
 .navbox-out {
