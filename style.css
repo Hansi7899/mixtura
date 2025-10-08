@@ -498,7 +498,7 @@ a {
     margin-bottom: 60px;
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: opacity 2s ease, transform 2s ease;
 }
 
 .hero-text.animated {
@@ -2466,18 +2466,21 @@ a {
 }
 
 .lang-dropdown a {
-    display: inline-flex;
+    display: flex;
+    margin-top: 2px;
+    margin-bottom: 2px;
     padding: 6px 8px;
     transition: all 0.3s ease;
     align-items: center;
+    text-decoration: solid;
 }
 
 .lang-dropdown a:hover {
-    background: rgba(255, 206, 0, 0.1);
+    background: rgba(255, 204, 0, 0.658);
 }
 
 .lang-dropdown a.active {
-    background: rgba(255, 206, 0, 0.2);
+    background: rgba(255, 204, 0, 0.719);
 }
 
 /* Responsive adjustments */
