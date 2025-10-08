@@ -603,6 +603,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Close modal when clicking the image itself
+    modalImg.addEventListener('click', function (e) {
+        e.stopPropagation(); // Prevent event from bubbling to modal
+        closeModal();
+    });
+
+    // Make the image cursor indicate it's clickable
+    modalImg.style.cursor = 'pointer';
+
     // Close modal when clicking close button
     closeBtn.addEventListener('click', closeModal);
 

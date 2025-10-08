@@ -2581,6 +2581,30 @@ a {
     transform: scale(1.1);
 }
 
+.modal .image-container {
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: none;
+}
+
+.modal img:active {
+    cursor: grabbing;
+}
+
 @keyframes zoomIn {
     from {
         transform: scale(0.3);
