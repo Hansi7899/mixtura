@@ -7,10 +7,15 @@ const currentPage = path === '/' ? 'index.html' : path.split("/").pop();
 function setActiveLink(link) {
     const href = link.getAttribute('href');
     const cleanHref = href.replace(/^\//, '');
+    const currentPath = window.location.pathname;
 
-    if (cleanHref === currentPage ||
-        (currentPage === 'index.html' && cleanHref === '') ||
-        (currentPage === '' && cleanHref === 'index.html')) {
+    // Extract the page name from both current path and href
+    const currentPageName = currentPath.split('/').pop() || 'index.html';
+    const hrefPageName = cleanHref.split('/').pop() || 'index.html';
+
+    if (currentPageName === hrefPageName ||
+        (currentPageName === 'index.html' && hrefPageName === '') ||
+        (currentPageName === '' && hrefPageName === 'index.html')) {
         link.classList.add('active');
     }
 }
@@ -91,8 +96,14 @@ window.addEventListener('resize', () => {
 // Sync nav sidebar links with main menu active state
 function syncNavSidebarActiveState() {
     const navSidebarLinks = document.querySelectorAll('.nav-sidebar-content a');
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop() || 'index.html';
+
     navSidebarLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const href = link.getAttribute('href');
+        const linkPage = href.split('/').pop();
+
+        if (linkPage === currentPage) {
             link.classList.add('active');
         }
     });

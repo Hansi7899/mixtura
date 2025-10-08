@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
-    <title>Mixtura Latina</title>
+    <title translate="no"> Mixtura Latina </title>
+
 </head>
 
 <body>
@@ -44,8 +45,8 @@
                                 <span class="current-lang"></span>
                             </button>
                             <div class="lang-dropdown">
-                                <a href="../about.html" data-lang="en" class="active">English</a>
-                                <a href="../de/about.html" data-lang="de">Deutsch</a>
+                                <a href="../contact.html" data-lang="en" class="active">English</a>
+                                <a href="../de/contact.html" data-lang="de">Deutsch</a>
                                 <a href="#" data-lang="es">Español</a>
                             </div>
                         </div>
@@ -127,49 +128,109 @@
             </div>
         </div>
     </header>
-    <div class="about about-first">
-        <img src="../media/mariel.JPG" alt="Mariel Pacheco Chef and Owner" class="about-image">
-        <div class="about-text">
-            <h2>Quienes somos</h2>
-            <p>Somos un restaurante familiar que nació del deseo de compartir algo muy personal: nuestras recetas de
-                casa y la tradición con la que crecimos.</p>
-            <p>Desde el corazón de Viena llevamos a tu mesa los sabores auténticos de Latinoamérica, esos que despiertan
-                recuerdos, cuentan historias y transmiten alegría en cada plato. </p>
+    <main class="contact-container">
+        <div class="contact-info">
+            <img src="../media/Logo_Mixtura_White.png" alt="Mixtura Latina Logo" class="contact-logo">
+            <div class="contact-details">
+                <h2>Contacto</h2>
+                <p><a href="https://maps.app.goo.gl/egQZREk7mzmCpbnz7" target="_blank" rel="noopener"><i
+                            class="fas fa-map-marker-alt"></i>
+                        Eichenstraße 2, 1120 Wien</a></p><br>
+                <p><a href="tel:+4369010183870"><i class="fas fa-phone"></i> +43 690 10183870</a></p><br>
+                <p><a href="mailto:info@mixturalatina.at"><i class="fas fa-envelope"></i>
+                        info@mixturalatina.at</a>
+                </p>
+                <br><br>
+                <h3>Horario de Latin Kitchen</h3>
+                <ul>
+                    <li><span class="weekday">Lunes - Miércoles: </span> <span class="time">16:00 - 22:00</span></li>
+                    <li><span class="weekday">Jueves: </span><span class="time">11:00 - 22:00</span></li>
+                    <li><span class="weekday">Viernes - Sábado: </span><span class="time">11:00 - 23:00</span></li>
+                    <li><span class="weekday">Domingo: </span><span class="time">11:00 - 21:00</span></li>
+                </ul><br>
+
+                <div class="social-links contact-social">
+                    <a href="https://www.instagram.com/mixturalatina.at/" target="_blank" rel="noopener"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@mixturalatina.at" target="_blank" rel="noopener"><i
+                            class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61556918217348" target="_blank" rel="noopener"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://open.spotify.com/playlist/2jGYs9j2NJY7HVfPOKlaMg?si=ngI0f81FRx2owcHFl3fvPw&pi=yqWTiCcYS0GuS&nd=1&dlsi=46a676d112214132"
+                        target="_blank" rel="noopener"><i class="fa-brands fa-spotify"></i></a>
+                    <a href="https://primal.net/p/npub1nzx2yk4mg3davp6je8qs8mr9ge3m27qux99xxmfg70md0lj4q7kqk4akr2"
+                        target="_blank" rel="noopener">
+                        <i class="icon-nostr"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="about">
-        <div class="about-text">
-            <h2>¿Qué ofrecemos?</h2>
-            <p>En Mixtura Latina celebramos la diversidad de nuestra tierra con una mesa llena de sabores auténticos.
-                Desde nuestras arepas doradas y empanadas crujientes, hasta platos caseros como el Pabellón Criollo o el
-                clásico Arroz con Pollo, cada receta está hecha con ingredientes frescos y ese toque de cariño que nos
-                representa.
-            </p>
-            <p>Si lo tuyo son los tacos, no te pierdas nuestros Taco Days los martes y jueves, y para los que quieren
-                empezar el fin de semana con buena vibra, tenemos un Latin Brunch lleno de color, alegría y mucho sabor.
-            </p>
-            <p>Nuestra cocina recorre desde Panamá hasta Chile, trayendo a Viena una experiencia gastronómica 100%
-                auténtica, sabrosa y hecha para compartir.
-            </p>
+
+        <div class="contact-form">
+            <h2>¡Ponte en contacto con nosotros!</h2>
+            <p>Contáctanos para consultas sobre catering, eventos o cualquier otra pregunta.</p>
+
+            <!-- Default view: Show form -->
+            <form id="contactForm">
+                <input type="hidden" name="access_key" value="b13bc3da-536c-43ab-a2df-194a8d21ca24">
+                <input type="hidden" name="subject" value="Nuevo Mensaje - Mixtura Latina">
+                <input type="hidden" name="from_name" value="Mixtura Latina Website">
+                <input type="hidden" name="replyto" id="replyto">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Tu nombre *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Tu correo electrónico *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Tu mensaje *" required></textarea>
+                </div>
+                <p class="required">* campos requeridos</p>
+                <button type="submit" class="btn btn-form">Enviar Mensaje</button>
+            </form>
+
+            <!-- Success message (hidden by default) -->
+            <div class="form-success" id="success">
+                <h3>¡Muchas Gracias!</h3>
+                <p>Tu mensaje ha sido enviado con éxito. ¡Nos pondremos en contacto contigo pronto!</p>
+            </div>
         </div>
-        <img src="../media/mix-big.jpg" alt="Mix of Latin Kitchen Plates" class="about-image">
+    </main>
+
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.790261067014!2d16.3242899!3d48.1762799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476da9f6afd2cbb9%3A0x7a74bfad986f2ff1!2sEichenstra%C3%9Fe%202%2C%201120%20Wien!5e0!3m2!1sen!2sat!4v1707769671544!5m2!1sen!2sat"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Mixtura Latina Location Map">
+        </iframe>
     </div>
-    <div class="about">
-        <img src="../media/ajies.JPG" alt="Ajies" class="about-image">
-        <div class="about-text">
-            <h2>Experiencia Mixtura</h2>
-            <p>En Mixtura Latina creemos que salir a comer es mucho más que sentarse a la mesa, es vivir un momento que
-                despierta alegría, conexión y recuerdos.
-            </p>
-            <p>Por eso, cada visita se convierte en una experiencia llena de cultura, sabor y buena vibra. Aquí no solo
-                pruebas un plato, viajas a través de los colores, aromas y tradiciones de Latinoamérica.</p>
-            <p>Queremos que cada cliente se sienta parte de nuestra familia: que disfrute de la cálida atención latina,
-                comparta sonrisas y descubra la hospitalidad latina que hace que todo sepa mejor.</p>
-            <p>En Mixtura Latina no servimos solo comida… servimos momentos para celebrar la vida.</p>
+    <section class="venue-section">
+        <div class="venue-hero">
+            <img src="../media/gleisgarten.jpg" alt="Gleisgarten Venue">
         </div>
-    </div>
+        <div class="venue-content">
+            <div class="venue-info">
+                <h2>Mixtura Latina en Gleis Garten</h2>
+                <p>Formamos parte de la gran familia de Gleis Garten, el primer Food Hall en Viena, un espacio innovador
+                    donde se mezclan el encanto industrial, la calidez hospitalaria, la pasión por la buena comida y la
+                    cerveza artesanal. </p>
+                <p>Dentro, en nuestro stand Latin Kitchen, encontrarás mucho más que comida, encuentras cultura, alegría
+                    y esa conexión especial que solo la cocina latina puede ofrecer. Así que te invitamos a disfrutar de
+                    la autenticidad de Mixtura Latina; platos caseros, llenos de tradición, frescura y ese toque latino
+                    que convierte cada bocado en una experiencia única, dentro del Gleis Garten.
+                </p>
+                <a href="https://gleisgarten.at/#" class="btn btn-venue" target="_blank" rel="noopener">¡Reserva una
+                    mesa!</a>
+            </div>
+        </div>
+    </section>
+
     <footer class="main-footer">
         <div class="footer-content">
+
             <div class="newsletter-section">
                 <div class="newsletter-content">
                     <h3>¿Quieres saber de nuestros nuevos platos, fiestas y promociones?</h3>
@@ -215,7 +276,6 @@
                         target="_blank" rel="noopener">
                         <i class="icon-nostr"></i>
                     </a>
-
                 </div>
             </div>
         </div>
@@ -242,6 +302,8 @@
                 <button id="decline-cookies" class="cookie-btn decline">Rechazar</button>
             </div>
     </footer>
+
+    </div>
     <script src="../app.js"></script>
     <script src="https://kit.fontawesome.com/4e352a0006.js" crossorigin="anonymous"></script>
 </body>
