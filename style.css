@@ -632,6 +632,20 @@ a {
 .image-wrapper {
     position: relative;
     display: inline-block;
+    max-width: 350px;
+    max-height: 460px;
+}
+
+#menu-preview-img {
+    max-width: 350px;
+    max-height: 460px;
+    object-fit: cover;
+}
+
+#menu-preview-img-main {
+    max-width: 350px;
+    max-height: 460px;
+    object-fit: cover;
 }
 
 .image-overlay-text {
@@ -1702,16 +1716,13 @@ a {
         width: 100%;
     }
 
-    .social-small {
-        display: flex;
-        justify-content: center;
-        font-weight: 700;
-        width: 100%;
-    }
-
     .social-small a {
         font-size: clamp(20px, 4vw, 28px);
-        margin: 0 5px;
+    }
+
+    .social-links {
+        width: 100%;
+        left: 50%;
     }
 
     .social-links i {
@@ -1817,13 +1828,14 @@ a {
     .contact-social {
         gap: 5px;
         width: 100%;
+        left: 50%;
     }
 
     .contact-social a {
         font-size: clamp(16px, 3vw, 20px);
         margin: 0 3px;
-
     }
+
 }
 
 /* Animations */
