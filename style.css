@@ -1891,26 +1891,26 @@ a {
 @keyframes textGlow {
     0% {
         text-shadow:
-            0 0 7px #FFCE00,
-            0 0 10px #FFCE00,
-            0 0 15px #FFCE00;
+            0 0 7px #EA0000,
+            0 0 10px #EA0000,
+            0 0 15px #EA0000;
         transform: scale(1);
     }
 
     50% {
         text-shadow:
-            0 0 10px #FFCE00,
-            0 0 20px #FFCE00,
-            0 0 30px #FFCE00,
-            0 0 40px #FFCE00;
+            0 0 10px #EA0000,
+            0 0 20px #EA0000,
+            0 0 30px #EA0000,
+            0 0 40px #EA0000;
         transform: scale(1.03);
     }
 
     100% {
         text-shadow:
-            0 0 7px #FFCE00,
-            0 0 10px #FFCE00,
-            0 0 15px #FFCE00;
+            0 0 7px #EA0000,
+            0 0 10px #EA0000,
+            0 0 15px #EA0000;
         transform: scale(1);
     }
 }
